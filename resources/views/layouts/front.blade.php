@@ -3,261 +3,254 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="Khmer Youth Association">
-        <meta name="keyword" content="KYA, Khmer Youth Association">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-        <title>Titile</title>
-        <link rel="icon" type="image/gif" href="{{asset('img/favicon.gif')}}" >
+        <title>Building</title>
+
         <!-- Bootstrap core CSS -->
-        <link href="{{asset('front/css/b.css')}}" rel="stylesheet">
+        <link href="{{asset('front/css/web-fonts-with-css/css/fontawesome-all.css')}}" rel="stylesheet">
+        <script type="text/javascript" src="{{asset('front/css/jq.js')}}"></script>
         <link href="{{asset('front/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-        <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
-    
-        <!-- Custom styles for this template -->
+        <link href="{{asset('front/css/b.css')}}" rel="stylesheet">
+        <script src="{{asset('front/css/owl.carousel.min.js')}}"></script>
+        <!-- Custom styles for this template -->        
+        <link rel="stylesheet" type="text/css" href="{{asset('front/css/magnific-popup.css')}}">
         <link href="{{asset('front/css/4-col-portfolio.css')}}" rel="stylesheet">
-       <style>
-           .dropdown:hover .dropdown-menu{
-               display: block;
-               margin-top: 1px;
-           }
-       </style>
     </head>
     <body>
-    <div class="container-fluit top-background">
-        <div class="container">
-            <div class="col-md-12">
-                <div class="row">   
-                    <div class="col-md-12">  
-                       <a href="{{url('/')}}"><img src="{{asset('front/img/kya-logo.png')}}" class="logo"></a> 
-                       <div class="float-right c-lang">
-                            <a href="#" class="text-default" onclick="chLang(event,'km')">
-                                <img class="lang" src="{{asset('front/img/kh.png')}}"
-                             width="40">ភាសាខ្មែរ</a>
-                            <a href="#" class="text-default" onclick="chLang(event,'en')"><img class="lang" src="{{asset('front/img/en.png')}}" width="40"> English</a>
-                        </div>
+
+    <div class="container-fluit header-contact">
+        <div class="col-md-12">
+            <div class="row"> 
+                <div class="col-md-3">
+                <div id="triangle-bottomleft"></div> 
+                </div>
+                <div class="col-md-7" align="right">
+                    <div class="container text-gray">
+                        <i class="fa fa-phone"></i> +855 96 2555 209&nbsp;&nbsp; | &nbsp;&nbsp;<i class="fas fa-envelope"></i> sorvichey@gmail.com &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fas fa-map-marker"></i> 32E0, Daun Penh, Phnom Penh, Cambodia 
                     </div>
-                    <div class="col-md-" style="margin-top: 50px;">
-                    </div> 
+                </div>
                 </div>
             </div>
         </div>
-    </div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <div class="col-md-12">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand navbar-brand-c col-md-3" href="{{url('/')}}"><img src="{{asset('front/img/logo.png')}}" width="70"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav">
-                        <?php 
-                            $menus = DB::table('main_menus')->where('active',1)->orderBy('order_number')->get();
-                        ?>
-                        @foreach($menus as $m)
-                            <?php $subs = DB::table('sub_menus')
-                                ->where('active',1)
-                                ->where('parent_id', $m->id)
-                                ->orderBy('order_number')
-                                ->get();
-                            ?>
-                            @if(count($subs)<=0)
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{url($m->url)}}">{{$m->name}}</a>
-                                </li>
-                            @else
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle smenu" href="#" data-toggle="dropdown">
-                                        {{$m->name}}
-                                    </a>
-                                    <div class="dropdown-menu">
-                                        @foreach($subs as $s)
-                                            <a class="dropdown-item" href="{{url($s->url)}}">{{$s->name}}</a>
-                                        @endforeach
-                                    </div>
-                                </li>
-                            @endif
-                        @endforeach
-                       
-                    </ul>  
-                    <ul class="ml-auto">
-                        <form class="form-inline">
-                            <input type="text" class="form-control mr-sm-1 search-box" placeholder="Search..." >
-                            <button type="submit" class="btn btn-primary btn-c"><img src="{{asset('front/img/search-icon.png')}}"></button>
-                        </form>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" 
+                                href="#" id="navbarDropdownPortfolio" 
+                                data-toggle="dropdown" 
+                                aria-haspopup="true" 
+                                aria-expanded="false"
+                            >
+                                Service
+                            </a>
+                            <div class="dropdown-menu " aria-labelledby="navbarDropdownPortfolio">
+                                <a class="dropdown-item" href="portfolio-1-col.html">Server 1</a>
+                                <a class="dropdown-item" href="portfolio-2-col.html">Server 2</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Resource
+                            </a>
+                            <div class="dropdown-menu " aria-labelledby="navbarDropdownPortfolio">
+                                <a class="dropdown-item" href="portfolio-1-col.html">Server 1</a>
+                                <a class="dropdown-item" href="portfolio-2-col.html">Server 2</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">Project</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a  href="#"><img src="{{asset('front/img/en.png')}}" alt="" width="25"></a>&nbsp;   
+                            <a href="#"><img src="{{asset('front/img/kh.png')}}" alt=""  width="25"></a>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </nav>
-    
+        </nav>
+    </div>
     @yield('content')
-        <?php
-            $donors = DB::table('partners')->where('active',1)->orderBy('sequence')->get();
-        ?>
-        <div class="our-donor container">
-            <div class="col-md-12 desktop"> 
-                <div class="swiper-viewport">
-                    <div id="carousel0" class="swiper-container">
-                        <div class="swiper-wrapper"> 
-                            <div class="swiper-slide text-center">
-                                <?php $i=1;?>
-                                @foreach($donors as $d)
-                                    @if($i++==1)
-                                        <img src="{{asset('partners/'.$d->logo)}}" alt="{{$d->name}}" height="100" width="130"></div>
-                                    @else
-                                        <div class="swiper-slide text-center"><img src="{{asset('partners/'.$d->logo)}}" alt="{{$d->name}}" height="100" width="130"></div>
-                                    @endif
-                                @endforeach
-                            </div>
-                        </div>  
-                        <div class="swiper-pager">
-                            <div class="swiper-button-next"></div>  
-                            <div class="swiper-button-prev"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 mobile"> 
-                <div class="swiper-viewport">
-                    <div id="carousel1" class="swiper-container">
-                        <div class="swiper-wrapper"> 
-                            <div class="swiper-slide text-center">
-                                <?php $i=1;?>
-                                @foreach($donors as $d)
-                                    @if($i++==1)
-                                        <img src="{{asset('partners/'.$d->logo)}}" alt="{{$d->name}}" class="img-responsive"
-                                        style="margin:0 auto;" width="150"></div>
-                                    @else
-                                        <div class="swiper-slide text-center"><img src="{{asset('partners/'.$d->logo)}}" alt="{{$d->name}}" class="img-responsive" width="150" style="margin: 0 auto"></div>
-                                    @endif
-                                @endforeach
-                            </div>
-                        </div>  
-                        <div class="swiper-pager">
-                            <div class="swiper-button-next"></div>  
-                            <div class="swiper-button-prev"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript" src="{{asset('front/css/jq.js')}}"></script>
-    <script src="{{asset('front/css/owl.carousel.min.js')}}"></script>
 
-<script type="text/javascript">
-    $('#carousel0').swiper({
-        mode: 'horizontal',
-        slidesPerView: 5,
-        pagination: '.carousel0',
-        paginationClickable: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        autoplay: 3000,
-        loop: true
-        
-    });
-    $('#carousel1').swiper({
-        mode: 'horizontal',
-        slidesPerView: 1,
-        pagination: '.carousel0',
-        paginationClickable: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        autoplay: 3000,
-        loop: true
-        
-    });
-</script>
-<div class="container-fluit b">
+    <div class="container-fluit my-4">
+        <img src="img/1.jpg" width="100%">
+    </div>
     <div class="container">
+        <div class="partner">
+            <div class="col-md-12">
+            <div class="row">
+                <i class="fa fa-users partner-icon"></i>&nbsp;&nbsp;<h6> OUR PARTNERS</h6>
+            </div></div>
+            <aside class="text-partner text-gray"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</aside> 
+            <div class="border-partner"><div class="in-icon"></div></div>
+        </div>
         <div class="row">
-            <div class="col-md-4 text-jutify">
-                <div class="foot">
-                    <h6 class="footer-title">CONTACT INFO</h6><p></p>
-                    <i class="fa fa-map-marker"></i>&nbsp;&nbsp;Nº. 32D, St. 562, Sangkat Boeng kak I, Khan Toul Kork, Phnom Penh, CAMBODIA<br>
-                    <i class="fa fa-phone"></i>&nbsp;&nbsp;+855 23 884 306<br>
-                    <i class="fa fa-envelope"></i>&nbsp;&nbsp;<a href="mailto:admin@kya-cambodia.org" style="color:#fff">admin@kya-cambodia.org</a>
+        <div class="col-md-9 border-custom my-2"> 
+            <div class="swiper-viewport">
+                <div id="carousel0" class="swiper-container">
+                    <div class="swiper-wrapper"> 
+                        <div class="swiper-slide text-center"><img src="img/logo1.jpg" width="120" alt=""/></div>
+                        <div class="swiper-slide text-center"><img src="img/logo2.png" alt="" width="120" /></div>
+                        <div class="swiper-slide text-center"><img src="img/logo3.png" alt=""  width="120"/></div>
+                        <div class="swiper-slide text-center"><img src="img/logo4.png" alt="" width="120" /></div>
+                        <div class="swiper-slide text-center"><img src="img/logo5.png" alt="" width="120" /></div>
+                        <div class="swiper-slide text-center"><img src="img/logo6.png" alt="" width="120" /></div>
+                        <div class="swiper-slide text-center"><img src="img/logo1.jpg" alt=""  width="120"/></div>
+                        <div class="swiper-slide text-center"><img src="img/logo2.png" alt="" width="120" /></div>
+                        <div class="swiper-slide text-center"><img src="img/logo3.png" alt=""  width="120" /></div>
+                        <div class="swiper-slide text-center"><img src="img/logo4.png" alt="" width="120"  /></div>
+                        <div class="swiper-slide text-center"><img src="img/logo5.png" alt="" width="120" /></div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4 text-jutify">
-                <div class="foot">
-                    <h6 class="footer-title">FIND US</h6><p></p>
-                    <p>
-                        <a href="https://www.facebook.com/khmeryouthassociationkh" target="_blank">
-                            <img src="{{asset('front/img/f.png')}}" height="35"> 
-                        </a>
-                        <a href="https://www.youtube.com/channel/UCTllsqUT494yi7__zFRHmhg/videos?view_as=subscriber" target="_blank">
-                            <img src="{{asset('front/img/youtube.png')}}" height="35"> 
-                        </a>
-                       
-                        <a href="https://twitter.com/intent/tweet?text=Khmer%20Youth%20Association&source=sharethiscom&related=sharethis&url=http%3A%2F%2Fkya-cambodia.org%2Fsite%2F%23sthash.ra2zGiVV.uxfs" target="_blank">
-                            <img src="{{asset('front/img/t.png')}}" height="35">
-                        </a>
-                        <a href="https://www.flickr.com/photos/156488675@N08/" target="_blank">
-                            <img src="{{asset('front/img/fl.png')}}" height="35"> 
-                        </a>
-                        
-                        
-                    </p>
-                </div>
+            <div class="swiper-pager">
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
-            <div class="col-md-4 text-jutify">
-                <div class="foot">
-                        <h6 class="footer-title">ACCESSING WEB MAIL</h6> <p></p>
-                        <form action="#" class="form-horizontal" method="post" >
-{{--                           
-                            <div class="input-group mb-3 subscription">
-                                <input type="email" class="form-control" placeholder="Email" id="email" required aria-label="Email" aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn btn-success text-white" type="button" onclick="subscribe()">Subscribe</button>
-                                </div>
+        </div>
+         <div class="col-md-3">
+            <div class="form-contact">
+                          <form>
+                        <div class="mg-5">
+                            <input type="text" name="" placeholder="Full Name" class="form-control btn-flat">
+                        </div>
+                        <div class="mg-5">
+                         <input type="email" name="" placeholder="Email" class="form-control btn-flat">
+                        </div>
+                        <div class="mg-5">
+                          <input type="text" name="" placeholder="Subject" class="form-control btn-flat">
+                        </div>
+                         <div class="mg-5">
+                              <textarea placeholder="Message*" class="form-control btn-flat" rows="5"></textarea>
                             </div>
-                            <p id="sms" class="text-success" style="margin-top:8px"> </p> --}}
-                            <p>
-                                Please click the button below to login your web mail!
-                            </p>
-                            <p>
-                                <a href="http://kya-cambodia.org/webmail" target="_blank" class="btn btn-success btn-sm">Web Mail</a>
-                            </p>
-                        </form>
+                         <div class="mg-5">
+                          <input type="submit" name="" class="btn btn-primary btn-primary-c btn-flat btn-block">
+                      </div>
+                    </form>
+                </div>
             </div>
-           
-
+        </div>     
+    </div>
+    <style type="text/css">
+        .swiper-button-next, .swiper-button-prev {
+          position: absolute;
+          top: 60%;
+          width: 40px;
+          height: 26px;
+          margin-top: -22px;
+        }
+      </style>
+    <script type="text/javascript">
+        $('#carousel0').swiper({
+            mode: 'horizontal',
+            slidesPerView: 5,
+            pagination: '.carousel0',
+            paginationClickable: true,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            autoplay: 2500,
+            loop: true
+        });
+    </script>
+    <!-- /.container -->
+    <div class="container-fluit company-profile">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 text-white text-center">
+                    <aside><b>ECC BUILDING TRUST</b></aside>
+                    <aside>Your Superer Engineer Partner!</aside>
+                </div>
+                <div class="col-md-4 text-center">
+                    <button type="button" class="btn btn-outline-primary btn-outline-primary-c"> <i class="far fa-building"></i> COMPANY PROFILE</button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<script src="{{asset('front/vendor/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('front/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('front/vendor/jquery/menu-hover.js')}}"></script>
-<script>
-    
-     function chLang(evt, ln)
-        {
-            evt.preventDefault();
-            $.ajax({
-                type: "GET",
-                url: "{{url('/')}}" + "/language/" + ln,
-                success: function(sms){
-                    if(sms>0)
-                    {
-                        location.reload();
-                    }
-                }
-            });
-        }
-    function subscribe()
-    {
-        var id = $("#email").val();
-        $.ajax({
-            type: "GET",
-            url: "{{url('/subscribe')}}/" + id,
-            success: function(sms){
-                $("#sms").html(sms);
-                $("#email").val("");
-            }
-        });
-    }
-</script>
-</body>
+    <!-- Footer -->
+    <footer class="py-5 footer ">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="logo-footer">
+                    <img src="{{asset('front/img/logo.png')}}" width="100">
+                </div>
+                <p></p>
+                <aside class="text-gray">
+                    <i class="fas fa-map-marker"></i>&nbsp; Street 32E0, Daun Penh, Phnom Penh, Cambodia 
+                </aside>
+                <aside class="text-gray">
+                    <i class="fas fa-envelope"></i>&nbsp; sorvichey@gmail.com 
+                </aside>
+                <aside class="text-gray">
+                    <i class="fa fa-phone"></i>&nbsp; +855 96 2555 209
+                </aside>
+            </div>
+             <div class="col-md-2">
+                <h6>Menu</h6>
+                <div class="footer-page">
+                    <aside class="text-gray">
+                        <a href="#" class="a text-gray">About</a>
+                    </aside>
+                    <aside class="text-gray">
+                        <a href="#" class="a text-gray">Resource</a>
+                    </aside>
+                    <aside class="text-gray">
+                        <a href="#" class="a text-gray">Service</a>
+                    </aside>
+                    <aside class="text-gray">
+                        <a href="#" class="a text-gray">Contact Us</a>
+                    </aside>
+                </div>
+            </div>
+             <div class="col-md-2">
+                 <h6>Page</h6>
+                <div class="footer-page">
+                   <aside class="text-gray">
+                        About
+                    </aside>
+                    <aside class="text-gray">
+                        Service
+                    </aside>
+                    <aside class="text-gray">
+                        Resource
+                    </aside class="text-gray">
+                    <aside class="text-gray">
+                        Contact Us
+                    </aside>
+                </div>
+            </div>
+                <div class="col-md-4">
+                    <h6>You can trust us</h6><p></p>
+                    <a href=""><img src="{{asset('front/img/fb.png')}}" alt="" width="40"></a>
+                    <a href=""><img src="{{asset('front/img/fb.png')}}" alt="" width="40"></a>
+                    <a href=""><img src="{{asset('front/img/fb.png')}}" alt="" width="40"></a>
+                    <a href=""><img src="{{asset('front/img/fb.png')}}" alt="" width="40"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+        <script src="{{asset('front/vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('front/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{asset('front/vendor/jquery/jquery.magnific-popup.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('front/vendor/jquery/popup-gallery.js')}}" type="text/javascript"></script>
+    </body>
 </html>
