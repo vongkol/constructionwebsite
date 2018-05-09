@@ -154,42 +154,41 @@
         <aside class="text-partner text-gray"> Lorem ipsum dolor sit</aside> 
         <div class="in-icon"></div>  
     </div>
-     <div class="news">
-        <div class="container">
-        <div class="row my-4">
-           <div class="col-md-6 my-4">
-                <div class="img">
-                    <img src="{{asset('uploads/posts/250x250/'.$news[0]->featured_image)}}" width="100%">
-                    <div class="new-title">
-                        <h6><a href="#">{{$news[0]->title}}</a></h6>
-                        <p>{{$news[0]->short_description}}</p>
-                    </div>
-               </div>
-           </div>
-           <div class="col-md-6 my-4">
-               <div class="row">
-                   @php($i=1)
-                   @foreach($news as $n)
-                        @if($i==1)
-                            @php($i=0)
-                        @else
-                            <div class="col-md-4 h-100 pd-5">
-                                <img src="{{asset('uploads/posts/250x250/'.$n->featured_image)}}" width="180" height="130">
-                                <div class="new-title">
-                                    <a href="#">{{$n->title}}</a>
-                                </div>
+        <div class="news">
+            <div class="container">
+                <div class="row my-4">
+                    <div class="col-md-6 my-4">
+                        <div class="img">
+                            <img src="{{asset('uploads/posts/250x250/'.$news[0]->featured_image)}}" width="100%">
+                            <div class="new-title-b">
+                                <h6><a href="#" class="a text-dark-gray"><b>{{$news[0]->title}}</b></a></h6>
                             </div>
-                        @endif
-
-                   @endforeach
-                   
-                    
+                        </div>
+                    </div>
+                <div class="col-md-6 my-4">
+                    <div class="row">
+                        @php($i=1)
+                        @foreach($news as $n)
+                                @if($i==1)
+                                    @php($i=0)
+                                @else
+                                    <div class="col-md-4 h-100 pd-5">
+                                        <img src="{{asset('uploads/posts/250x250/'.$n->featured_image)}}" width="100%">
+                                        <div class="new-title">
+                                            <a href="#" class="a text-dark-gray">{{$n->title}}</a>
+                                        </div>
+                                    </div>
+                                @endif
+                        @endforeach
+                        </div>
+                        <div  align="right">
+                            <a href="#" class="btn btn-warning text-white btn-flat"> MORE NEWS <i class="fa fa-forward"></i></a>
+                        </div>
+                    </div>
                 </div>
-
-            </div>
-            </div>
+                
            </div>
-       </div>
+        </div>
     </div>
     <div class="container my-4">
          <div class="col-md-12">

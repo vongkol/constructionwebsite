@@ -53,13 +53,13 @@
                                 <a class="nav-link" href="{{url($m->url)}}">{{$m->name}}</a>
                             </li>
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown dropdown-menu-c">
                                 <a class="nav-link dropdown-toggle smenu" href="#" data-toggle="dropdown">
                                     {{$m->name}}
                                 </a>
-                                <div class="dropdown-menu">
+                                <div class="dropdown-menu dropdown-menu-c">
                                     @foreach($subs as $s)
-                                        <a class="dropdown-item" href="{{url($s->url)}}">{{$s->name}}</a>
+                                        <a class="dropdown-item dropdown-item-c" href="{{url($s->url)}}">{{$s->name}}</a>
                                     @endforeach
                                 </div>
                             </li>
