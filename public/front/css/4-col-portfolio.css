@@ -223,15 +223,42 @@
   }
   
   
-  
-	@media  screen and (max-width: 1920px) {
-	  #triangle-bottomleft {
-		  width: 400px;
-		  height: 0;
-		  border-bottom: 25px solid #fff;
-		  border-right: 36px solid transparent;
-	  }
-  }
+  @media  screen and (max-width: 1920px) {
+	#triangle-bottomleft {
+		width: 600px;
+		height: 0;
+		border-bottom: 25px solid #fff;
+		border-right: 36px solid transparent;
+	}
+}
+/* (1280x1024) SXGA Display */
+@media  screen and (max-width: 1280px) {
+    #triangle-bottomleft {
+		width: 200px;
+		height: 0;
+		border-bottom: 25px solid #fff;
+		border-right: 36px solid transparent;
+	}
+}
+	
+    /* (1280x1024) SXGA Display */
+@media  screen and (max-width: 1366px) {
+    #triangle-bottomleft {
+		width: 200px;
+		height: 0;
+		border-bottom: 25px solid #fff;
+		border-right: 36px solid transparent;
+	}
+}
+  /* (1280x1024) SXGA Display */
+@media  screen and (max-width: 768px) {
+    #triangle-bottomleft {
+		width: 200px;
+		height: 0;
+		border-bottom: 25px solid #fff;
+		border-right: 36px solid transparent;
+	}
+}
   /* (480x800) Android */
   @media (max-width:  640px ) {
 	  #triangle-bottomleft {
