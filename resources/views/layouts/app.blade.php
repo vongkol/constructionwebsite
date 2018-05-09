@@ -115,6 +115,12 @@
                         <a class="nav-link" href="{{url('/donor')}}"><i class="fa fa-gift"></i> Donor </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{url('/advertisement')}}"><i class="fa fa-bullhorn"></i> Advertisement </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/company-feature')}}"><i class="fa fa-bullhorn"></i> Company Feature </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{url('/fm')}}"><i class="fa fa-file text-primary"></i> File Manager </a>
                     </li>
                     <li class="nav-item nav-dropdown">

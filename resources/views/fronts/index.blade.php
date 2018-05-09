@@ -5,16 +5,16 @@
         $i = 1; 
         $c = 0;
     ?>
-
     <div class="container-fluit">
         <div id="demo" class="carousel slide" data-ride="carousel">
             <ul class="carousel-indicators">
                 @foreach($slides as $sl)
-                    @if($c++ == 0)
-                        <li data-target="#demo" data-slide-to="<?php $c ?>" class="active"></li>
-                    @else
-                        <li data-target="#demo" data-slide-to="<?php $c ?>"></li>
-                    @endif
+                    @if($c == 0)
+                        <li data-target="#demo" data-slide-to="{{$c}}" class="active"></li>
+                    @else 
+                        <li data-target="#demo" data-slide-to="{{$c}}"></li>
+                    @endif  
+                    <?php $c++; ?>
                 @endforeach
             </ul>
             <div class="carousel-inner">
@@ -42,6 +42,12 @@
             </a>
         </div>
 
+        <?php
+            $a = DB::table('company_features')->where('id',1)->first();
+            $b = DB::table('company_features')->where('id',2)->first();
+            $c = DB::table('company_features')->where('id',3)->first();
+            $d = DB::table('company_features')->where('id',4)->first();
+        ?>
         <!-- Page Content -->
         <div class="container ">
             <div class="row my-5 my-5-c">
@@ -52,9 +58,9 @@
                         </div>
                         <div class="card-body card-body-c text-center">
                             <h6 class="card-title">
-                                <span class="text-dark-gray">CONSULTING</span>
+                                <span class="text-dark-gray"><b>{{$a->title}}</b></span>
                             </h6>
-                            <p class="card-text text-gray">Lorem ipsum dolor sit amet, adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat </p>
+                            <p class="card-text text-gray">{{$a->short_description}}</p>
                         </div>
                     </div>
             </div>
@@ -65,9 +71,9 @@
                     </div>
                     <div class="card-body card-body-c text-center">
                         <h6 class="card-title">
-                            <span class="text-dark-gray">ACHIEVEMENT</span>
+                            <span class="text-dark-gray"><b>{{$b->title}}</b></span>
                         </h6>
-                        <p class="card-text text-gray">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                        <p class="card-text text-gray">{{$b->short_description}}</p>
                     </div>
                 </div>
             </div>
@@ -77,10 +83,10 @@
                         <i class="far fa-gem text-warning"></i>
                     </div>
                     <div class="card-body card-body-c text-center">
-                        <h6 class="card-title">
-                            <span class="text-dark-gray">HOTEL SUSTAINABILITY</span>
-                        </h6>
-                        <p class="card-text text-gray">Lorem ipsum dolor sit amet, elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus </p>
+                    <h6 class="card-title">
+                        <span class="text-dark-gray"><b>{{$c->title}}</b></span>
+                    </h6>
+                    <p class="card-text text-gray">{{$c->short_description}}</p>
                     </div>
                 </div>
             </div>
@@ -91,17 +97,56 @@
                     </div>
                     <div class="card-body card-body-c text-center">
                         <h6 class="card-title">
-                            <span class="text-dark-gray">TRUST & HONEST</span>
+                            <span class="text-dark-gray"><b>{{$d->title}}</b></span>
                         </h6>
-                        <p class="card-text text-gray">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                        <p class="card-text text-gray">{{$d->short_description}}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    <?php 
+        $ads = DB::table('advertisements')->where('active',1)->orderBy('order','asc')->get(); 
+        $j = 1;
+        $a = 0;
+    ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators carousel-indicators-c">
+                        @foreach($ads as $ad)
+                            @if($a == 0)
+                                <li data-target="#carouselExampleIndicators" data-slide-to="{{$a}}" class="active"></li>
+                            @else 
+                                <li data-target="#carouselExampleIndicators" data-slide-to="{{$a}}"></li>
+                            @endif  
+                            <?php $a++; ?>
+                        @endforeach
+                    </ol>
+                    <div class="carousel-inner">
+                    @foreach($ads as $adv)
+                        @if($j++ == 1)
+                            <div class="carousel-item active">
+                                <a href="{{$adv->url}}">
+                                    <img src="{{asset('uploads/advertisements/'.$adv->photo)}}" alt="" width="100%">
+                                </a>
+                            </div>
+                        @else
+                            <div class="carousel-item">
+                                <a href="{{$adv->url}}">
+                                    <img src="{{asset('uploads/advertisements/'.$adv->photo)}}" alt="" width="100%">
+                                </a>
+                            </div>
+                        @endif
+                    @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container my-4">
-         <div class="col-md-12">
+        <div class="col-md-12">
             <div class="row">
                <i class="far fa-newspaper news-icon"></i></i>&nbsp;&nbsp;<h6> NEWS</h6>
             </div>

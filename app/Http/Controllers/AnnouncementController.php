@@ -36,8 +36,8 @@ class AnnouncementController extends Controller
             'date' => $r->date,
             'time' => $r->time,
         );
-        $sms = "The new page has been created successfully.";
-        $sms1 = "Fail to create the new page, please check again!";
+        $sms = "The new announcement has been created successfully.";
+        $sms1 = "Fail to create the new announcement, please check again!";
         $i = DB::table('announcements')->insert($data);
         if ($i)
         {

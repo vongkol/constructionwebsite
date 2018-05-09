@@ -38,6 +38,20 @@ Route::post('/newsletter/save', "NewsletterController@save");
 Route::get('/newsletter/edit/{id}', "NewsletterController@edit");
 Route::post('/newsletter/update', "NewsletterController@update");
 Route::get('/newsletter/delete/{id}', "NewsletterController@delete");
+// Advertisement
+Route::get('/advertisement', "AdvertisementController@index");
+Route::get('/advertisement/create', "AdvertisementController@create");
+Route::post('/advertisement/save', "AdvertisementController@save");
+Route::get('/advertisement/edit/{id}', "AdvertisementController@edit");
+Route::post('/advertisement/update', "AdvertisementController@update");
+Route::get('/advertisement/delete/{id}', "AdvertisementController@delete");
+// Company Feature
+Route::get('/company-feature', "CompanyFeatureController@index");
+Route::get('/company-feature/create', "CompanyFeatureController@create");
+Route::post('/company-feature/save', "CompanyFeatureController@save");
+Route::get('/company-feature/edit/{id}', "CompanyFeatureController@edit");
+Route::post('/company-feature/update', "CompanyFeatureController@update");
+Route::get('/company-feature/delete/{id}', "CompanyFeatureController@delete");
 // Membership
 Route::get('/membership', "MembershipController@index");
 Route::get('/membership/create', "MembershipController@create");
