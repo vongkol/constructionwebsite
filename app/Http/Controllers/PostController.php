@@ -58,7 +58,7 @@ class PostController extends Controller
                 
                 // upload 250
                 $destinationPath = 'uploads/posts/250x250/';
-                $new_img = Image::make($file->getRealPath())->resize(300, 250);
+                $new_img = Image::make($file->getRealPath())->resize(350, 250);
                 $new_img->save($destinationPath . $file_name, 80);
                 DB::table('posts')->where('id', $i)->update(['featured_image'=>$file_name]);
             }
@@ -98,26 +98,27 @@ class PostController extends Controller
             'category_id' => $r->category
         );
         if($r->feature_image) {
+           
             $file = $r->file('feature_image');
             $file_name = $file->getClientOriginalName();
             $ss = substr($file_name, strripos($file_name, '.'), strlen($file_name));
             $file_name = 'post' .$r->id . $ss;
             // upload 250
             $destinationPath = 'uploads/posts/250x250/';
-            $new_img = Image::make($file->getRealPath())->resize(300, 250);
+            $new_img = Image::make($file->getRealPath())->resize(350, 250);
             $new_img->save($destinationPath . $file_name, 80);
-            $data ['featured_image'] =  $file_name;
+            $data['featured_image'] =  $file_name;
         }
-        $sms = "All changes have been saved successfully.";
-        $sms1 = "Fail to to save changes, please check again!";
         $i = DB::table('posts')->where('id', $r->id)->update($data);
         if ($i)
         {
+            $sms = "All changes have been saved successfully.";
             $r->session()->flash('sms', $sms);
             return redirect('/post/edit/'.$r->id);
         }
         else
-        {
+        {   
+            $sms1 = "Fail to to save changes, please check again!";
             $r->session()->flash('sms1', $sms1);
             return redirect('/post/edit/'.$r->id);
         }

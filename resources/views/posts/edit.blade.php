@@ -72,7 +72,7 @@
                 </div>
                 <div class="card">
                         <div class="card-header">
-                            Feature Image <span class="text-danger">(300x250)</span>
+                            Feature Image <span class="text-danger">(350x250)</span>
                         </div>
                         <div class="card-block">
                             <div style="margin-bottom: 3px;">

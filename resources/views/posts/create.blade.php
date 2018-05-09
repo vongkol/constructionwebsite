@@ -74,7 +74,7 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    Featured Image <span class="text-danger">(300x250)</span>
+                    Featured Image <span class="text-danger">(350x250)</span>
                 </div>
                 <div class="card-block">
                     <div style="margin-bottom: 3px;">

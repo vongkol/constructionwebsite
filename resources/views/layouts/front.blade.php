@@ -79,7 +79,7 @@
     @yield('content')
 
     <div class="container-fluit my-4">
-        <img src="img/1.jpg" width="100%">
+        <img src="{{asset('front/img/1.jpg')}}" width="100%">
     </div>
     <div class="container">
         <div class="partner">
@@ -90,22 +90,24 @@
             <aside class="text-partner text-gray"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</aside> 
             <div class="border-partner"><div class="in-icon"></div></div>
         </div>
+
+        <?php         
+            $partners = DB::table('partners')
+                ->where('active',1)
+                ->select('logo','url')
+                ->orderBy('id', 'desc')
+            ->get();
+            ?>
         <div class="row">
         <div class="col-md-9 border-custom my-2"> 
             <div class="swiper-viewport">
                 <div id="carousel0" class="swiper-container">
-                    <div class="swiper-wrapper"> 
-                        <div class="swiper-slide text-center"><img src="img/logo1.jpg" width="120" alt=""/></div>
-                        <div class="swiper-slide text-center"><img src="img/logo2.png" alt="" width="120" /></div>
-                        <div class="swiper-slide text-center"><img src="img/logo3.png" alt=""  width="120"/></div>
-                        <div class="swiper-slide text-center"><img src="img/logo4.png" alt="" width="120" /></div>
-                        <div class="swiper-slide text-center"><img src="img/logo5.png" alt="" width="120" /></div>
-                        <div class="swiper-slide text-center"><img src="img/logo6.png" alt="" width="120" /></div>
-                        <div class="swiper-slide text-center"><img src="img/logo1.jpg" alt=""  width="120"/></div>
-                        <div class="swiper-slide text-center"><img src="img/logo2.png" alt="" width="120" /></div>
-                        <div class="swiper-slide text-center"><img src="img/logo3.png" alt=""  width="120" /></div>
-                        <div class="swiper-slide text-center"><img src="img/logo4.png" alt="" width="120"  /></div>
-                        <div class="swiper-slide text-center"><img src="img/logo5.png" alt="" width="120" /></div>
+                    <div class="swiper-wrapper">
+                    @foreach($partners as $p) 
+                        <div class="swiper-slide text-center">
+                            <img src="{{asset('uploads/partners/'.$p->logo)}}" width="110" alt=""/>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -194,43 +196,49 @@
              <div class="col-md-2">
                 <h6>Menu</h6>
                 <div class="footer-page">
+                    @foreach($menus as $m)
                     <aside class="text-gray">
-                        <a href="#" class="a text-gray">About</a>
+                        <a href="{{$m->url}}" class="a text-gray">{{$m->name}}</a>
                     </aside>
-                    <aside class="text-gray">
-                        <a href="#" class="a text-gray">Resource</a>
-                    </aside>
-                    <aside class="text-gray">
-                        <a href="#" class="a text-gray">Service</a>
-                    </aside>
-                    <aside class="text-gray">
-                        <a href="#" class="a text-gray">Contact Us</a>
-                    </aside>
+                    @endforeach
                 </div>
             </div>
              <div class="col-md-2">
-                 <h6>Page</h6>
+                 <h6>Pages</h6>
                 <div class="footer-page">
                    <aside class="text-gray">
-                        About
+                        <a href="#" class="a text-gray">Support</a>
                     </aside>
                     <aside class="text-gray">
-                        Service
+                        <a href="#" class="a text-gray">Terms of Services</a>
                     </aside>
                     <aside class="text-gray">
-                        Resource
+                        <a href="#" class="a text-gray">RSS Feeds</a>
                     </aside class="text-gray">
                     <aside class="text-gray">
-                        Contact Us
+                        <a href="#" class="a text-gray">Partnerships</a>
+                    </aside>
+                    <aside class="text-gray">
+                        <a href="#" class="a text-gray">Lestest News</a>
                     </aside>
                 </div>
             </div>
+            <?php 
+                $socials = DB::table('socials')
+                    ->where('active', 1)
+                    ->select('icon','url')
+                    ->orderBy('order_number', 'asc')
+                    ->get();
+            ?>
                 <div class="col-md-4">
-                    <h6>You can trust us</h6><p></p>
-                    <a href=""><img src="{{asset('front/img/fb.png')}}" alt="" width="40"></a>
-                    <a href=""><img src="{{asset('front/img/fb.png')}}" alt="" width="40"></a>
-                    <a href=""><img src="{{asset('front/img/fb.png')}}" alt="" width="40"></a>
-                    <a href=""><img src="{{asset('front/img/fb.png')}}" alt="" width="40"></a>
+                    <h6>You can trust us</h6>
+                    <div class="footer-page">
+                        @foreach($socials as $so)
+                        <a href="{{$so->url}}" class="a" style="padding:2px;">
+                            <img src="{{asset('uploads/socials/'.$so->icon)}}" width="40">
+                        </a>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>

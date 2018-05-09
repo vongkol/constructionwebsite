@@ -21,6 +21,7 @@ class PartnerController extends Controller
         }
         $data['partners'] = DB::table('partners')
             ->where('active',1)
+            ->orderBy('id', 'desc')
             ->paginate(18);
         return view('partners.index', $data);
     }
@@ -44,12 +45,11 @@ class PartnerController extends Controller
         if($r->logo) {
             $file = $r->file('logo');
             $file_name = $file->getClientOriginalName();
-            $destinationPath = 'partners/';
+            $destinationPath = 'uploads/partners/';
             $file->move($destinationPath, $file_name);
         }
         $data = array(
             'name' => $r->name,
-            
             'logo' => $file_name,
             'sequence' => $r->sequence,
             'url' => $r->url
@@ -58,13 +58,13 @@ class PartnerController extends Controller
         $i = DB::table('partners')->insert($data);
         if ($i)
         {
-            $r->session()->flash('sms', "Upload success!");
-            return redirect('/donor/create');
+            $r->session()->flash('sms', "create new partner has been created successfully!");
+            return redirect('/partner/create');
         }
         else
         {
-            $r->session()->flash('sms1', "Fail to upload new donor logo!");
-            return redirect('/donor/create')->withInput();
+            $r->session()->flash('sms1', "Fail to upload new Partner logo!");
+            return redirect('/partner/create')->withInput();
         }
     }
     // delete
@@ -75,7 +75,7 @@ class PartnerController extends Controller
             return view('permissions.no');
         }
         DB::table('partners')->where('id', $id)->update(['active'=>0]);
-        return redirect('/donor');
+        return redirect('/partner');
     }
     public function edit($id)
     {
@@ -102,7 +102,7 @@ class PartnerController extends Controller
         if ($r->logo) {
             $file = $r->file('logo');
             $file_name = $file->getClientOriginalName();
-            $destinationPath = 'partners/';
+            $destinationPath = 'uploads/partners/';
             $file->move($destinationPath, $file_name);
             $data = array(
                 'logo' => $file_name
@@ -115,12 +115,12 @@ class PartnerController extends Controller
         if ($i)
         {
             $r->session()->flash('sms', $sms);
-            return redirect('/donor/edit/'.$r->id);
+            return redirect('/partner/edit/'.$r->id);
         }
         else
         {
             $r->session()->flash('sms1', $sms1);
-            return redirect('/donor/edit/'.$r->id);
+            return redirect('/partner/edit/'.$r->id);
         }
     }
 }

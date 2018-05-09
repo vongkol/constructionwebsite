@@ -59,7 +59,7 @@
 	padding: 3px 5px;
     height: 60px;
     overflow: hidden;
-    margin-bottom: 26px;
+    margin-bottom: 10px;
   }
   .dropdown-menu-c {
     font-size: 13px;
@@ -70,6 +70,11 @@
 .dropdown:hover .dropdown-menu {
     display: block;
 }
+.carousel-caption-c {
+	text-align: left;
+	left: 15%;
+    top: 85px;
+}
 .dropdown-item-c {
     color: #000;
 	font-weight: 600;
@@ -78,6 +83,10 @@
 }
 .dropdown-menu {
 	background: rgba(0,0,0,0.1);
+}
+.firstWord::first-letter {
+	font-size: 30px;
+	font-weight: 800;
 }
 .dropdown-item-c:focus, .dropdown-item-c:hover {
     color: #16181b;

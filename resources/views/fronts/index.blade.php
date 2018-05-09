@@ -21,15 +21,21 @@
                 @foreach($slides as $slide)
                 @if($i++ == 1)
                     <div class="carousel-item active">
-                        <a href="{{$slide->url}}">
-                            <img src="{{asset('front/slides/'.$slide->photo)}}" alt="" width="100%">
-                        </a>
+                        <img src="{{asset('front/slides/'.$slide->photo)}}" alt="" width="100%">
+                        <div class="carousel-caption carousel-caption-c">
+                            <label class="col-md-6">
+                            <b>{{$slide->name}}</b>
+                            </label>
+                        </div>
                     </div>
                 @else
                     <div class="carousel-item">
-                        <a href="{{$slide->url}}">
-                            <img src="{{asset('front/slides/'.$slide->photo)}}" alt="" width="100%">
-                        </a>
+                        <img src="{{asset('front/slides/'.$slide->photo)}}" alt="" width="100%">
+                        <div class="carousel-caption carousel-caption-c">
+                            <label class="col-md-6">
+                                <b>{{$slide->name}}</b>
+                            </label>
+                        </div>
                     </div>
                 @endif
                 @endforeach
@@ -41,7 +47,7 @@
                 <span class="carousel-control-next-icon"></span>
             </a>
         </div>
-
+       
         <?php
             $a = DB::table('company_features')->where('id',1)->first();
             $b = DB::table('company_features')->where('id',2)->first();
@@ -355,13 +361,12 @@
         <div class="in-icon"></div>   
     </div>
     <div class="container-fluit my-4">
-        <img src="img/b1.jpg" alt="" width="100%" > 
-       
-             <div class="col-md-12 text-center"> 
-                    <img src="img/c1.jpg" class="recent-project" width="100">
-                    <img src="img/c1.jpg" class="recent-project" width="100">
-                    <img src="img/c1.jpg" class="recent-project" width="100">
-              </div>
+        <img src="{{asset('front/img/b1.jpg')}}" alt="" width="100%" > 
+        <div class="col-md-12 text-center"> 
+            <img src="img/c1.jpg" class="recent-project" width="100">
+            <img src="img/c1.jpg" class="recent-project" width="100">
+            <img src="img/c1.jpg" class="recent-project" width="100">
+        </div>
     </div>
 
 
@@ -376,72 +381,19 @@
         <div class="in-icon"></div>    
         <div class="my-4">
             <div class="row">
+                @foreach($feature_works as $fw)
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class=" h-100">
-                    <a href="#"><img class="card-img-top" src="img/pic1.jpg" alt=""></a>
-                    <div class="card-body card-body-f text-center">
-                      <h5>
-                        <a href="#" class="a text-dark-gray">18 FLOORS PROJECT</span></a>
-                      </h5>
-                      <aside class="card-text text-gray">Lorem ipsum dolor sit amet</aside> 
+                    <div class=" h-100">
+                        <a href="#"><img class="card-img-top" src="{{asset('uploads/posts/250x250/'.$fw->featured_image)}}" alt="" width="100%"></a>
+                        <div class="card-body card-body-f text-center">
+                            <h5>
+                                <a href="#" class="a text-dark-gray"><b>{{$fw->title}}</b></span></a>
+                            </h5>
+                            <aside class="card-text text-gray">{{$fw->short_description}}</aside> 
+                        </div>
                     </div>
-                  </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class=" h-100">
-                    <a href="#"><img class="card-img-top" src="img/pic2.jpg" alt=""></a>
-                    <div class="card-body card-body-f text-center">
-                      <h5>
-                        <a href="#" class="a text-dark-gray">14 FLOORS PROJECT</span></a>
-                      </h5>
-                      <p class="card-text text-gray">Lorem ipsum dolor sit amet</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class=" h-100">
-                    <a href="#"><img class="card-img-top" src="img/pic3.jpg" alt=""></a>
-                    <div class="card-body card-body-f text-center">
-                      <h5>
-                        <a href="#" class="a text-dark-gray">10 FLOORS PROJECT</span></a>
-                      </h5>
-                      <p class="card-text text-gray">Lorem ipsum dolor sit amet</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class=" h-100">
-                    <a href="#" class="a"><img class="card-img-top" src="img/pic4.jpg" alt=""></a>
-                    <div class="card-body card-body-f text-center">
-                      <h5 class="card-title">
-                        <a href="#" class="a text-dark-gray">12 FLOORS PROJECT</span></a>
-                      </h5>
-                      <p class="card-text text-gray">Lorem ipsum dolor sit amet</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class=" h-100">
-                    <a href="#"><img class="card-img-top" src="img/pic5.jpg" alt=""></a>
-                    <div class="card-body card-body-f text-center">
-                      <h5>
-                        <a href="#" class="a text-dark-gray">17 FLOORS PROJECT</span></a>
-                      </h5>
-                      <p class="card-text text-gray">Lorem ipsum dolor sit amet</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class=" h-100">
-                    <a href="#" class="a"><img class="card-img-top" src="img/pic6.jpg" alt=""></a>
-                    <div class="card-body card-body-f text-center">
-                      <h5>
-                        <a href="#" class="a text-dark-gray">18 FLOORS PROJECT</span></a>
-                      </h5>
-                      <p class="card-text text-gray">Lorem ipsum dolor sit amet</p>
-                    </div>
-                  </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

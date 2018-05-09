@@ -34,8 +34,16 @@ class FrontController extends Controller
             ->where('categories.name', 'News')
             ->orderBy('posts.id', 'desc')
             ->select('posts.*')
-            ->paginate(7);
-
+            ->limit(7)
+            ->get();
+        $data['feature_works'] = DB::table('posts')
+            ->join('categories', 'posts.category_id', 'categories.id')
+            ->where('posts.active', 1)
+            ->where('categories.name', 'Featured Work')
+            ->orderBy('posts.id', 'desc')
+            ->select('posts.*')
+            ->limit(6)
+            ->get();
         return view('fronts.index', $data);
     }
     public function detail($id)

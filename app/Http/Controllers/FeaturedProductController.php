@@ -15,11 +15,11 @@ class FeaturedProductController extends Controller
     public function index()
     {
         $data['products'] = DB::table('products')
-        ->join('categories', "products.category_id", "categories.id")
-        ->where("products.active", 1)
-        ->where('products.is_featured', 1)
-        ->select("products.*", "categories.name as category_name")
-        ->paginate(18);
+            ->join('categories', "products.category_id", "categories.id")
+            ->where("products.active", 1)
+            ->where('products.is_featured', 1)
+            ->select("products.*", "categories.name as category_name")
+            ->paginate(18);
         return view('feature-products.index', $data);
     }
     public function delete($id)

@@ -38,10 +38,10 @@
                         {{csrf_field()}}
                         <div class="form-group row">
                             <label for="name" class="control-label col-lg-2 col-sm-2">
-                            	Name  <span class="text-danger">*</span>
+                            	Title  <span class="text-danger">*</span>
                             </label>
                             <div class="col-lg-6 col-sm-8">
-                                <input type="text" autofocus name="name" id="name" class="form-control" required>
+                                <textarea name="name" id="name" class="form-control" rows="3" required="required"></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="photo" class="control-label col-lg-2 col-sm-2">Image <span class="text-info">(1200 x 400)</span> <span class="text-danger">*</span></label>
+                            <label for="photo" class="control-label col-lg-2 col-sm-2">Image <span class="text-info">(1350 x 360)</span> <span class="text-danger">*</span></label>
                             <div class="col-lg-6 col-sm-8">
                                 <input type="file" name="photo" required id="photo" accept="image/*" onchange="loadFile(event)">
                             </div>

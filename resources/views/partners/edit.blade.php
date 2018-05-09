@@ -4,8 +4,8 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header text-bold">
-                    <i class="fa fa-align-justify"></i> Edit Donor&nbsp;&nbsp;
-                    <a href="{{url('/donor')}}" class="btn btn-link btn-sm">Back To List</a>
+                    <i class="fa fa-align-justify"></i> Edit Partner&nbsp;&nbsp;
+                    <a href="{{url('/partner')}}" class="btn btn-link btn-sm">Back To List</a>
                 </div>
                 <div class="card-block">
                     @if(Session::has('sms'))
@@ -30,7 +30,7 @@
                     @endif
 
                     <form 
-                        action="{{url('/donor/update')}}" 
+                        action="{{url('/partner/update')}}" 
                         class="form-horizontal" 
                         enctype="multipart/form-data"  
                         method="post"
@@ -76,7 +76,7 @@
                             </div>
                         </div>
                          <div class="form-group row">
-                            <label for="logo" class="control-label col-lg-2 col-sm-2">Logo <span class="text-danger">(130x100)</span></label>
+                            <label for="logo" class="control-label col-lg-2 col-sm-2">Logo <span class="text-danger">(110x80)</span></label>
                             <div class="col-lg-6 col-sm-8">
                                 <input 
                                     type="file" 
@@ -90,7 +90,7 @@
                         <div class="form-group row">
                             <label for="contact" class="control-label col-lg-2 col-sm-2"></label>
                             <div class="col-lg-6 col-sm-8">
-                                <img src="" id="img"/>
+                                <img src="{{asset('uploads/partners/'.$partner->logo)}}" width="100" id="img"/>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -108,7 +108,6 @@
 <script>
     function loadFile(e){
         var output = document.getElementById('img');
-        output.width = 170;
         output.src = URL.createObjectURL(e.target.files[0]);
     }
 </script>

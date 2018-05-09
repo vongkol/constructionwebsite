@@ -20,11 +20,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php
-                            $pagex = @$_GET['page'];
-                            if(!$pagex)
-                                $pagex = 1;
-                            $i = 12 * ($pagex - 1) + 1;
+                            <?php
+                                $pagex = @$_GET['page'];
+                                if(!$pagex)
+                                    $pagex = 1;
+                                $i = 12 * ($pagex - 1) + 1;
                             ?>
                             @foreach($advertisements as $advertisement)
                                 <tr>

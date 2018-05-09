@@ -114,7 +114,7 @@
                         <a class="nav-link" href="{{url('/ebook')}}"><i class="fa fa-book"></i> E-Library </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/donor')}}"><i class="fa fa-gift"></i> Donor </a>
+                        <a class="nav-link" href="{{url('/partner')}}"><i class="fa fa-gift"></i> Partner </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/advertisement')}}"><i class="fa fa-bullhorn"></i> Advertisement </a>
@@ -124,6 +124,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/fm')}}"><i class="fa fa-file text-primary"></i> File Manager </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/social')}}"><i class="fa fa-facebook"></i> Social </a>
                     </li>
                     <li class="nav-item nav-dropdown">
                         <a href="#" class="nav-link nav-dropdown-toggle">

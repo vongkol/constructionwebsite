@@ -45,6 +45,13 @@ Route::post('/video/save', "VideoController@save");
 Route::get('/video/edit/{id}', "VideoController@edit");
 Route::post('/video/update', "VideoController@update");
 Route::get('/video/delete/{id}', "VideoController@delete");
+// Social
+Route::get('/social', "SocialController@index");
+Route::get('/social/create', "SocialController@create");
+Route::post('/social/save', "SocialController@save");
+Route::get('/social/edit/{id}', "SocialController@edit");
+Route::post('/social/update', "SocialController@update");
+Route::get('/social/delete/{id}', "SocialController@delete");
 // Advertisement
 Route::get('/advertisement', "AdvertisementController@index");
 Route::get('/advertisement/create', "AdvertisementController@create");
@@ -75,13 +82,13 @@ Route::post('/slide/save', "SlideController@save");
 Route::get('/slide/edit/{id}', "SlideController@edit");
 Route::post('/slide/update', "SlideController@update");
 Route::get('/slide/delete/{id}', "SlideController@delete");
-// donor
-Route::get('/donor', "PartnerController@index");
-Route::get('/donor/create', "PartnerController@create");
-Route::get('/donor/edit/{id}', "PartnerController@edit");
-Route::get('/donor/delete/{id}', "PartnerController@delete");
-Route::post('/donor/save', "PartnerController@save");
-Route::post('/donor/update', "PartnerController@update");
+// Partner
+Route::get('/partner', "PartnerController@index");
+Route::get('/partner/create', "PartnerController@create");
+Route::get('/partner/edit/{id}', "PartnerController@edit");
+Route::get('/partner/delete/{id}', "PartnerController@delete");
+Route::post('/partner/save', "PartnerController@save");
+Route::post('/partner/update', "PartnerController@update");
 
 Route::get('/home', 'HomeController@index')->name('home');
 // detail page
