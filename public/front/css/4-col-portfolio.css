@@ -67,6 +67,13 @@
 	border-radius: 0;
 	padding: 0;
 }
+.btn-cicle {
+	border-radius: 25px;
+	padding: 3px 20px; 
+	background: #f7ba03;
+	font-weight: 700;
+	font-size: 13px;
+}
 .dropdown:hover .dropdown-menu {
     display: block;
 }
@@ -74,6 +81,10 @@
 	text-align: left;
 	left: 15%;
     top: 85px;
+}
+.btn-slide {
+	position: absolute;
+	bottom: 70px;
 }
 .dropdown-item-c {
     color: #000;

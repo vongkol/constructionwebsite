@@ -26,6 +26,9 @@
                             <label class="col-md-6">
                             <b>{{$slide->name}}</b>
                             </label>
+                            <div class="col-md-6 btn-slide">
+                                <a href="{{$slide->url}}" class="btn btn-warning btn-cicle text-white">Read More</a>
+                            </div>
                         </div>
                     </div>
                 @else
@@ -35,6 +38,9 @@
                             <label class="col-md-6">
                                 <b>{{$slide->name}}</b>
                             </label>
+                            <div class="col-md-6 btn-slide">
+                                <a href="{{$slide->url}}" class="btn btn-warning btn-cicle text-white">Read More</a>
+                            </div>
                         </div>
                     </div>
                 @endif
