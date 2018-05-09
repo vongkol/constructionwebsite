@@ -21,19 +21,13 @@
     <body>
 
     <div class="container-fluit header-contact">
-        <div class="col-md-12">
+     
             <div class="row"> 
-                <div class="col-md-3">
-                <div id="triangle-bottomleft"></div> 
-                </div>
-                <div class="col-md-7" align="right">
-                    <div class="container text-gray">
-                        <i class="fa fa-phone"></i> +855 96 2555 209&nbsp;&nbsp; | &nbsp;&nbsp;<i class="fas fa-envelope"></i> sorvichey@gmail.com &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fas fa-map-marker"></i> 32E0, Daun Penh, Phnom Penh, Cambodia 
-                    </div>
-                </div>
-                </div>
+
+                    <div id="triangle-bottomleft"></div> <div><i class="fa fa-phone"></i> +855 96 2555 209&nbsp;&nbsp; | &nbsp;&nbsp;<i class="fas fa-envelope"></i> sorvichey@gmail.com &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fas fa-map-marker"></i> 32E0, Daun Penh, Phnom Penh, Cambodia </div>
+
             </div>
-        </div>
+ 
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">

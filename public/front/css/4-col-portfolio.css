@@ -11,8 +11,9 @@ body {
 
 @media (min-width: 992px) {
   body {
-   
+	
   }
+ 
 }
 .btn-primary-c {
     color: #fff;
@@ -193,7 +194,7 @@ body {
     border-bottom: 1px solid #eee;
 }
 #triangle-bottomleft {
-	 width: 500px;
+	 width: 400px;
     height: 0;
     border-bottom: 25px solid #fff;
     border-right: 36px solid transparent;
@@ -220,3 +221,32 @@ body {
 .carousel-indicators .active {
     background-color: #ffc107;
 }
+
+
+
+  @media  screen and (max-width: 1920px) {
+	#triangle-bottomleft {
+		width: 400px;
+		height: 0;
+		border-bottom: 25px solid #fff;
+		border-right: 36px solid transparent;
+	}
+}
+/* (480x800) Android */
+@media (max-width:  640px ) {
+	#triangle-bottomleft {
+		display: none;
+	}
+}
+/* (480x800) Android */
+@media (max-width:  480px ) {
+	#triangle-bottomleft {
+		display: none;
+	}
+}
+
+  @media (max-width: 360px) {
+	#triangle-bottomleft {
+		display: none;
+	}
+  }
