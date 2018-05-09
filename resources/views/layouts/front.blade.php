@@ -21,13 +21,14 @@
     <body>
 
     <div class="container-fluit header-contact">
-     
+        <div class="col-md-12">
             <div class="row"> 
-
-                    <div id="triangle-bottomleft"></div> <div><i class="fa fa-phone"></i> +855 96 2555 209&nbsp;&nbsp; | &nbsp;&nbsp;<i class="fas fa-envelope"></i> sorvichey@gmail.com &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fas fa-map-marker"></i> 32E0, Daun Penh, Phnom Penh, Cambodia </div>
-
+                <div id="triangle-bottomleft"></div> 
+                <div class=" text-gray">
+                    <i class="fa fa-phone"></i> +855 96 2555 209&nbsp;&nbsp; | &nbsp;&nbsp;<i class="fas fa-envelope"></i> sorvichey@gmail.com &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fas fa-map-marker"></i> 32E0, Daun Penh, Phnom Penh, Cambodia 
+                </div>
             </div>
- 
+        </div>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
@@ -37,42 +38,34 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" 
-                                href="#" id="navbarDropdownPortfolio" 
-                                data-toggle="dropdown" 
-                                aria-haspopup="true" 
-                                aria-expanded="false"
-                            >
-                                Service
-                            </a>
-                            <div class="dropdown-menu " aria-labelledby="navbarDropdownPortfolio">
-                                <a class="dropdown-item" href="portfolio-1-col.html">Server 1</a>
-                                <a class="dropdown-item" href="portfolio-2-col.html">Server 2</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Resource
-                            </a>
-                            <div class="dropdown-menu " aria-labelledby="navbarDropdownPortfolio">
-                                <a class="dropdown-item" href="portfolio-1-col.html">Server 1</a>
-                                <a class="dropdown-item" href="portfolio-2-col.html">Server 2</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#">Project</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
-                        </li>
-                    </ul>
+                        <?php 
+                            $menus = DB::table('main_menus')->where('active',1)->orderBy('order_number')->get();
+                        ?>
+                        @foreach($menus as $m)
+                        <?php $subs = DB::table('sub_menus')
+                            ->where('active',1)
+                            ->where('parent_id', $m->id)
+                            ->orderBy('order_number')
+                            ->get();
+                        ?>
+                        @if(count($subs)<=0)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url($m->url)}}">{{$m->name}}</a>
+                            </li>
+                        @else
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle smenu" href="#" data-toggle="dropdown">
+                                    {{$m->name}}
+                                </a>
+                                <div class="dropdown-menu">
+                                    @foreach($subs as $s)
+                                        <a class="dropdown-item" href="{{url($s->url)}}">{{$s->name}}</a>
+                                    @endforeach
+                                </div>
+                            </li>
+                        @endif
+                    @endforeach
+                        </ul>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a  href="#"><img src="{{asset('front/img/en.png')}}" alt="" width="25"></a>&nbsp;   
