@@ -98,7 +98,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/post')}}"><i class="fa fa-file-o"></i> Post</a>
                     </li>
-                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/video')}}"><i class="fa fa-youtube"></i> Video</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/newsletter')}}"><i class="fa fa-envelope"></i> Newsletter</a>
                     </li>

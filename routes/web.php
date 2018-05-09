@@ -38,6 +38,13 @@ Route::post('/newsletter/save', "NewsletterController@save");
 Route::get('/newsletter/edit/{id}', "NewsletterController@edit");
 Route::post('/newsletter/update', "NewsletterController@update");
 Route::get('/newsletter/delete/{id}', "NewsletterController@delete");
+// Video
+Route::get('/video', "VideoController@index");
+Route::get('/video/create', "VideoController@create");
+Route::post('/video/save', "VideoController@save");
+Route::get('/video/edit/{id}', "VideoController@edit");
+Route::post('/video/update', "VideoController@update");
+Route::get('/video/delete/{id}', "VideoController@delete");
 // Advertisement
 Route::get('/advertisement', "AdvertisementController@index");
 Route::get('/advertisement/create', "AdvertisementController@create");

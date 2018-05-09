@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use Auth;
-class VideoTrainingController extends Controller
+class VideoController extends Controller
 {
     public function __construct()
     {
@@ -30,7 +30,7 @@ class VideoTrainingController extends Controller
             ->where('active',1)
             ->orderBy('order_number', 'desc')
             ->paginate(18);
-        return view('video-trainings.index', $data);
+        return view('videos.index', $data);
     }
     // load create form
     public function create()
@@ -39,7 +39,7 @@ class VideoTrainingController extends Controller
         // {
         //     return view('permissions.no');
         // }
-        return view('video-trainings.create');
+        return view('videos.create');
     }
     // save new social
     public function save(Request $r)
@@ -48,18 +48,18 @@ class VideoTrainingController extends Controller
             'url' => $r->url,
             'order_number' => $r->order_number,
         );
-        $sms = "The new video training has been created successfully.";
-        $sms1 = "Fail to create the newvideo training, please check again!";
+        $sms = "The new video has been created successfully.";
+        $sms1 = "Fail to create the new video, please check again!";
         $i = DB::table('video_trainings')->insert($data);
         if ($i)
         {
             $r->session()->flash('sms', $sms);
-            return redirect('/video-training/create');
+            return redirect('/video/create');
         }
         else
         {
             $r->session()->flash('sms1', $sms1);
-            return redirect('/video-training/create')->withInput();
+            return redirect('/video/create')->withInput();
         }
     }
     // delete
@@ -71,7 +71,7 @@ class VideoTrainingController extends Controller
         // }
 
         DB::table('video_trainings')->where('id', $id)->update(['active'=>0]);
-        return redirect('/video-training');
+        return redirect('/video');
     }
 
     public function edit($id)
@@ -82,7 +82,7 @@ class VideoTrainingController extends Controller
         // }
         $data['video_training'] = DB::table('video_trainings')
             ->where('id',$id)->first();
-        return view('video-trainings.edit', $data);
+        return view('videos.edit', $data);
     }
     
     public function update(Request $r)
@@ -97,12 +97,12 @@ class VideoTrainingController extends Controller
         if ($i)
         {
             $r->session()->flash('sms', $sms);
-            return redirect('/video-training/edit/'.$r->id);
+            return redirect('/video/edit/'.$r->id);
         }
         else
         {
             $r->session()->flash('sms1', $sms1);
-            return redirect('/video-training/edit/'.$r->id);
+            return redirect('/video/edit/'.$r->id);
         }
     }
 }
