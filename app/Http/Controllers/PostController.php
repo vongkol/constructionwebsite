@@ -22,15 +22,20 @@ class PostController extends Controller
     public function index()
     {
         $data['posts'] = DB::table('posts')
-            ->orderBy('id', 'desc')
-            ->where('active', 1)
+            ->join('categories', 'posts.category_id', 'categories.id')
+            ->where('posts.active',1)
+            ->orderBy('posts.id', 'desc')
+            ->select('posts.*', 'categories.name')
             ->paginate(18);
         return view('posts.index', $data);
     }
     // load create form
     public function create()
     {
-        return view('posts.create');
+        $data['categories'] = DB::table('categories')
+            ->where('active', 1)
+            ->get();
+        return view('posts.create', $data);
     }
     // save new page
     public function save(Request $r)
@@ -39,38 +44,30 @@ class PostController extends Controller
             'title' => $r->title,
             'short_description' => $r->short_description,
             'description' => $r->description,
+            'category_id' => $r->category
         );
-        if($r->feature_image) {
-            $file = $r->file('feature_image');
-            $file_name = $file->getClientOriginalName();
-
-            // upload full image
-            $destinationPath = 'uploads/fulls/';
-            $new_img = Image::make($file->getRealPath());
-            $new_img->save($destinationPath . $file_name, 80);
-
-            // upload 250
-            $destinationPath = 'uploads/posts/250x250/';
-            $new_img = Image::make($file->getRealPath())->resize(250, null, function ($con) {
-                $con->aspectRatio();
-            });
-            $new_img->save($destinationPath . $file_name, 80);
-            $data['featured_image'] = $file_name;
-        }
-       
-        $sms = "The new post has been created successfully.";
-        $sms1 = "Fail to create the new post, please check again!";
-        $i = DB::table('posts')->insert($data);
-
-        if ($i)
+        $i = DB::table('posts')->insertGetId($data);
+        if($i)
         {
-            $r->session()->flash('sms', $sms);
-            return redirect('/post/create/new');
+            if($r->feature_image) {
+
+                $file = $r->file('feature_image');
+                $file_name = $file->getClientOriginalName();
+                $ss = substr($file_name, strripos($file_name, '.'), strlen($file_name));
+                $file_name = 'post' .$i . $ss;
+                
+                // upload 250
+                $destinationPath = 'uploads/posts/250x250/';
+                $new_img = Image::make($file->getRealPath())->resize(300, 250);
+                $new_img->save($destinationPath . $file_name, 80);
+                DB::table('posts')->where('id', $i)->update(['featured_image'=>$file_name]);
+            }
+            $r->session()->flash('sms', 'New post has been created successfully!');
+            return redirect('/post/create');
         }
-        else
-        {
-            $r->session()->flash('sms1', $sms1);
-            return redirect('/post/create/new')->withInput();
+        else{
+            $r->session()->flash('sms1', 'Fail to create new post. Please check your input again!');
+            return redirect('/post/create')->withInput();
         }
     }
     // delete
@@ -83,9 +80,9 @@ class PostController extends Controller
 
     public function edit($id)
     {
-        $data['categories'] = DB::table('categories as a')
-            ->join('categories as b', 'b.id', '=', 'a.id')
-            ->where('b.active', 1)->where('b.parent_id', 0)->get();
+        $data['categories'] = DB::table('categories')
+           ->where('active', 1)
+           ->get();
 
         $data['post'] = DB::table('posts')
             ->where('id',$id)->first();
@@ -98,20 +95,16 @@ class PostController extends Controller
             'title' => $r->title,
             'short_description' => $r->short_description,
             'description' => $r->description,
+            'category_id' => $r->category
         );
         if($r->feature_image) {
             $file = $r->file('feature_image');
             $file_name = $file->getClientOriginalName();
-             // upload full image
-             $destinationPath = 'uploads/fulls/';
-             $new_img = Image::make($file->getRealPath());
-             $new_img->save($destinationPath . $file_name, 80);
-
+            $ss = substr($file_name, strripos($file_name, '.'), strlen($file_name));
+            $file_name = 'post' .$r->id . $ss;
             // upload 250
             $destinationPath = 'uploads/posts/250x250/';
-            $new_img = Image::make($file->getRealPath())->resize(250, null, function ($con) {
-                $con->aspectRatio();
-            });
+            $new_img = Image::make($file->getRealPath())->resize(300, 250);
             $new_img->save($destinationPath . $file_name, 80);
             $data ['featured_image'] =  $file_name;
         }

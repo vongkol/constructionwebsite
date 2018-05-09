@@ -157,65 +157,36 @@
      <div class="news">
         <div class="container">
         <div class="row my-4">
-           <div class="col-md-4 my-4">
+           <div class="col-md-6 my-4">
                 <div class="img">
-                    <img src="img/n1.jpg" width="100%">
+                    <img src="{{asset('uploads/posts/250x250/'.$news[0]->featured_image)}}" width="100%">
                     <div class="new-title">
-                        <b>Lorem ipsum dolor sit amet, consectetur adipisicing</b>
+                        <h6><a href="#">{{$news[0]->title}}</a></h6>
+                        <p>{{$news[0]->short_description}}</p>
                     </div>
                </div>
            </div>
-           <div class="col-md-8 my-4">
+           <div class="col-md-6 my-4">
                <div class="row">
-                    <div class="col-md-3 h-100 pd-5">
-                        <img src="img/pic1.jpg" width="100%">
-                        <div class="new-title">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                        </div>
-                    </div>
-                     <div class="col-md-3 h-100 pd-5">
-                        <img src="img/pic2.jpg" width="100%">
-                         <div class="new-title">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing adipisicing 
-                        </div>
-                    </div>
-                     <div class="col-md-3 h-100 pd-5">
-                        <img src="img/pic3.jpg" width="100%">
-                         <div class="new-title">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing adipisicing
-                        </div>
-                    </div>
-                     <div class="col-md-3 h-100 pd-5">
-                        <img src="img/pic4.jpg" width="100%">
-                         <div class="new-title">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                        </div>
-                    </div>
-                     <div class="col-md-3 h-100 pd-5">
-                        <img src="img/pic5.jpg" width="100%">
-                         <div class="new-title">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                        </div>
-                    </div>
-                     <div class="col-md-3 h-100 pd-5">
-                        <img src="img/pic6.jpg" width="100%">
-                         <div class="new-title">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing  adipisicing adipisicing
-                        </div>
-                    </div>
-                     <div class="col-md-3 h-100 pd-5">
-                        <img src="img/pic7.jpg" width="100%">
-                         <div class="new-title">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                        </div>
-                    </div>
-                     <div class="col-md-3 h-100 pd-5">
-                        <img src="img/pic8.jpg" width="100%">
-                         <div class="new-title">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                        </div>
-                    </div>
-               </div></div>
+                   @php($i=1)
+                   @foreach($news as $n)
+                        @if($i==1)
+                            @php($i=0)
+                        @else
+                            <div class="col-md-4 h-100 pd-5">
+                                <img src="{{asset('uploads/posts/250x250/'.$n->featured_image)}}" width="180" height="130">
+                                <div class="new-title">
+                                    <a href="#">{{$n->title}}</a>
+                                </div>
+                            </div>
+                        @endif
+
+                   @endforeach
+                   
+                    
+                </div>
+
+            </div>
             </div>
            </div>
        </div>

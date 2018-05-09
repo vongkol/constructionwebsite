@@ -57,8 +57,22 @@
         </div>
         <div class="col-sm-3 col-lg-3">
                 <div class="card">
+                    <div class="card-header">
+                        Category
+                    </div>
+                    <div class="card-block">
+                        <div>
+                            <select name="category" id="category" class="form-control">
+                                @foreach($categories as $cat)
+                                    <option value="{{$cat->id}}" {{$cat->id==$post->category_id?'selected':''}}>{{$cat->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
                         <div class="card-header">
-                            Feature Image
+                            Feature Image <span class="text-danger">(300x250)</span>
                         </div>
                         <div class="card-block">
                             <div style="margin-bottom: 3px;">

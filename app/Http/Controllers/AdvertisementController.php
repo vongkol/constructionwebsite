@@ -43,10 +43,11 @@ class AdvertisementController extends Controller
                 $file_name = 'ad' .$i . $ss;
                 $destinationPath = 'uploads/advertisements/';
                 $file->move($destinationPath, $file_name);
-                $data['photo'] = $file_name;
+               
+                DB::table('advertisements')->where('id', $i)->update(['photo'=>$file_name]);
+                
             }
             
-            DB::table('advertisements')->where('id', $i)->update(['photo'=>$file_name]);
             $sms = "The new advertisement has been created successfully.";
             $r->session()->flash('sms', $sms);
             return redirect('/advertisement/create');

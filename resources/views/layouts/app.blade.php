@@ -96,7 +96,7 @@
                         <a class="nav-link" href="{{url('/admin/staff')}}"><i class="fa fa-user"></i> Staff</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/post')}}"><i class="fa fa-file-o"></i> Recent News</a>
+                        <a class="nav-link" href="{{url('/post')}}"><i class="fa fa-file-o"></i> Post</a>
                     </li>
                   
                     <li class="nav-item">
@@ -137,9 +137,9 @@
                             
                     </li>
 
-                    {{-- <li class="nav-item nav-dropdown">
+                    <li class="nav-item nav-dropdown">
                         <a class="nav-link nav-dropdown-toggle" href="#">
-                            <i class="fa fa-cog text-success"></i> {{$lb_setting}}</a>
+                            <i class="fa fa-cog text-success"></i> Settings</a>
                         <ul class="nav-dropdown-items">
                             
                            
@@ -147,7 +147,7 @@
                                 <a class="nav-link" href="{{url('/category')}}"><i class="fa fa-tags"></i>Category</a>
                             </li>
                         </ul>
-                    </li> --}}
+                    </li>
                 </ul>
             </nav>
         </div>
