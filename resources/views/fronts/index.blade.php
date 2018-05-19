@@ -366,17 +366,23 @@
         <aside class="text-partner text-gray"> Lorem ipsum dolor sit</aside> 
         <div class="in-icon"></div>   
     </div>
+<?php $current_projects = DB::table('current_projects')->where('active',1)->orderBy('order')->get(); ?>
     <div class="container-fluit my-4">
-        <img src="{{asset('front/img/b1.jpg')}}" alt="" width="100%" > 
-        <div class="col-md-12 text-center"> 
-            <img src="img/c1.jpg" class="recent-project" width="100">
-            <img src="img/c1.jpg" class="recent-project" width="100">
-            <img src="img/c1.jpg" class="recent-project" width="100">
+        <div class="slideshow-container">
+            @foreach($current_projects as $cp)
+            <div class="mySlides fade">
+                <img src="{{asset('uploads/current_projects/'.$cp->photo)}}" style="width:100%">
+            </div>
+            @endforeach
+        </div>
+        <br>
+        <div style="text-align:center">
+            <?php $d = 1; ?>
+            @foreach($current_projects as $cp)
+            <span class="dot" onclick="currentSlide(<?php echo $d++;?>)"><img src="{{asset('uploads/current_projects/icon/'.$cp->photo)}}" width="50"></span> 
+            @endforeach
         </div>
     </div>
-
-
-
     <div class="container">
         <div class="col-md-12">
             <div class="row">
@@ -403,7 +409,7 @@
             </div>
         </div>
     </div>
-
+                                
     <div class="container">
         <div class="col-md-12">
             <div class="row">

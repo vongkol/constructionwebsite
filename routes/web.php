@@ -82,6 +82,13 @@ Route::post('/slide/save', "SlideController@save");
 Route::get('/slide/edit/{id}', "SlideController@edit");
 Route::post('/slide/update', "SlideController@update");
 Route::get('/slide/delete/{id}', "SlideController@delete");
+// Current Project 
+Route::get('/current-project', "CurrentProjectController@index");
+Route::get('/current-project/create', "CurrentProjectController@create");
+Route::post('/current-project/save', "CurrentProjectController@save");
+Route::get('/current-project/edit/{id}', "CurrentProjectController@edit");
+Route::post('/current-project/update', "CurrentProjectController@update");
+Route::get('/current-project/delete/{id}', "CurrentProjectController@delete");
 // Partner
 Route::get('/partner', "PartnerController@index");
 Route::get('/partner/create', "PartnerController@create");

@@ -142,7 +142,7 @@
     <style type="text/css">
         .swiper-button-next, .swiper-button-prev {
           position: absolute;
-          top: 60%;
+          top: 58%;
           width: 40px;
           height: 26px;
           margin-top: -22px;
@@ -243,6 +243,7 @@
             </div>
         </div>
     </footer>
+        <script src="{{asset('front/vendor/jquery/slide.js')}}"></script>
         <script src="{{asset('front/vendor/jquery/jquery.min.js')}}"></script>
         <script src="{{asset('front/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('front/vendor/jquery/jquery.magnific-popup.min.js')}}" type="text/javascript"></script>

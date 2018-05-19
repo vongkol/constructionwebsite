@@ -102,7 +102,7 @@
                         <a class="nav-link" href="{{url('/video')}}"><i class="fa fa-youtube"></i> Video</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/newsletter')}}"><i class="fa fa-envelope"></i> Newsletter</a>
+                        <a class="nav-link" href="{{url('/current-project')}}"><i class="fa fa-building"></i> Current Project</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/announcement')}}"><i class="fa fa-bullhorn"></i> Up Coming Event</a>
