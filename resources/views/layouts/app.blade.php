@@ -12,7 +12,7 @@
     <meta name="keyword" content="ngo, website ngo, company create website, website">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Khmer Youth Association Admin Website</title>
+    <title>Construction Admin Website</title>
 
      <!-- Chosen  -->
     <link rel="stylesheet" href="{{asset('chosen/chosen.css')}}">
@@ -32,7 +32,7 @@
 <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
     <header class="app-header navbar">
         <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button">☰</button>
-        <a class="navbar-brand" href="#">KYA Cambodia</a>
+        <a class="navbar-brand" href="#"></a>
         <ul class="nav navbar-nav d-md-down-none">
             <li class="nav-item">
                 <a class="nav-link navbar-toggler sidebar-toggler" href="#">☰</a>
@@ -105,19 +105,13 @@
                         <a class="nav-link" href="{{url('/current-project')}}"><i class="fa fa-building"></i> Current Project</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/announcement')}}"><i class="fa fa-bullhorn"></i> Up Coming Event</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/case-study')}}"><i class="fa fa-user"></i> Case Study</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/ebook')}}"><i class="fa fa-book"></i> E-Library </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{url('/partner')}}"><i class="fa fa-gift"></i> Partner </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/advertisement')}}"><i class="fa fa-bullhorn"></i> Advertisement </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/portfolio')}}"><i class="fa fa-picture-o"></i> Portfolio </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/company-feature')}}"><i class="fa fa-bullhorn"></i> Company Feature </a>
@@ -146,10 +140,11 @@
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa fa-cog text-success"></i> Settings</a>
                         <ul class="nav-dropdown-items">
-                            
-                           
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('/category')}}"><i class="fa fa-tags"></i>Category</a>
+                                <a class="nav-link" href="{{url('/category')}}"><i class="fa fa-tags"></i>Post Category</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/portfolio-category')}}"><i class="fa fa-tags"></i> Portfolio Category </a>
                             </li>
                         </ul>
                     </li>

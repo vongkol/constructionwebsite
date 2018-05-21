@@ -6,7 +6,7 @@
 
  body {
 
-	font-size: 13px;
+	font-size: 14px;
   }
   
   @media (min-width: 992px) {
@@ -29,7 +29,7 @@
 	  color: #777;
   }
   .text-os {
-	  font-size: 11px;
+	  font-size: 12px;
   }
   .pd-0 {
 	  padding: 0;
@@ -62,7 +62,7 @@
     margin-bottom: 10px;
   }
   .dropdown-menu-c {
-    font-size: 13px;
+    font-size: 14px;
 	border: none;
 	border-radius: 0;
 	padding: 0;
@@ -160,7 +160,7 @@
 	  color: #555;
   }
   .form-control {
-	  font-size: 13px;
+	  font-size: 14px;
   }
   .building-icon {
 	  padding: 10px 12px;
@@ -190,7 +190,7 @@
   .text-partner {
 	  margin-top: -14px;
 	  padding-left: 42px;
-	  font-size: 11px;
+	  font-size: 12px;
   }
   .icon-home {
 	  padding: 0 10px;

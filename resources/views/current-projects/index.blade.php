@@ -5,9 +5,9 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <i class="fa fa-align-justify"></i> Current Project List&nbsp;&nbsp;
-                        <a href="{{url('/current-project/create')}}" class="btn btn-link btn-sm">
-                             New
-                        </a>
+                    <a href="{{url('/current-project/create')}}" class="btn btn-link btn-sm">
+                            New
+                    </a>
                 </div>
                 <div class="card-block">
                     <table class="tbl">

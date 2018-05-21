@@ -56,7 +56,7 @@ class CurrentProjectController extends Controller
             $r->session()->flash("sms", "New current project has been created successfully!");
             return redirect("/current-project/create");
         } else {
-            $r->session()->flash("sms1", "Fail to create new scholarship category!");
+            $r->session()->flash("sms1", "Fail to create new current project!");
             return redirect("/current-project/create")->withInput();
         }   
     }

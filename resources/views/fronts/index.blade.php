@@ -284,7 +284,7 @@
                   <li class="nav-item">
                     <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
                   </li>
                     <li class="nav-item">
@@ -292,69 +292,68 @@
                   </li>
                      <li class="nav-item">
                     <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Project</a>
-                  </li>
+                  </li> -->
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
-                  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"></div>
-                  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"></div>
-                  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"></div>
-                </div>
-              </div>
-             </div>
-             <div class="col-md-12">
+                  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">1</div>
+                  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"> <div class="col-md-12">
             <div class="row">
                 <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6  pd-0">
-                    <div class="gallery-img"><a href="img/pic1.jpg" class="image-link" title="Image 1"><img src="img/pic1.jpg"  width="100%" alt=""></a>
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 1"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%" alt=""></a>
                     </div>
                 </div>
                 <!-- portfolio-block -->
                 <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6  pd-0">
-                    <div class="gallery-img"><a href="img/pic2.jpg" class="image-link" title="Image 2"><img src="img/pic2.jpg" width="100%" alt=""></a>
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 2"><img src="{{asset('front/img/pic1.jpg')}}" width="100%" alt=""></a>
                     </div>
                 </div>
                 <!-- portfolio-block -->
                 <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6 pd-0">
-                    <div class="gallery-img"><a href="img/pic6.jpg" class="image-link" title="Image 3"><img src="img/pic6.jpg"  width="100%" alt="" class="img-responsive">
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 3"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%" alt="" class="img-responsive">
                     </div>
                 </div>
                 <!-- portfolio-block -->
                  <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6  pd-0">
-                    <div class="gallery-img"><a href="img/pic5.jpg" class="image-link" title="Image 4"><img src="img/pic5.jpg"  width="100%" alt=""></a>
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 4"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%" alt=""></a>
                     </div>
                 </div>
                 <!-- portfolio-block -->
                  <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6 pd-0">
-                    <div class="gallery-img"><a href="img/pic4.jpg" class="image-link" title="Image 5"><img src="img/pic4.jpg"  width="100%" alt=""></a>
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 5"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%" alt=""></a>
                     </div>
                 </div>
                 <!-- portfolio-block -->
                 <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6 pd-0">
-                    <div class="gallery-img"><a href="img/pic1.jpg" class="image-link" title="Image 6"><img src="img/pic1.jpg"  width="100%"  alt="" ></a>
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 6"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%"  alt="" ></a>
                     </div>
                 </div>
                 <!-- portfolio-block -->
                 <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6 pd-0">
-                    <div class="gallery-img"><a href="img/pic2.jpg" class="image-link" title="Image 7"><img src="img/pic2.jpg"  width="100%"  alt=""></a>
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 7"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%"  alt=""></a>
                     </div>
                 </div>
                 <!-- portfolio-block -->
                 <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6 pd-0">
-                    <div class="gallery-img"><a href="img/pic3.jpg" class="image-link" title="Image 8"><img src="img/pic3.jpg" width="100%"   alt=""></a>
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 8"><img src="{{asset('front/img/pic1.jpg')}}" width="100%"   alt=""></a>
                     </div>
                 </div>
                 <!-- portfolio-block -->
             </div></div>
         </div>
     </div>
-    <!-- /.portfolio-section -->
+    <!-- /.portfolio-section --></div>
+                </div>
+              </div>
+             </div>
+            
 
     <p></p>
     <div class="container">
