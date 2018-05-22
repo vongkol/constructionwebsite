@@ -28,7 +28,7 @@ class VideoController extends Controller
 
         $data['video_trainings'] = DB::table('video_trainings')
             ->where('active',1)
-            ->orderBy('order_number', 'desc')
+            ->orderBy('id', 'desc')
             ->paginate(18);
         return view('videos.index', $data);
     }
@@ -46,7 +46,7 @@ class VideoController extends Controller
     {
         $data = array(
             'url' => $r->url,
-            'order_number' => $r->order_number,
+            'title' => $r->title,
         );
         $sms = "The new video has been created successfully.";
         $sms1 = "Fail to create the new video, please check again!";
@@ -89,7 +89,7 @@ class VideoController extends Controller
     {
     	$data = array(
             'url' => $r->url,
-            'order_number' => $r->order_number
+            'title' => $r->title,
         );
         $sms = "All changes have been saved successfully.";
         $sms1 = "Fail to to save changes, please check again!";

@@ -17,6 +17,7 @@
                                 <th>&numero;</th>
                                 <th>Title</th>
                                 <th>URL</th>
+                                <th>Featured Image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -27,6 +28,9 @@
                                     <td>{{$i++}}</td>
                                     <td>{{$pag->title}}</td>
                                     <td>/page/{{$pag->id}}</td>
+                                    <td>
+                                        <img src="{{asset('uploads/pages/'.$pag->featured_image)}}" width="100" alt="">
+                                    </td>
                                     <td>
                                         <a class="btn btn-xs btn-primary" href="{{url('/page/view/'.$pag->id)}}" title="view"><i class="fa fa-eye"></i></a>
                                         <a class="btn btn-xs btn-info" href="{{url('/page/edit/'.$pag->id)}}" title="Edit"><i class="fa fa-pencil"></i></a>

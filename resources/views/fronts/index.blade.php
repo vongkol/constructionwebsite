@@ -22,7 +22,7 @@
                 @if($i++ == 1)
                     <div class="carousel-item active">
                         <img src="{{asset('front/slides/'.$slide->photo)}}" alt="" width="100%">
-                        <div class="carousel-caption carousel-caption-c">
+                        <div class="carousel-caption carousel-caption-c hidden-sm-down">
                             <label class="col-md-6">
                             <b>{{$slide->name}}</b>
                             </label>
@@ -34,7 +34,7 @@
                 @else
                     <div class="carousel-item">
                         <img src="{{asset('front/slides/'.$slide->photo)}}" alt="" width="100%">
-                        <div class="carousel-caption carousel-caption-c">
+                        <div class="carousel-caption carousel-caption-c hidden-sm-down">
                             <label class="col-md-6">
                                 <b>{{$slide->name}}</b>
                             </label>
@@ -63,55 +63,55 @@
         <!-- Page Content -->
         <div class="container ">
             <div class="row my-5 my-5-c">
-                <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+                <div class="col-lg-3 col-md-3 col-sm-6 portfolio-item">
                     <div class="card card-c  h-100">
                         <div class="text-center icon-home">
                             <i class="fas fa-users-cog text-warning"></i>
                         </div>
                         <div class="card-body card-body-c text-center">
                             <h6 class="card-title">
-                                <span class="text-dark-gray"><b>{{$a->title}}</b></span>
+                                <span class="text-dark-gray rep-title"><b>{{$a->title}}</b></span>
                             </h6>
-                            <p class="card-text text-gray">{{$a->short_description}}</p>
+                            <p class="card-text text-gray rep-des">{{$a->short_description}}</p>
                         </div>
                     </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+            <div class="col-lg-3 col-md-3 col-sm- portfolio-item">
                 <div class="card card-c h-100">
                     <div class="text-center icon-home">
                         <i class="fas fa-trophy text-warning"></i>
                     </div>
                     <div class="card-body card-body-c text-center">
                         <h6 class="card-title">
-                            <span class="text-dark-gray"><b>{{$b->title}}</b></span>
+                            <span class="text-dark-gray rep-title"><b>{{$b->title}}</b></span>
                         </h6>
-                        <p class="card-text text-gray">{{$b->short_description}}</p>
+                        <p class="card-text text-gray rep-des">{{$b->short_description}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+            <div class="col-lg-3 col-md-3 col-sm-6 portfolio-item">
                 <div class="card card-c h-100">
                     <div class="text-center icon-home">
                         <i class="far fa-gem text-warning"></i>
                     </div>
                     <div class="card-body card-body-c text-center">
                     <h6 class="card-title">
-                        <span class="text-dark-gray"><b>{{$c->title}}</b></span>
+                        <span class="text-dark-gray rep-title"><b>{{$c->title}}</b></span>
                     </h6>
-                    <p class="card-text text-gray">{{$c->short_description}}</p>
+                    <p class="card-text text-gray rep-des">{{$c->short_description}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+            <div class="col-lg-3 col-md-3 col-sm-6 portfolio-item">
                 <div class="card card-c h-100">
                     <div class="text-center  icon-home">
                         <i class="fas fa-handshake text-warning"></i>
                     </div>
                     <div class="card-body card-body-c text-center">
                         <h6 class="card-title">
-                            <span class="text-dark-gray"><b>{{$d->title}}</b></span>
+                            <span class="text-dark-gray rep-title"><b>{{$d->title}}</b></span>
                         </h6>
-                        <p class="card-text text-gray">{{$d->short_description}}</p>
+                        <p class="card-text text-gray rep-des">{{$d->short_description}}</p>
                     </div>
                 </div>
             </div>
@@ -193,7 +193,7 @@
                                 @endif
                         @endforeach
                         </div>
-                        <div  align="right">
+                        <div  align="right" >
                             <a href="#" class="btn btn-warning text-white btn-flat"> MORE NEWS <i class="fa fa-forward"></i></a>
                         </div>
                     </div>
@@ -216,41 +216,37 @@
         <div class="row my-4">
            <div class="col-md-7 my-4">
                 <div class="img">
-                    <iframe width="100%" height="415" src="https://www.youtube.com/embed/0BXGh0EYJtE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <iframe width="100%" class="video" src="{{$video->url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                </div>
            </div>
            <div class="col-md-5 my-4">
                <div class="row">
                     <div class="col-md-12 h-100">
+                        <div class="youtube-height">
                         <div class="row">
+                            <?php $y = 1;?>
+                            @foreach($videos as $v)
+                                @if($y==1)
+                                    @php($y=0)
+                                @else
                             <div class="col-md-5 pd-5">
-                               <iframe width="100%" height="100" src="https://www.youtube.com/embed/U7UKNoufSbk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                               <iframe width="100%" height="video-small" src="{{$v->url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                             </div>
                             <div class="col-md-7 pd-5">
-                                <b>Lorem ipsum dolor sit amet, consectetur adipisicing</b>
+                                <b>{{$v->title}}</b>
                             </div>
-                            <div class="col-md-5 pd-5">
-                               <iframe width="100%" height="100" src="https://www.youtube.com/embed/IsaCk4SARPk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                            </div>
-                            <div class="col-md-7">
-                                <b>Lorem ipsum dolor sit amet, consectetur adipisicing</b>
-                            </div>
-                            <div class="col-md-5 pd-5">
-                               <iframe width="100%" height="100" src="https://www.youtube.com/embed/baimGHLHq5E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                            </div>
-                            <div class="col-md-7 pd-5">
-                                 <b>Lorem ipsum dolor sit amet, consectetur adipisicing</b>
-                            </div>
-                            <div class="col-md-5 pd-5">
-                               <iframe width="100%" height="100" src="https://www.youtube.com/embed/mhd-wDhZNzE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                            </div>
-                            <div class="col-md-7 pd-5">
-                                <b>Lorem ipsum dolor sit amet, consectetur adipisicing</b>
-                            </div>
+                            @endif
+                           @endforeach
+                          
+                        </div>
+                        
+                    </div>
+                    <div  align="right"><p></p>
+                            <a href="#" class="btn btn-warning text-white btn-flat"> MORE VIDEOS <i class="fa fa-forward"></i></a>
                         </div>
                     </div>
-                    
-               </div></div>
+               </div>
+            </div>
             </div>
            </div>
        </div>

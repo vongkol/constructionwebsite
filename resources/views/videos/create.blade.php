@@ -37,15 +37,15 @@
                     >
                         {{csrf_field()}}
                         <div class="form-group row">
-                            <label for="url" class="control-label col-lg-1 col-sm-2">URL</label>
+                            <label for="title" class="control-label col-lg-1 col-sm-2">Title <span class="text-danger">*</span></label>
                             <div class="col-lg-6 col-sm-8">
-                                <input type="text" name="url" id="url" class="form-control">
+                                <input type="title" name="title" id="title" required class="form-control">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="order_number" class="control-label col-sm-2 col-lg-1">Order</label>
+                            <label for="url" class="control-label col-lg-1 col-sm-2">URL <span class="text-danger">*</span></label>
                             <div class="col-lg-6 col-sm-8">
-                                <input type="number" class="form-control" id="order_number" name="order_number" value="0" min="0" step="1">
+                                <input type="text" name="url" id="url" required class="form-control">
                             </div>
                         </div>
                         <div class="form-group row">
