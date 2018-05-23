@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Building</title>
+        <title>ECC Building Trust</title>
 
         <!-- Bootstrap core CSS -->
         <link href="{{asset('front/css/web-fonts-with-css/css/fontawesome-all.css')}}" rel="stylesheet">

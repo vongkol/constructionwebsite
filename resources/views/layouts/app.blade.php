@@ -12,7 +12,7 @@
     <meta name="keyword" content="ngo, website ngo, company create website, website">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Khmer Youth Association Admin Website</title>
+    <title>ECC Building Trust</title>
 
      <!-- Chosen  -->
     <link rel="stylesheet" href="{{asset('chosen/chosen.css')}}">
@@ -32,7 +32,7 @@
 <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
     <header class="app-header navbar">
         <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button">☰</button>
-        <a class="navbar-brand" href="#">KYA Cambodia</a>
+        <a class="navbar-brand" href="#">ECC</a>
         <ul class="nav navbar-nav d-md-down-none">
             <li class="nav-item">
                 <a class="nav-link navbar-toggler sidebar-toggler" href="#">☰</a>
@@ -83,25 +83,27 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/sub-menu')}}"><i class="fa fa-list"></i> Sub Menu </a>
                     </li>
+                   
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/slide')}}"><i class="fa fa-picture-o"></i> Slide</a>
+                        <a class="nav-link" href="{{url('/post')}}"><i class="fa fa-file-o"></i> Post</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/page')}}"><i class="fa fa-columns"></i> Page </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{url('/slide')}}"><i class="fa fa-picture-o"></i> Slide Show</a>
+                    </li>
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="{{url('/membership')}}"><i class="fa fa-users"></i> Membership</a>
-                    </li>
-                    <li class="nav-item">
+                    </li> --}}
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="{{url('/admin/staff')}}"><i class="fa fa-user"></i> Staff</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/post')}}"><i class="fa fa-file-o"></i> Post</a>
-                    </li>
+                    </li> --}}
+                   
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/video')}}"><i class="fa fa-youtube"></i> Video</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="{{url('/newsletter')}}"><i class="fa fa-envelope"></i> Newsletter</a>
                     </li>
                     <li class="nav-item">
@@ -112,7 +114,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/ebook')}}"><i class="fa fa-book"></i> E-Library </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/partner')}}"><i class="fa fa-gift"></i> Partner </a>
                     </li>
@@ -147,7 +149,6 @@
                             <i class="fa fa-cog text-success"></i> Settings</a>
                         <ul class="nav-dropdown-items">
                             
-                           
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('/category')}}"><i class="fa fa-tags"></i>Category</a>
                             </li>
