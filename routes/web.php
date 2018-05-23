@@ -82,6 +82,13 @@ Route::post('/slide/save', "SlideController@save");
 Route::get('/slide/edit/{id}', "SlideController@edit");
 Route::post('/slide/update', "SlideController@update");
 Route::get('/slide/delete/{id}', "SlideController@delete");
+// Current Project 
+Route::get('/current-project', "CurrentProjectController@index");
+Route::get('/current-project/create', "CurrentProjectController@create");
+Route::post('/current-project/save', "CurrentProjectController@save");
+Route::get('/current-project/edit/{id}', "CurrentProjectController@edit");
+Route::post('/current-project/update', "CurrentProjectController@update");
+Route::get('/current-project/delete/{id}', "CurrentProjectController@delete");
 // Partner
 Route::get('/partner', "PartnerController@index");
 Route::get('/partner/create', "PartnerController@create");
@@ -89,6 +96,20 @@ Route::get('/partner/edit/{id}', "PartnerController@edit");
 Route::get('/partner/delete/{id}', "PartnerController@delete");
 Route::post('/partner/save', "PartnerController@save");
 Route::post('/partner/update', "PartnerController@update");
+// Partner
+Route::get('/portfolio-category', "PortfolioCategoryController@index");
+Route::get('/portfolio-category/create', "PortfolioCategoryController@create");
+Route::get('/portfolio-category/edit/{id}', "PortfolioCategoryController@edit");
+Route::get('/portfolio-category/delete/{id}', "PortfolioCategoryController@delete");
+Route::post('/portfolio-category/save', "PortfolioCategoryController@save");
+Route::post('/portfolio-category/update', "PortfolioCategoryController@update");
+// Partner
+Route::get('/portfolio', "PortfolioController@index");
+Route::get('/portfolio/create', "PortfolioController@create");
+Route::get('/portfolio/edit/{id}', "PortfolioController@edit");
+Route::get('/portfolio/delete/{id}', "PortfolioController@delete");
+Route::post('/portfolio/save', "PortfolioController@save");
+Route::post('/portfolio/update', "PortfolioController@update");
 
 Route::get('/home', 'HomeController@index')->name('home');
 // detail page

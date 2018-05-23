@@ -24,7 +24,7 @@
         <div class="col-md-12">
             <div class="row"> 
                 <div id="triangle-bottomleft"></div> 
-                <div class=" text-gray">
+                <div class=" text-gray text-center rep-h-text">
                     <i class="fa fa-phone"></i> +855 96 2555 209&nbsp;&nbsp; | &nbsp;&nbsp;<i class="fas fa-envelope"></i> sorvichey@gmail.com &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fas fa-map-marker"></i> 32E0, Daun Penh, Phnom Penh, Cambodia 
                 </div>
             </div>
@@ -32,7 +32,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand navbar-brand-c col-md-3" href="{{url('/')}}"><img src="{{asset('front/img/logo.png')}}" width="70"></a>
+                <a class="navbar-brand navbar-brand-c col-md-3 col-3" href="{{url('/')}}"><img src="{{asset('front/img/logo.png')}}" width="70"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -99,13 +99,30 @@
             ->get();
             ?>
         <div class="row">
-        <div class="col-md-9 border-custom my-2"> 
+        <div class="col-md-9 border-custom my-2 desktop"> 
             <div class="swiper-viewport">
                 <div id="carousel0" class="swiper-container">
                     <div class="swiper-wrapper">
                     @foreach($partners as $p) 
                         <div class="swiper-slide text-center">
-                            <img src="{{asset('uploads/partners/'.$p->logo)}}" width="110" alt=""/>
+                            <img src="{{asset('uploads/partners/'.$p->logo)}}"   style="margin: 0 auto"   width="110" alt=""/>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pager">
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        <div class="col-md-12 border-custom my-2 mobile"> 
+            <div class="swiper-viewport">
+                <div id="carousel1" class="swiper-container">
+                    <div class="swiper-wrapper">
+                    @foreach($partners as $p) 
+                        <div class="swiper-slide text-center">
+                            <img src="{{asset('uploads/partners/'.$p->logo)}}"  style="margin: 0 auto"  width="110" alt=""/>
                         </div>
                         @endforeach
                     </div>
@@ -142,7 +159,7 @@
     <style type="text/css">
         .swiper-button-next, .swiper-button-prev {
           position: absolute;
-          top: 60%;
+          top: 58%;
           width: 40px;
           height: 26px;
           margin-top: -22px;
@@ -152,6 +169,19 @@
         $('#carousel0').swiper({
             mode: 'horizontal',
             slidesPerView: 5,
+            pagination: '.carousel0',
+            paginationClickable: true,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            autoplay: 2500,
+            loop: true
+        });
+    </script>
+   
+    <script type="text/javascript">
+        $('#carousel1').swiper({
+            mode: 'horizontal',
+            slidesPerView: 1,
             pagination: '.carousel0',
             paginationClickable: true,
             nextButton: '.swiper-button-next',
@@ -243,6 +273,7 @@
             </div>
         </div>
     </footer>
+        <script src="{{asset('front/vendor/jquery/slide.js')}}"></script>
         <script src="{{asset('front/vendor/jquery/jquery.min.js')}}"></script>
         <script src="{{asset('front/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('front/vendor/jquery/jquery.magnific-popup.min.js')}}" type="text/javascript"></script>

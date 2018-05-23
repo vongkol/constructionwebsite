@@ -22,7 +22,7 @@
                 @if($i++ == 1)
                     <div class="carousel-item active">
                         <img src="{{asset('front/slides/'.$slide->photo)}}" alt="" width="100%">
-                        <div class="carousel-caption carousel-caption-c">
+                        <div class="carousel-caption carousel-caption-c hidden-sm-down">
                             <label class="col-md-6">
                             <b>{{$slide->name}}</b>
                             </label>
@@ -34,7 +34,7 @@
                 @else
                     <div class="carousel-item">
                         <img src="{{asset('front/slides/'.$slide->photo)}}" alt="" width="100%">
-                        <div class="carousel-caption carousel-caption-c">
+                        <div class="carousel-caption carousel-caption-c hidden-sm-down">
                             <label class="col-md-6">
                                 <b>{{$slide->name}}</b>
                             </label>
@@ -63,55 +63,55 @@
         <!-- Page Content -->
         <div class="container ">
             <div class="row my-5 my-5-c">
-                <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+                <div class="col-lg-3 col-md-3 col-sm-6 portfolio-item">
                     <div class="card card-c  h-100">
                         <div class="text-center icon-home">
                             <i class="fas fa-users-cog text-warning"></i>
                         </div>
                         <div class="card-body card-body-c text-center">
                             <h6 class="card-title">
-                                <span class="text-dark-gray"><b>{{$a->title}}</b></span>
+                                <span class="text-dark-gray rep-title"><b>{{$a->title}}</b></span>
                             </h6>
-                            <p class="card-text text-gray">{{$a->short_description}}</p>
+                            <p class="card-text text-gray rep-des">{{$a->short_description}}</p>
                         </div>
                     </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+            <div class="col-lg-3 col-md-3 col-sm- portfolio-item">
                 <div class="card card-c h-100">
                     <div class="text-center icon-home">
                         <i class="fas fa-trophy text-warning"></i>
                     </div>
                     <div class="card-body card-body-c text-center">
                         <h6 class="card-title">
-                            <span class="text-dark-gray"><b>{{$b->title}}</b></span>
+                            <span class="text-dark-gray rep-title"><b>{{$b->title}}</b></span>
                         </h6>
-                        <p class="card-text text-gray">{{$b->short_description}}</p>
+                        <p class="card-text text-gray rep-des">{{$b->short_description}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+            <div class="col-lg-3 col-md-3 col-sm-6 portfolio-item">
                 <div class="card card-c h-100">
                     <div class="text-center icon-home">
                         <i class="far fa-gem text-warning"></i>
                     </div>
                     <div class="card-body card-body-c text-center">
                     <h6 class="card-title">
-                        <span class="text-dark-gray"><b>{{$c->title}}</b></span>
+                        <span class="text-dark-gray rep-title"><b>{{$c->title}}</b></span>
                     </h6>
-                    <p class="card-text text-gray">{{$c->short_description}}</p>
+                    <p class="card-text text-gray rep-des">{{$c->short_description}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+            <div class="col-lg-3 col-md-3 col-sm-6 portfolio-item">
                 <div class="card card-c h-100">
                     <div class="text-center  icon-home">
                         <i class="fas fa-handshake text-warning"></i>
                     </div>
                     <div class="card-body card-body-c text-center">
                         <h6 class="card-title">
-                            <span class="text-dark-gray"><b>{{$d->title}}</b></span>
+                            <span class="text-dark-gray rep-title"><b>{{$d->title}}</b></span>
                         </h6>
-                        <p class="card-text text-gray">{{$d->short_description}}</p>
+                        <p class="card-text text-gray rep-des">{{$d->short_description}}</p>
                     </div>
                 </div>
             </div>
@@ -193,7 +193,7 @@
                                 @endif
                         @endforeach
                         </div>
-                        <div  align="right">
+                        <div  align="right" >
                             <a href="#" class="btn btn-warning text-white btn-flat"> MORE NEWS <i class="fa fa-forward"></i></a>
                         </div>
                     </div>
@@ -216,41 +216,37 @@
         <div class="row my-4">
            <div class="col-md-7 my-4">
                 <div class="img">
-                    <iframe width="100%" height="415" src="https://www.youtube.com/embed/0BXGh0EYJtE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <iframe width="100%" class="video" src="{{$video->url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                </div>
            </div>
            <div class="col-md-5 my-4">
                <div class="row">
                     <div class="col-md-12 h-100">
+                        <div class="youtube-height">
                         <div class="row">
+                            <?php $y = 1;?>
+                            @foreach($videos as $v)
+                                @if($y==1)
+                                    @php($y=0)
+                                @else
                             <div class="col-md-5 pd-5">
-                               <iframe width="100%" height="100" src="https://www.youtube.com/embed/U7UKNoufSbk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                               <iframe width="100%" height="video-small" src="{{$v->url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                             </div>
                             <div class="col-md-7 pd-5">
-                                <b>Lorem ipsum dolor sit amet, consectetur adipisicing</b>
+                                <b>{{$v->title}}</b>
                             </div>
-                            <div class="col-md-5 pd-5">
-                               <iframe width="100%" height="100" src="https://www.youtube.com/embed/IsaCk4SARPk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                            </div>
-                            <div class="col-md-7">
-                                <b>Lorem ipsum dolor sit amet, consectetur adipisicing</b>
-                            </div>
-                            <div class="col-md-5 pd-5">
-                               <iframe width="100%" height="100" src="https://www.youtube.com/embed/baimGHLHq5E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                            </div>
-                            <div class="col-md-7 pd-5">
-                                 <b>Lorem ipsum dolor sit amet, consectetur adipisicing</b>
-                            </div>
-                            <div class="col-md-5 pd-5">
-                               <iframe width="100%" height="100" src="https://www.youtube.com/embed/mhd-wDhZNzE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                            </div>
-                            <div class="col-md-7 pd-5">
-                                <b>Lorem ipsum dolor sit amet, consectetur adipisicing</b>
-                            </div>
+                            @endif
+                           @endforeach
+                          
+                        </div>
+                        
+                    </div>
+                    <div  align="right"><p></p>
+                            <a href="#" class="btn btn-warning text-white btn-flat"> MORE VIDEOS <i class="fa fa-forward"></i></a>
                         </div>
                     </div>
-                    
-               </div></div>
+               </div>
+            </div>
             </div>
            </div>
        </div>
@@ -284,7 +280,7 @@
                   <li class="nav-item">
                     <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
                   </li>
                     <li class="nav-item">
@@ -292,69 +288,68 @@
                   </li>
                      <li class="nav-item">
                     <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Project</a>
-                  </li>
+                  </li> -->
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
-                  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"></div>
-                  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"></div>
-                  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"></div>
-                </div>
-              </div>
-             </div>
-             <div class="col-md-12">
+                  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">1</div>
+                  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"> <div class="col-md-12">
             <div class="row">
                 <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6  pd-0">
-                    <div class="gallery-img"><a href="img/pic1.jpg" class="image-link" title="Image 1"><img src="img/pic1.jpg"  width="100%" alt=""></a>
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 1"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%" alt=""></a>
                     </div>
                 </div>
                 <!-- portfolio-block -->
                 <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6  pd-0">
-                    <div class="gallery-img"><a href="img/pic2.jpg" class="image-link" title="Image 2"><img src="img/pic2.jpg" width="100%" alt=""></a>
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 2"><img src="{{asset('front/img/pic1.jpg')}}" width="100%" alt=""></a>
                     </div>
                 </div>
                 <!-- portfolio-block -->
                 <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6 pd-0">
-                    <div class="gallery-img"><a href="img/pic6.jpg" class="image-link" title="Image 3"><img src="img/pic6.jpg"  width="100%" alt="" class="img-responsive">
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 3"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%" alt="" class="img-responsive">
                     </div>
                 </div>
                 <!-- portfolio-block -->
                  <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6  pd-0">
-                    <div class="gallery-img"><a href="img/pic5.jpg" class="image-link" title="Image 4"><img src="img/pic5.jpg"  width="100%" alt=""></a>
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 4"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%" alt=""></a>
                     </div>
                 </div>
                 <!-- portfolio-block -->
                  <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6 pd-0">
-                    <div class="gallery-img"><a href="img/pic4.jpg" class="image-link" title="Image 5"><img src="img/pic4.jpg"  width="100%" alt=""></a>
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 5"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%" alt=""></a>
                     </div>
                 </div>
                 <!-- portfolio-block -->
                 <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6 pd-0">
-                    <div class="gallery-img"><a href="img/pic1.jpg" class="image-link" title="Image 6"><img src="img/pic1.jpg"  width="100%"  alt="" ></a>
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 6"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%"  alt="" ></a>
                     </div>
                 </div>
                 <!-- portfolio-block -->
                 <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6 pd-0">
-                    <div class="gallery-img"><a href="img/pic2.jpg" class="image-link" title="Image 7"><img src="img/pic2.jpg"  width="100%"  alt=""></a>
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 7"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%"  alt=""></a>
                     </div>
                 </div>
                 <!-- portfolio-block -->
                 <!-- portfolio-block -->
                 <div class="col-lg-3 col-md-3 col-sm-6 pd-0">
-                    <div class="gallery-img"><a href="img/pic3.jpg" class="image-link" title="Image 8"><img src="img/pic3.jpg" width="100%"   alt=""></a>
+                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 8"><img src="{{asset('front/img/pic1.jpg')}}" width="100%"   alt=""></a>
                     </div>
                 </div>
                 <!-- portfolio-block -->
             </div></div>
         </div>
     </div>
-    <!-- /.portfolio-section -->
+    <!-- /.portfolio-section --></div>
+                </div>
+              </div>
+             </div>
+            
 
     <p></p>
     <div class="container">
@@ -366,17 +361,23 @@
         <aside class="text-partner text-gray"> Lorem ipsum dolor sit</aside> 
         <div class="in-icon"></div>   
     </div>
+<?php $current_projects = DB::table('current_projects')->where('active',1)->orderBy('order')->get(); ?>
     <div class="container-fluit my-4">
-        <img src="{{asset('front/img/b1.jpg')}}" alt="" width="100%" > 
-        <div class="col-md-12 text-center"> 
-            <img src="img/c1.jpg" class="recent-project" width="100">
-            <img src="img/c1.jpg" class="recent-project" width="100">
-            <img src="img/c1.jpg" class="recent-project" width="100">
+        <div class="slideshow-container">
+            @foreach($current_projects as $cp)
+            <div class="mySlides fade">
+                <img src="{{asset('uploads/current_projects/'.$cp->photo)}}" style="width:100%">
+            </div>
+            @endforeach
+        </div>
+        <br>
+        <div style="text-align:center">
+            <?php $d = 1; ?>
+            @foreach($current_projects as $cp)
+            <span class="dot" onclick="currentSlide(<?php echo $d++;?>)"><img src="{{asset('uploads/current_projects/icon/'.$cp->photo)}}" width="50"></span> 
+            @endforeach
         </div>
     </div>
-
-
-
     <div class="container">
         <div class="col-md-12">
             <div class="row">
@@ -403,7 +404,7 @@
             </div>
         </div>
     </div>
-
+                                
     <div class="container">
         <div class="col-md-12">
             <div class="row">

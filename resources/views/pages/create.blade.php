@@ -32,7 +32,8 @@
                     <form 
                     	action="{{url('/page/save')}}" 
                     	class="form-horizontal" 
-                    	method="post"
+                        method="post"
+                        enctype="multipart/form-data"
                     >
                         {{csrf_field()}}
                         <div class="form-group row">
@@ -53,6 +54,19 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="featured_image" class="control-label col-lg-1 col-sm-2">
+                            	Featured Image <span class="text-danger">(1200 x 250)</span>
+                            </label>
+                            <div class="col-lg-6 col-sm-8">
+                            <div style="margin-bottom: 3px;">
+                                    <input type="file" name="featured_image" id="featured_image" accept="image/*" class="form-control" onchange="loadFile(event)">
+                                </div>
+                                <div>
+                                    <img src="{{asset('uploads/pages/default.png')}}" id="img" width="100%" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="control-label col-lg-1 col-sm-2">&nbsp;</label>
                             <div class="col-lg-6 col-sm-8">
                                 <button class="btn btn-primary" type="submit">Save</button>
@@ -66,6 +80,12 @@
     </div>
 @endsection
 @section('js')
+<script>
+    function loadFile(e){
+        var output = document.getElementById('img');
+        output.src = URL.createObjectURL(e.target.files[0]);
+    }
+</script>
 <script src="{{asset('js/ckeditor/ckeditor.js')}}"></script>
 <script type="text/javascript">
    var roxyFileman = "{{asset('fileman/index.html?integration=ckeditor')}}"; 

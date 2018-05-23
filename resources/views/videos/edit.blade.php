@@ -37,15 +37,15 @@
                         {{csrf_field()}}
                         <input type="hidden" name="id" id="id" value="{{$video_training->id}}">
                         <div class="form-group row">
-                            <label for="url" class="control-label col-lg-1 col-sm-2">URL</label>
+                            <label for="title" class="control-label col-lg-1 col-sm-2">Title <span class="text-danger">*</span></label>
                             <div class="col-lg-6 col-sm-8">
-                                <input type="text" name="url" id="url" class="form-control" value="{{$video_training->url}}">
+                                <input type="title" name="title" id="title" required value="{{$video_training->title}}" class="form-control">
                             </div>
                         </div>
-                         <div class="form-group row">
-                            <label for="order_number" class="control-label col-sm-2 col-lg-1">Order</label>
+                        <div class="form-group row">
+                            <label for="url" class="control-label col-lg-1 col-sm-2">URL <span class="text-danger">*</span></label>
                             <div class="col-lg-6 col-sm-8">
-                                <input type="number" class="form-control" id="order_number" name="order_number" value="{{$video_training->order_number}}" min="0" step="1">
+                                <input type="text" name="url" id="url" required class="form-control" value="{{$video_training->url}}">
                             </div>
                         </div>
                         <div class="form-group row">

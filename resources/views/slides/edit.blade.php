@@ -4,7 +4,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header text-bold">
-                    <i class="fa fa-align-justify"></i> Edit Logo&nbsp;&nbsp;
+                    <i class="fa fa-align-justify"></i> Edit Slide&nbsp;&nbsp;
                     <a href="{{url('/slide')}}" class="btn btn-link btn-sm">Back To List</a>
                 </div>
                 <div class="card-block">

@@ -25,10 +25,6 @@ class FrontController extends Controller
             ->orderBy('order', 'asc')
             ->get();
         $data['news'] = DB::table('posts')
-            ->orderBy('id', 'desc')
-            ->where('active',1)
-            ->get();
-        $data['news'] = DB::table('posts')
             ->join('categories', 'posts.category_id', 'categories.id')
             ->where('posts.active', 1)
             ->where('categories.name', 'News')
@@ -39,11 +35,19 @@ class FrontController extends Controller
         $data['feature_works'] = DB::table('posts')
             ->join('categories', 'posts.category_id', 'categories.id')
             ->where('posts.active', 1)
-            ->where('categories.name', 'Featured Work')
+            ->where('categories.name', 'Feature Work')
             ->orderBy('posts.id', 'desc')
             ->select('posts.*')
             ->limit(6)
             ->get();
+        $data['video'] = DB::table('video_trainings')
+            ->where('active',1)
+            ->orderBy('id','desc')
+            ->first();
+        $data['videos'] = DB::table('video_trainings')
+            ->where('active',1)
+            ->orderBy('id','desc')
+            ->limit(8)->get();
         return view('fronts.index', $data);
     }
     public function detail($id)
