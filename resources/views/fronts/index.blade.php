@@ -274,78 +274,61 @@
         <div class="container-fluit portfolio">
              <div class="container">
               <ul class="nav justify-content-center" id="pills-tab" role="tablist">
+              <?php $p= 1; ?>
+                  @foreach($portfolio_categories as $por_cat)
+                  @if($p == 1)
                   <li class="nav-item">
-                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+                    <a class="nav-link active" id="pills-{{$por_cat->name}}-tab" data-toggle="pill" href="#pills-{{$por_cat->name}}" role="tab" aria-controls="pills-{{$por_cat->name}}" aria-selected="true"> {{$por_cat->name}}</a>
                   </li>
+                  @else
                   <li class="nav-item">
-                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+                    <a class="nav-link" id="pills-{{$por_cat->name}}-tab" data-toggle="pill" href="#pills-{{$por_cat->name}}" role="tab" aria-controls="pills-{{$por_cat->name}}" aria-selected="false">{{$por_cat->name}}</a>
                   </li>
-                  <!-- <li class="nav-item">
-                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
-                  </li>
-                    <li class="nav-item">
-                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Construction</a>
-                  </li>
-                     <li class="nav-item">
-                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Project</a>
-                  </li> -->
+                  @endif
+                  <?php $p++; ?>
+                    @endforeach
                 </ul>
+                </div>
+            </div>
                 <div class="tab-content" id="pills-tabContent">
-                  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">1</div>
-                  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"> <div class="col-md-12">
-            <div class="row">
-                <!-- portfolio-block -->
-                <div class="col-lg-3 col-md-3 col-sm-6  pd-0">
-                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 1"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%" alt=""></a>
+                <?php $p2 = 1; ?>
+                @foreach($portfolio_categories as $pc)
+                <?php $portfolios= DB::table('portfolios')
+                    ->where('active',1)
+                    ->orderBy('order', 'asc')
+                    ->where('portfolio_category_id',  $pc->id)
+                    ->limit(8)
+                    ->get();
+                ?>
+                @if($p2++ == 1)
+                  <div class="tab-pane fade show active" id="pills-{{$pc->name}}" role="tabpanel" aria-labelledby="pills-{{$pc->name}}-tab">
+                  <div class="col-md-12">
+                  <div class="row">
+                        @foreach($portfolios as $hp)
+                        <div class="col-lg-3 col-md-3 col-sm-6  pd-0">
+                            <div class="gallery-img"><a href="{{asset('uploads/portfolios/'.$hp->photo)}}" class="image-link" title="{{$hp->name}}"><img src="{{asset('uploads/portfolios/small/'.$hp->photo)}}"  width="100%" alt=""></a>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
-                </div>
-                <!-- portfolio-block -->
-                <!-- portfolio-block -->
-                <div class="col-lg-3 col-md-3 col-sm-6  pd-0">
-                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 2"><img src="{{asset('front/img/pic1.jpg')}}" width="100%" alt=""></a>
+                  </div>
+                  </div>  
+                  @else 
+                  <div class="tab-pane fade show" id="pills-{{$pc->name}}" role="tabpanel" aria-labelledby="pills-{{$pc->name}}-tab">
+                  <div class="col-md-12">  
+                    <div class="row">
+                            @foreach($portfolios as $hp)
+                            <div class="col-lg-3 col-md-3 col-sm-6  pd-0">
+                                <div class="gallery-img"><a href="{{asset('uploads/portfolios/'.$hp->photo)}}" class="image-link" title="{{$hp->name}}"><img src="{{asset('uploads/portfolios/small/'.$hp->photo)}}"  width="100%" alt=""></a>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
+                  </div>
+                @endif
+                @endforeach
                 </div>
-                <!-- portfolio-block -->
-                <!-- portfolio-block -->
-                <div class="col-lg-3 col-md-3 col-sm-6 pd-0">
-                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 3"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%" alt="" class="img-responsive">
-                    </div>
-                </div>
-                <!-- portfolio-block -->
-                 <!-- portfolio-block -->
-                <div class="col-lg-3 col-md-3 col-sm-6  pd-0">
-                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 4"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%" alt=""></a>
-                    </div>
-                </div>
-                <!-- portfolio-block -->
-                 <!-- portfolio-block -->
-                <div class="col-lg-3 col-md-3 col-sm-6 pd-0">
-                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 5"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%" alt=""></a>
-                    </div>
-                </div>
-                <!-- portfolio-block -->
-                <!-- portfolio-block -->
-                <div class="col-lg-3 col-md-3 col-sm-6 pd-0">
-                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 6"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%"  alt="" ></a>
-                    </div>
-                </div>
-                <!-- portfolio-block -->
-                <!-- portfolio-block -->
-                <div class="col-lg-3 col-md-3 col-sm-6 pd-0">
-                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 7"><img src="{{asset('front/img/pic1.jpg')}}"  width="100%"  alt=""></a>
-                    </div>
-                </div>
-                <!-- portfolio-block -->
-                <!-- portfolio-block -->
-                <div class="col-lg-3 col-md-3 col-sm-6 pd-0">
-                    <div class="gallery-img"><a href="{{asset('front/img/pic1.jpg')}}" class="image-link" title="Image 8"><img src="{{asset('front/img/pic1.jpg')}}" width="100%"   alt=""></a>
-                    </div>
-                </div>
-                <!-- portfolio-block -->
-            </div></div>
-        </div>
-    </div>
-    <!-- /.portfolio-section --></div>
                 </div>
               </div>
              </div>

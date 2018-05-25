@@ -48,6 +48,10 @@ class FrontController extends Controller
             ->where('active',1)
             ->orderBy('id','desc')
             ->limit(8)->get();
+        $data['portfolio_categories'] = DB::table('portfolio_categories')
+            ->where('active',1)
+            ->orderBy('order', 'asc')
+            ->get();
         return view('fronts.index', $data);
     }
     public function detail($id)

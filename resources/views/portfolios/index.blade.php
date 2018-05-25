@@ -17,6 +17,7 @@
                                 <th>Image</th>
                                 <th>Name</th>
                                 <th>Order</th>
+                                <th>Category</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -33,6 +34,7 @@
                                     <td><img src="{{URL::asset('uploads/portfolios/small/'.$por->photo)}}" width="100"/></td>
                                     <td>{{$por->name}}</td>
                                     <td>{{$por->order}}</td>
+                                    <td>{{$por->portfolio_category_id}}</td>
                                     <td>
                                         <a class="btn btn-xs btn-primary" href="{{url('/portfolio/edit/'.$por->id)}}" title="Edit"><i class="fa fa-pencil"></i></a>
                                         <a  class="btn btn-danger btn-xs"  href="{{url('/portfolio/delete/'.$por->id ."?page=".@$_GET["page"])}}" onclick="return confirm('You want to delete?')" title="Delete"><i class="fa fa-trash-o"></i></a>

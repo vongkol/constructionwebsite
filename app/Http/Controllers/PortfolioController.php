@@ -20,8 +20,10 @@ class PortfolioController extends Controller
         //     return view('permissions.no');
         // }
         $data['portfolios'] = DB::table('portfolios')
-            ->where('active',1)
-            ->orderBy('id', 'desc')
+            ->join('portfolio_categories','portfolio_categories.id', 'portfolios.portfolio_category_id')
+            ->select('portfolios.*', 'portfolio_categories.name as portfolio_category_id')
+            ->where('portfolios.active',1)
+            ->orderBy('portfolios.id', 'desc')
             ->paginate(18);
         return view('portfolios.index', $data);
     }
@@ -30,13 +32,17 @@ class PortfolioController extends Controller
         // if(!Right::check('Slideshow', 'i')){
         //     return view('permissions.no');
         // }
-        return view('portfolios.create');
+        $data['portfolio_categories'] = DB::table('portfolio_categories')
+            ->where('active',1)
+            ->get();
+        return view('portfolios.create', $data);
     }
     public function save(Request $r)
     {
     	
         $data = array(
             'name' => $r->name,
+            'portfolio_category_id' => $r->category,
             'order' => $r->order,
         );
         $i = DB::table('portfolios')->insertGetId($data);
