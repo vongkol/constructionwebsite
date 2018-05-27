@@ -10,20 +10,16 @@ class PostController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(function ($request, $next) {
-            if (Auth::user()==null)
-            {
-                return redirect("/login");
-            }
-            return $next($request);
-        });
+        $this->middleware('auth');
     }
     // index
     public function index()
     {
         $data['posts'] = DB::table('posts')
-            ->where('active',1)
-            ->orderBy('id', 'desc')
+            ->join('categories', 'posts.category_id', 'categories.id')
+            ->where('posts.active', 1)
+            ->orderBy('posts.id', 'desc')
+            ->select('posts.*', 'categories.name')
             ->paginate(18);
         return view('posts.index', $data);
     }
@@ -38,7 +34,8 @@ class PostController extends Controller
         $data = array(
             'title' => $r->title,
             'short_description' => $r->short_description,
-            'description' => $r->description
+            'description' => $r->description,
+            'category_id' => $r->category
         );
         $i = DB::table('posts')->insertGetId($data);
         if($i)
@@ -84,7 +81,8 @@ class PostController extends Controller
         $data = array(
             'title' => $r->title,
             'short_description' => $r->short_description,
-            'description' => $r->description
+            'description' => $r->description,
+            'category_id' => $r->category
         );
         if($r->feature_image) {
            

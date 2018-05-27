@@ -231,3 +231,11 @@ Route::get('/elibrary/{id}', "FrontController@elibrary_detail");
 Route::get('/event', "FrontController@event");
 Route::get('/event/{id}', "FrontController@event_detail");
 Route::get('/subscribe/{id}', "FrontController@subscribe");
+// featured work admin
+Route::get('/admin/featured-work', "FeaturedWorkController@index");
+Route::get('/admin/featured-work/create', "FeaturedWorkController@create");
+Route::get('/admin/featured-work/edit/{id}', "FeaturedWorkController@edit");
+Route::get('/admin/featured-work/delete/{id}', "FeaturedWorkController@delete");
+Route::get('/admin/featured-work/view/{id}', "FeaturedWorkController@view");
+Route::post('/admin/featured-work/save', "FeaturedWorkController@save");
+Route::post('/admin/featured-work/update', "FeaturedWorkController@update");

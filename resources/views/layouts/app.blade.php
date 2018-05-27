@@ -84,10 +84,13 @@
                     </li>
                    
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/post')}}"><i class="fa fa-file-o"></i> Featured Work</a>
+                        <a class="nav-link" href="{{url('/admin/featured-work')}}"><i class="fa fa-file-o"></i> Featured Work</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/page')}}"><i class="fa fa-columns"></i> Page </a>
+                        <a class="nav-link" href="{{url('/page')}}"><i class="fa fa-columns"></i> Pages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/post')}}"><i class="fa fa-columns"></i> Posts</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/slide')}}"><i class="fa fa-picture-o"></i> Slide Show</a>

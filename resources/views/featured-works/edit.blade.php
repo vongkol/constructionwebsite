@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <form 
-    action="{{url('/post/update')}}" 
+    action="{{url('/admin/featured-work/update')}}" 
     class="form-horizontal" 
     method="post"
     enctype="multipart/form-data">
@@ -9,8 +9,8 @@
         <div class="col-lg-9 col-sm-9">
             <div class="card">
                 <div class="card-header text-bold">
-                    <i class="fa fa-align-justify"></i> Edit Post&nbsp;&nbsp;
-                    <a href="{{url('/post')}}" class="btn btn-link btn-sm">Back To List</a>
+                    <i class="fa fa-align-justify"></i> Edit Featured Work&nbsp;&nbsp;
+                    <a href="{{url('/admin/featured-work')}}" class="btn btn-link btn-sm">Back To List</a>
                 </div>
                 <div class="card-block">
                     @if(Session::has('sms'))
@@ -56,38 +56,7 @@
             </div>
         </div>
         <div class="col-sm-3 col-lg-3">
-                <div class="card">
-                        <div class="card-header">
-                            Category
-                        </div>
-                        <div class="card-block">
-                            <?php
-                                 // get parent category
-                                 $mains = DB::table('categories')->where('active', 1)->where('parent_id', 0)
-                                     ->orderBy('name')->get();
-                            ?>
-                            <select name="category" id="category" class="form-control">
-                                @foreach($mains as $c)
-                                <?php 
-                                     $subs = DB::table('categories')->where('active', 1)->where('parent_id', $c->id)
-                                         ->orderBy('name')
-                                         ->get();
-                                 ?>
-                                 @if(count($subs)>0)
-                                     <optgroup label="{{$c->name}}">
-                                     @foreach($subs as $s)
-                                         <option value="{{$s->id}}" {{$s->id==$post->category_id?'selected':''}}>{{$s->name}}</option>
-                                     @endforeach
-                                     </optgroup>
-                                 @else
-                                     <optgroup label="--------">
-                                         <option value="{{$c->id}}" {{$c->id==$post->category_id?'selected':''}}>{{$c->name}}</option>
-                                     </optgroup>
-                                 @endif
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
+               
                 <div class="card">
                         <div class="card-header">
                             Feature Image <span class="text-danger">(350x250)</span>
@@ -97,7 +66,7 @@
                                 <input type="file" name="feature_image" id="feature_image" accept="image/*" class="form-control" onchange="loadFile(event)">
                             </div>
                             @if($post->featured_image != null) 
-                            <img src="{{asset('uploads/posts/250x250/'.$post->featured_image)}}" width="200" id="img">
+                            <img src="{{asset('uploads/featured-works/250x250/'.$post->featured_image)}}" width="200" id="img">
                             @else 
                             <img src="{{asset('front/img/default.svg')}}" width="200" id="img">
                             @endif

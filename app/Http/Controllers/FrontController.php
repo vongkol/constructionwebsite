@@ -26,7 +26,7 @@ class FrontController extends Controller
             ->select('posts.*')
             ->limit(7)
             ->get();
-        $data['feature_works'] = DB::table('posts')
+        $data['feature_works'] = DB::table('featured_works')
             ->where('active', 1)
             ->orderBy('id', 'desc')
             ->limit(6)

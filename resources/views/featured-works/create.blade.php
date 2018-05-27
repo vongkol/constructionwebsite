@@ -4,8 +4,8 @@
         <div class="col-lg-9 col-sm-9">
             <div class="card">
                 <div class="card-header text-bold">
-                    <i class="fa fa-align-justify"></i> New Post&nbsp;&nbsp;
-                    <a href="{{url('/post')}}" class="btn btn-link btn-sm">Back To List</a>
+                    <i class="fa fa-align-justify"></i> New Featured Work&nbsp;&nbsp;
+                    <a href="{{url('/admin/featured-work')}}" class="btn btn-link btn-sm">Back To List</a>
                 </div>
                 <div class="card-block">
                     @if(Session::has('sms'))
@@ -29,7 +29,7 @@
                         </div>
                     @endif
                     <form 
-                    	action="{{url('/post/save')}}" 
+                    	action="{{url('/admin/featured-work/save')}}" 
                     	class="form-horizontal" 
                         method="post"
                         enctype="multipart/form-data"
@@ -58,38 +58,7 @@
             </div>
         </div>
         <div class="col-sm-3 col-lg-3">
-           <div class="card">
-               <div class="card-header">
-                   Category
-               </div>
-               <div class="card-block">
-                   <?php
-                        // get parent category
-                        $mains = DB::table('categories')->where('active', 1)->where('parent_id', 0)
-                            ->orderBy('name')->get();
-                   ?>
-                   <select name="category" id="category" class="form-control">
-                       @foreach($mains as $c)
-                       <?php 
-                            $subs = DB::table('categories')->where('active', 1)->where('parent_id', $c->id)
-                                ->orderBy('name')
-                                ->get();
-                        ?>
-                        @if(count($subs)>0)
-                            <optgroup label="{{$c->name}}">
-                            @foreach($subs as $s)
-                                <option value="{{$s->id}}">{{$s->name}}</option>
-                            @endforeach
-                            </optgroup>
-                        @else
-                            <optgroup label="--------">
-                                <option value="{{$c->id}}">{{$c->name}}</option>
-                            </optgroup>
-                        @endif
-                       @endforeach
-                   </select>
-               </div>
-           </div>
+           
             <div class="card">
                 <div class="card-header">
                     Featured Image <span class="text-danger">(350x250)</span>
