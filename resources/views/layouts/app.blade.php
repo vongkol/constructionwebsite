@@ -11,12 +11,7 @@
     <meta name="author" content="vdoo.biz">
     <meta name="keyword" content="ngo, website ngo, company create website, website">
     <link rel="shortcut icon" href="img/favicon.png">
-
-<<<<<<< HEAD
     <title>ECC Building Trust</title>
-=======
-    <title>Construction Admin Website</title>
->>>>>>> 19e5d7c7dc860c1c6a2e2b0b6540eb2599d06278
 
      <!-- Chosen  -->
     <link rel="stylesheet" href="{{asset('chosen/chosen.css')}}">
@@ -36,11 +31,8 @@
 <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
     <header class="app-header navbar">
         <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button">☰</button>
-<<<<<<< HEAD
         <a class="navbar-brand" href="#">ECC</a>
-=======
-        <a class="navbar-brand" href="#"></a>
->>>>>>> 19e5d7c7dc860c1c6a2e2b0b6540eb2599d06278
+
         <ul class="nav navbar-nav d-md-down-none">
             <li class="nav-item">
                 <a class="nav-link navbar-toggler sidebar-toggler" href="#">☰</a>
@@ -186,7 +178,7 @@
 
     <footer class="app-footer">
         Copy &copy; {{date('Y')}} by <a href="#">KYA</a>
-        <span class="float-right">Powered by <a href="http://vdoo.biz" target="_blank">Vdoo</a>
+        <span class="float-right">Powered by <a href="http://vdoo.biz" target="_blank">Vdoo Freelance Team</a>
         </span>
     </footer>
     <!-- Scripts -->

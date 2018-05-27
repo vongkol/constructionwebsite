@@ -20,8 +20,10 @@ class PortfolioController extends Controller
         //     return view('permissions.no');
         // }
         $data['portfolios'] = DB::table('portfolios')
-            ->where('active',1)
-            ->orderBy('id', 'desc')
+            ->join('portfolio_categories', 'portfolios.category_id', 'portfolio_categories.id')
+            ->where('portfolios.active',1)
+            ->orderBy('portfolios.id', 'desc')
+            ->select('portfolios.*', 'portfolio_categories.name as cname')
             ->paginate(18);
         return view('portfolios.index', $data);
     }
@@ -30,13 +32,18 @@ class PortfolioController extends Controller
         // if(!Right::check('Slideshow', 'i')){
         //     return view('permissions.no');
         // }
-        return view('portfolios.create');
+        $data['categories'] = DB::table('portfolio_categories')
+            ->where('active', 1)
+            ->orderBy('name')
+            ->get();
+        return view('portfolios.create', $data);
     }
     public function save(Request $r)
     {
     	
         $data = array(
             'name' => $r->name,
+            'category_id' => $r->category,
             'order' => $r->order,
         );
         $i = DB::table('portfolios')->insertGetId($data);
@@ -81,6 +88,10 @@ class PortfolioController extends Controller
     {
         $data['portfolio'] = DB::table('portfolios')
             ->where('id',$id)->first();
+        $data['categories'] = DB::table('portfolio_categories')
+            ->where('active', 1)
+            ->orderBy('name')
+            ->get();
         return view('portfolios.edit', $data);
     }
     
@@ -92,29 +103,39 @@ class PortfolioController extends Controller
         $data = array(
             'name' => $r->name,
             'order' => $r->order,
-            'url' => $r->url,
+            'category_id' => $r->category
         );
         if ($r->photo) {
             $file = $r->file('photo');
             $file_name = $file->getClientOriginalName();
-            $destinationPath = 'front/slides';
+            $ss = substr($file_name, strripos($file_name, '.'), strlen($file_name));
+            $file_name = 'portfolios' .$i . $ss;
+            $destinationPath = 'uploads/portfolios/'; // usually in public folder
+         
+            // upload 250
+            $n_destinationPath = 'uploads/portfolios/small/';
+            $new_img = Image::make($file->getRealPath())->resize(350, null, function ($con) {
+                $con->aspectRatio();
+            });
+            $new_img->save($n_destinationPath . $file_name, 80);
+
             $file->move($destinationPath, $file_name);
-            $data = array(
-	            'photo' => $file_name,
-            );
+            $data['photo'] = $file_name;
+
+        
         }
         $sms = "All changes have been saved successfully.";
         $sms1 = "Fail to to save changes, please check again!";
-        $i = DB::table('slides')->where('id', $r->id)->update($data);
+        $i = DB::table('portfolios')->where('id', $r->id)->update($data);
         if ($i)
         {
             $r->session()->flash('sms', $sms);
-            return redirect('/slide/edit/'.$r->id);
+            return redirect('/portfolio/edit/'.$r->id);
         }
         else
         {
             $r->session()->flash('sms1', $sms1);
-            return redirect('/slide/edit/'.$r->id);
+            return redirect('/portfolio/edit/'.$r->id);
         }
     }
 }

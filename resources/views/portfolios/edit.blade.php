@@ -39,14 +39,21 @@
                         <input type="hidden" name="id" id="id" value="{{$portfolio->id}}">
                         <div class="form-group row">
                             <label for="name" class="control-label col-lg-2 col-sm-2">
-                            	Name <span class="text-danger">*</span>
+                            	Title <span class="text-danger">*</span>
                             </label>
                             <div class="col-lg-6 col-sm-8">
-                        
-                                    <textarea name="name" id="name" class="form-control" rows="3" required="required">{{$portfolio->name}}</textarea>
+                                <input type="text" class="form-control" name="name" id="name" value="{{$portfolio->name}}" required>
                             </div>
-                            <div class="col-lg-3 col-sm-3">
-                                <img src="{{URL::asset('uploads/portfolios/small/'.$portfolio->photo)}}" width="150" id="img"/>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <label for="category" class="control-label col-sm-2">Category</label>
+                            <div class="col-lg-6 col-sm-8">
+                                <select name="category" id="category" class="form-control">
+                                    @foreach($categories as $c)
+                                        <option value="{{$c->id}}" {{$c->id==$portfolio->category_id?'selected':''}}>{{$c->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -61,6 +68,10 @@
                             <label for="photo" class="control-label required col-lg-2 col-sm-2">Image  <span class="text-danger">(960 x 620)</span></label>
                             <div class="col-lg-6 col-sm-8">
                                 <input type="file" name="photo" id="photo" accept="image/*" onchange="loadFile(event)">
+                                <p></p>
+                                <p>
+                                    <img src="{{URL::asset('uploads/portfolios/small/'.$portfolio->photo)}}" width="150" id="img"/>
+                                </p>
                             </div>
 
                         </div>   

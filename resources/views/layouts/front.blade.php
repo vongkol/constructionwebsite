@@ -25,7 +25,8 @@
             <div class="row"> 
                 <div id="triangle-bottomleft"></div> 
                 <div class=" text-gray text-center rep-h-text">
-                    <i class="fa fa-phone"></i> +855 96 2555 209&nbsp;&nbsp; | &nbsp;&nbsp;<i class="fas fa-envelope"></i> sorvichey@gmail.com &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fas fa-map-marker"></i> 32E0, Daun Penh, Phnom Penh, Cambodia 
+                    <i class="fa fa-phone"></i> 017 996 687 / 077 456 752&nbsp;&nbsp; | &nbsp;&nbsp;<i class="fas fa-envelope"></i> info@eccbuildingtrust.com &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fas fa-map-marker"></i> #10A, St.446, Sangkat Toul Tompong I, Khan Chamkarmorn, 
+                    Phnom penh, Cambodia. “Diamond home Condo I”
                 </div>
             </div>
         </div>
@@ -199,7 +200,7 @@
                     <aside>Your Superer Engineer Partner!</aside>
                 </div>
                 <div class="col-md-4 text-center">
-                    <button type="button" class="btn btn-outline-primary btn-outline-primary-c"> <i class="far fa-building"></i> COMPANY PROFILE</button>
+                    <a href="{{asset('uploads/profiles/company-profile-en.pdf')}}" class="btn btn-outline-primary btn-outline-primary-c" target="_blank"><i class="far fa-building"></i> COMPANY PROFILE</a>
                 </div>
             </div>
         </div>
@@ -261,10 +262,10 @@
                     ->get();
             ?>
                 <div class="col-md-4">
-                    <h6>You can trust us</h6>
+                    <h6>Follow Us On</h6>
                     <div class="footer-page">
                         @foreach($socials as $so)
-                        <a href="{{$so->url}}" class="a" style="padding:2px;">
+                        <a href="{{$so->url}}" class="a" style="padding:2px;" target="_blank">
                             <img src="{{asset('uploads/socials/'.$so->icon)}}" width="40">
                         </a>
                         @endforeach

@@ -15,7 +15,8 @@
                             <tr>
                                 <th>&numero;</th>
                                 <th>Image</th>
-                                <th>Name</th>
+                                <th>Title</th>
+                                <th>Category</th>
                                 <th>Order</th>
                                 <th>Action</th>
                             </tr>
@@ -32,6 +33,7 @@
                                     <td>{{$i++}}</td>
                                     <td><img src="{{URL::asset('uploads/portfolios/small/'.$por->photo)}}" width="100"/></td>
                                     <td>{{$por->name}}</td>
+                                    <td>{{$por->cname}}</td>
                                     <td>{{$por->order}}</td>
                                     <td>
                                         <a class="btn btn-xs btn-primary" href="{{url('/portfolio/edit/'.$por->id)}}" title="Edit"><i class="fa fa-pencil"></i></a>

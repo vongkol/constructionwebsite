@@ -27,7 +27,7 @@ class SocialController extends Controller
         }
         $data['socials'] = DB::table('socials')
             ->where('active',1)
-            ->orderBy('id', 'desc')
+            ->orderBy('order_number')
             ->paginate(18);
         return view('socials.index', $data);
     }
