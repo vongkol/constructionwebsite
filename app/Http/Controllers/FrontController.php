@@ -27,11 +27,8 @@ class FrontController extends Controller
             ->limit(7)
             ->get();
         $data['feature_works'] = DB::table('posts')
-            ->join('categories', 'posts.category_id', 'categories.id')
-            ->where('posts.active', 1)
-            ->where('categories.name', 'Feature Work')
-            ->orderBy('posts.id', 'desc')
-            ->select('posts.*')
+            ->where('active', 1)
+            ->orderBy('id', 'desc')
             ->limit(6)
             ->get();
         $data['video'] = DB::table('video_trainings')

@@ -15,7 +15,6 @@
                             <tr>
                                 <th>&numero;</th>
                                 <th>Title</th>
-                                <th>Category</th>
                                 <th>Featured Image</th>
                                 <th>Action</th>
                             </tr>
@@ -31,7 +30,6 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td><a href="{{url('/post/view/'.$p->id)}}" title="Edit">{{$p->title}}</a></td>
-                                    <td>{{$p->name}}</td>
                                     <td>
                                         <img src="{{asset('uploads/posts/250x250/'.$p->featured_image)}}" alt="" width="70">
                                     </td>

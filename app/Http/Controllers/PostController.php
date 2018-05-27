@@ -22,20 +22,15 @@ class PostController extends Controller
     public function index()
     {
         $data['posts'] = DB::table('posts')
-            ->join('categories', 'posts.category_id', 'categories.id')
-            ->where('posts.active',1)
-            ->orderBy('posts.id', 'desc')
-            ->select('posts.*', 'categories.name')
+            ->where('active',1)
+            ->orderBy('id', 'desc')
             ->paginate(18);
         return view('posts.index', $data);
     }
     // load create form
     public function create()
     {
-        $data['categories'] = DB::table('categories')
-            ->where('active', 1)
-            ->get();
-        return view('posts.create', $data);
+        return view('posts.create');
     }
     // save new page
     public function save(Request $r)
@@ -43,8 +38,7 @@ class PostController extends Controller
         $data = array(
             'title' => $r->title,
             'short_description' => $r->short_description,
-            'description' => $r->description,
-            'category_id' => $r->category
+            'description' => $r->description
         );
         $i = DB::table('posts')->insertGetId($data);
         if($i)
@@ -73,16 +67,12 @@ class PostController extends Controller
     // delete
     public function delete($id)
     {
-        
         DB::table('posts')->where('id', $id)->update(['active'=>0]);
         return redirect('/post');
     }
 
     public function edit($id)
     {
-        $data['categories'] = DB::table('categories')
-           ->where('active', 1)
-           ->get();
 
         $data['post'] = DB::table('posts')
             ->where('id',$id)->first();
@@ -94,8 +84,7 @@ class PostController extends Controller
         $data = array(
             'title' => $r->title,
             'short_description' => $r->short_description,
-            'description' => $r->description,
-            'category_id' => $r->category
+            'description' => $r->description
         );
         if($r->feature_image) {
            

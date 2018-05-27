@@ -84,7 +84,7 @@
                     </li>
                    
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/post')}}"><i class="fa fa-file-o"></i> Post</a>
+                        <a class="nav-link" href="{{url('/post')}}"><i class="fa fa-file-o"></i> Featured Work</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/page')}}"><i class="fa fa-columns"></i> Page </a>
