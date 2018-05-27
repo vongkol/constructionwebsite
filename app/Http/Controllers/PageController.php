@@ -66,11 +66,11 @@ class PageController extends Controller
                 DB::table('pages')->where('id', $i)->update(['featured_image'=>$file_name, 'url'=> $url]);
             }
             $r->session()->flash('sms', 'New page has been created successfully!');
-            return redirect('/page/create');
+            return redirect('/admin/page/create');
         }
         else{
             $r->session()->flash('sms1', 'Fail to create new post. Please check your input again!');
-            return redirect('/page/create')->withInput();
+            return redirect('/admin/page/create')->withInput();
         }
     }
     // delete
@@ -81,7 +81,7 @@ class PageController extends Controller
             return view('permissions.no');
         }
         DB::table('pages')->where('id', $id)->update(['active'=>0]);
-        return redirect('/page');
+        return redirect('/admin/page');
     }
 
     public function edit($id)
@@ -121,13 +121,13 @@ class PageController extends Controller
         {
             $sms = "All changes have been saved successfully.";
             $r->session()->flash('sms', $sms);
-            return redirect('/page/edit/'.$r->id);
+            return redirect('/admin/page/edit/'.$r->id);
         }
         else
         {   
             $sms1 = "Fail to to save changes, please check again!";
             $r->session()->flash('sms1', $sms1);
-            return redirect('/page/edit/'.$r->id);
+            return redirect('/admin/page/edit/'.$r->id);
         }
     }
     // view detail

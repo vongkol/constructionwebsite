@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <i class="fa fa-align-justify"></i> New Post&nbsp;&nbsp;
-                    <a href="{{url('/post')}}" class="btn btn-link btn-sm">Back To List</a>
+                    <a href="{{url('/admin/post')}}" class="btn btn-link btn-sm">Back To List</a>
                 </div>
                 <div class="card-block">
                     @if(Session::has('sms'))
@@ -29,7 +29,7 @@
                         </div>
                     @endif
                     <form 
-                    	action="{{url('/post/save')}}" 
+                    	action="{{url('/admin/post/save')}}" 
                     	class="form-horizontal" 
                         method="post"
                         enctype="multipart/form-data"

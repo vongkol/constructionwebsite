@@ -17,20 +17,32 @@ class FeaturedWorkController extends Controller
      // index
      public function index()
      {
-         $data['posts'] = DB::table('featured_works')
+        if(!Right::check('Featured Work', 'l'))
+        {
+            return view('permissions.no');
+        }
+        $data['posts'] = DB::table('featured_works')
              ->where('active',1)
              ->orderBy('id', 'desc')
              ->paginate(18);
-         return view('featured-works.index', $data);
+        return view('featured-works.index', $data);
      }
      // load create form
      public function create()
      {
+        if(!Right::check('Featured Work', 'i'))
+        {
+            return view('permissions.no');
+        }
          return view('featured-works.create');
      }
      // save new page
      public function save(Request $r)
      {
+        if(!Right::check('Featured Work', 'i'))
+        {
+            return view('permissions.no');
+        }
          $data = array(
              'title' => $r->title,
              'short_description' => $r->short_description,
@@ -63,13 +75,20 @@ class FeaturedWorkController extends Controller
      // delete
      public function delete($id)
      {
+        if(!Right::check('Featured Work', 'd'))
+        {
+            return view('permissions.no');
+        }
          DB::table('featured_works')->where('id', $id)->update(['active'=>0]);
          return redirect('/admin/featured-work');
      }
  
      public function edit($id)
      {
- 
+        if(!Right::check('Featured Work', 'u'))
+        {
+            return view('permissions.no');
+        }
          $data['post'] = DB::table('featured_works')
              ->where('id',$id)->first();
          return view('featured-works.edit', $data);
@@ -77,6 +96,10 @@ class FeaturedWorkController extends Controller
  
      public function update(Request $r)
      {
+        if(!Right::check('Featured Work', 'u'))
+        {
+            return view('permissions.no');
+        }
          $data = array(
              'title' => $r->title,
              'short_description' => $r->short_description,
@@ -111,6 +134,10 @@ class FeaturedWorkController extends Controller
      // view detail
      public function view($id) 
      {
+        if(!Right::check('Featured Work', 'l'))
+        {
+            return view('permissions.no');
+        }
          $data['post'] = DB::table('featured_works')
              ->where('id',$id)->first();
          return view('featured-works.detail', $data);

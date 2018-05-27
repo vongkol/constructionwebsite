@@ -15,7 +15,7 @@ class PartnerController extends Controller
     // index
     public function index()
     {
-        if(!Right::check('Donor', 'l'))
+        if(!Right::check('Partner', 'l'))
         {
             return view('permissions.no');
         }
@@ -28,7 +28,7 @@ class PartnerController extends Controller
     // load create form
     public function create()
     {
-        if(!Right::check('Donor', 'i'))
+        if(!Right::check('Partner', 'i'))
         {
             return view('permissions.no');
         }
@@ -37,7 +37,7 @@ class PartnerController extends Controller
     // save new category
     public function save(Request $r)
     {
-        if(!Right::check('Donor', 'i'))
+        if(!Right::check('Partner', 'i'))
         {
             return view('permissions.no');
         }
@@ -70,7 +70,7 @@ class PartnerController extends Controller
     // delete
     public function delete($id)
     {
-        if(!Right::check('Donor', 'd'))
+        if(!Right::check('Partner', 'd'))
         {
             return view('permissions.no');
         }
@@ -79,7 +79,7 @@ class PartnerController extends Controller
     }
     public function edit($id)
     {
-        if(!Right::check('Donor', 'i'))
+        if(!Right::check('Partner', 'i'))
         {
             return view('permissions.no');
         }
@@ -90,7 +90,7 @@ class PartnerController extends Controller
     // update partner 
     public function update(Request $r)
     {
-        if(!Right::check('Donor', 'u'))
+        if(!Right::check('Partner', 'u'))
         {
             return view('permissions.no');
         }

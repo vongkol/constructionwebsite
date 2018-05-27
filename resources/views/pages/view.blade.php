@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <i class="fa fa-align-justify"></i> View Page&nbsp;&nbsp;
-                    <a href="{{url('/page')}}" class="btn btn-link btn-sm">Back To List</a>
+                    <a href="{{url('/admin/page')}}" class="btn btn-link btn-sm">Back To List</a>
                 </div>
                 <div class="card-block">
                     <div class="form-group row">

@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <i class="fa fa-align-justify"></i> Edit Category&nbsp;&nbsp;
-                    <a href="{{url('/category')}}" class="btn btn-link btn-sm">Back To List</a>
+                    <a href="{{url('/admin/category')}}" class="btn btn-link btn-sm">Back To List</a>
                 </div>
                 <div class="card-block">
                     @if(Session::has('sms'))
@@ -28,7 +28,7 @@
                             </div>
                         </div>
                     @endif
-                    <form action="{{url('/category/update')}}" class="form-horizontal" method="post" enctype="multipart/form-data">
+                    <form action="{{url('/admin/category/update')}}" class="form-horizontal" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <input type="hidden" name="id" value="{{$categories->id}}">
                         <div class="form-group row">

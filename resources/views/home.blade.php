@@ -6,8 +6,6 @@
         <div class="col-sm-6 col-lg-3">
             <div class="card card-inverse card-primary">
                 <div class="card-block pb-0">
-
-
                     <p><a href="{{url('post')}}" style="color: #fff;">Post</a></p>
                 </div>
                 <div class="chart-wrapper px-3" style="height:70px;">

@@ -16,9 +16,10 @@ class PortfolioController extends Controller
     // index
     public function index()
     {
-        // if(!Right::check('Slideshow', 'l')){
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Portfolio', 'l'))
+        {
+            return view('permissions.no');
+        }
         $data['portfolios'] = DB::table('portfolios')
 
             ->join('portfolio_categories', 'portfolios.category_id', 'portfolio_categories.id')
@@ -30,7 +31,10 @@ class PortfolioController extends Controller
     }
     public function create()
     {
-
+        if(!Right::check('Portfolio', 'i'))
+        {
+            return view('permissions.no');
+        }
         $data['categories'] = DB::table('portfolio_categories')
             ->where('active', 1)
             ->orderBy('name')
@@ -39,7 +43,10 @@ class PortfolioController extends Controller
     }
     public function save(Request $r)
     {
-    	
+        if(!Right::check('Portfolio', 'i'))
+        {
+            return view('permissions.no');
+        }	
         $data = array(
             'name' => $r->name,
             'category_id' => $r->category,
@@ -75,6 +82,10 @@ class PortfolioController extends Controller
     // delete
     public function delete($id)
     {
+        if(!Right::check('Portfolio', 'd'))
+        {
+            return view('permissions.no');
+        }
         DB::table('portfolios')->where('id', $id)->update(["active"=>0]);
         $page = @$_GET['page'];
         if ($page>0)
@@ -85,6 +96,10 @@ class PortfolioController extends Controller
     }
     public function edit($id)
     {
+        if(!Right::check('Portfolio', 'u'))
+        {
+            return view('permissions.no');
+        }
         $data['portfolio'] = DB::table('portfolios')
             ->where('id',$id)->first();
         $data['categories'] = DB::table('portfolio_categories')
@@ -96,9 +111,10 @@ class PortfolioController extends Controller
     
     public function update(Request $r)
     {
-        // if(!Right::check('Slideshow', 'u')){
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Portfolio', 'u'))
+        {
+            return view('permissions.no');
+        }
         $data = array(
             'name' => $r->name,
             'order' => $r->order,

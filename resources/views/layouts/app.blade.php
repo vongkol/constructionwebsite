@@ -87,10 +87,10 @@
                         <a class="nav-link" href="{{url('/admin/featured-work')}}"><i class="fa fa-file-o"></i> Featured Work</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/page')}}"><i class="fa fa-columns"></i> Pages</a>
+                        <a class="nav-link" href="{{url('/admin/page')}}"><i class="fa fa-columns"></i> Pages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/post')}}"><i class="fa fa-columns"></i> Posts</a>
+                        <a class="nav-link" href="{{url('/admin/post')}}"><i class="fa fa-columns"></i> Posts</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/slide')}}"><i class="fa fa-picture-o"></i> Slide Show</a>
@@ -141,13 +141,13 @@
                     </li>
                     <li class="nav-item nav-dropdown">
                         <a href="#" class="nav-link nav-dropdown-toggle">
-                            <i class="fa fa-key text-danger"></i> {{$lb_security}}</a>
+                            <i class="fa fa-key text-danger"></i> Security</a>
                             <ul class="nav-dropdown-items">
                                 <li class="nav-item">
-                                    <a href="{{url('/user')}}" class="nav-link"><i class="fa fa-user text-yellow"></i> {{$lb_user}}</a>
+                                    <a href="{{url('/user')}}" class="nav-link"><i class="fa fa-user text-yellow"></i> Users</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{url('/role')}}" class="nav-link"><i class="fa fa-shield text-info"></i> {{$lb_role}}</a>
+                                    <a href="{{url('/role')}}" class="nav-link"><i class="fa fa-shield text-info"></i> Roles</a>
                                 </li>
                             </ul>
                             
@@ -158,7 +158,7 @@
                             <i class="fa fa-cog text-success"></i> Settings</a>
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('/category')}}"><i class="fa fa-tags"></i>Post Category</a>
+                                <a class="nav-link" href="{{url('/admin/category')}}"><i class="fa fa-tags"></i>Post Category</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('/portfolio-category')}}"><i class="fa fa-tags"></i> Portfolio Category </a>

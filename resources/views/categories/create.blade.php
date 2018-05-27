@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <i class="fa fa-align-justify"></i> New Category&nbsp;&nbsp;
-                    <a href="{{url('/category')}}" class="btn btn-link btn-sm">Back To List</a>
+                    <a href="{{url('/admin/category')}}" class="btn btn-link btn-sm">Back To List</a>
                 </div>
                 <div class="card-block">
                     @if(Session::has('sms'))
@@ -29,7 +29,7 @@
                         </div>
                     @endif
 
-                    <form action="{{url('/category/save')}}" class="form-horizontal" method="post" enctype="multipart/form-data">
+                    <form action="{{url('/admin/category/save')}}" class="form-horizontal" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="form-group row">
                             <label for="name" class="control-label col-lg-1 col-sm-2">Name <span class="text-danger">*</span></label>

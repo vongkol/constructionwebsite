@@ -12,20 +12,20 @@ class FrontController extends Controller
     // index
     public function index()
     {
-        $data['mission'] = DB::table('pages')->where('id',19)->first();
-        $data['vission'] = DB::table('pages')->where('id',20)->first();
+       
         $data['slides'] = DB::table('slides')
             ->where('active', 1)
             ->orderBy('order', 'asc')
             ->get();
+        // select only news
+        // 1 is category news
         $data['news'] = DB::table('posts')
             ->join('categories', 'posts.category_id', 'categories.id')
             ->where('posts.active', 1)
-            ->where('categories.name', 'News')
+            ->where('categories.parent_id', 1)
             ->orderBy('posts.id', 'desc')
             ->select('posts.*')
-            ->limit(7)
-            ->get();
+            ->limit(7)->get();
         $data['feature_works'] = DB::table('featured_works')
             ->where('active', 1)
             ->orderBy('id', 'desc')
@@ -45,64 +45,66 @@ class FrontController extends Controller
             ->get();
         return view('fronts.index', $data);
     }
-    public function detail($id)
-    {
-        $data['detail'] = DB::table('posts')->where('id', $id)->first();
-
-        return view('fronts.detail', $data);
-    }
-    public function page_by_category()
-    {
-        $data['posts'] = DB::table('posts')
-            ->where('active',1)
-            ->orderBy('id', 'desc')
-            ->paginate(12);
-        return view('fronts.page_by_categories', $data);
-    }
-    public function case_study()
-    {
-        $data['case_studies'] = DB::table('case_studies')->where('active',1)->orderBy('id','desc')->paginate(16);
-        return view('fronts.case-studies.index', $data);
-    }
-    public function case_detail($id)
-    {
-        $data['page'] = DB::table('case_studies')->where('id', $id)->first();
-        return view('fronts.case-studies.detail', $data);
-    }
-    public function elibrary()
-    {
-        $data['elibraries'] = DB::table('ebooks')->where('active',1)->paginate(18);
-        return view('fronts.elibraries.index', $data);
-    }
-    public function elibrary_detail($id)
-    {
-        $data['page'] = DB::table('ebooks')->where('id', $id)->first();
-        return view('fronts.elibraries.detail', $data);
-    }
-    public function event()
-    {
-        $data['events'] = DB::table('announcements')
-            ->where('active', 1)
-            ->orderBy('id', 'desc')
-            ->paginate(18);
-        return view('fronts.events.index', $data);
-    }
-    public function event_detail($id)
-    {
-        $data['event'] = DB::table('announcements')
-            ->where('id', $id)
+   // read posts by category
+   public function category($id)
+   {
+       // check if its has sub category
+       $subs = DB::table('categories')->where('parent_id', $id)->where('active', 1)->get();
+       if(count($subs)>0)
+       {
+           // get posts in those sub categories
+           $data['posts'] = DB::table('posts')
+                ->join('categories', 'posts.category_id', 'categories.id')
+                ->where('posts.active', 1)
+                ->where('categories.parent_id', $id)
+                ->orderBy('posts.id', 'desc')
+                ->select('posts.*', 'categories.name')
+                ->paginate(15);
+            $data['subs'] = $subs;
+            $data['main'] = DB::table('categories')->where('id', $id)->first();
+            return view('fronts.pages.sub-category', $data);
+       }
+       else{
+           // category don't have sub categories
+           $data['posts'] = DB::table('posts')
+                ->join('categories', 'posts.category_id', 'categories.id')
+                ->where('posts.active', 1)
+                ->where('posts.category_id', $id)
+                ->orderBy('posts.id', 'desc')
+                ->select('posts.*', 'categories.name')
+                ->paginate(15);
+            $data['main'] = DB::table('categories')->where('id', $id)->first();
+            $data['subs'] = $subs;
+            return view('fronts.pages.sub-category', $data);
+       }
+   }
+   // view post detail
+   public function post($id)
+   {
+       $pid = $_GET['pid'];
+       $data['main'] = DB::table('categories')->where('id', $id)->first();
+       $data['subs'] = DB::table('categories')->where('parent_id', $id)->where('active', 1)->get();
+       $data['post'] = DB::table('posts')
+            ->join('categories', 'posts.category_id', 'categories.id')
+            ->where('posts.id', $pid)
+            ->select('posts.*', 'categories.name')
             ->first();
-        return view('fronts.events.detail', $data);
-    }
-    // save subscription
-    public function subscribe($id)
-    {
-        $data = array('email'=>$id);
-        $counter = DB::table('newsletters')->where('active',1)->where('email',$id)->count();
-        if($counter<=0)
-        {
-            DB::table('newsletters')->insert($data);
-        }
-        return 'Thanks, you have subscribed successfully!';
-    }
+        return view('fronts.pages.post', $data);
+       
+   }
+   // read post in sub category
+   public function subcategory($id)
+   {
+       $sid = $_GET['sub'];
+       $data['main'] = DB::table('categories')->where('id', $id)->first();
+       $data['subs'] = DB::table('categories')->where('parent_id', $id)->where('active', 1)->get();
+       $data['posts'] = DB::table('posts')
+            ->join('categories', 'posts.category_id', 'categories.id')
+            ->where('posts.active', 1)
+            ->where('posts.category_id', $sid)
+            ->orderBy('posts.id', 'desc')
+            ->select('posts.*', 'categories.name')
+            ->paginate(15);
+        return view('fronts.pages.sub-category', $data);
+   }
 }

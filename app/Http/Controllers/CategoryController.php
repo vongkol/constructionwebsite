@@ -14,7 +14,7 @@ class CategoryController extends Controller
     // index
     public function index()
     {
-        if(!Right::check('Category', 'l')){
+        if(!Right::check('Post Category', 'l')){
             return view('permissions.no');
         }
         $data['categories'] = DB::table('categories as a')
@@ -27,18 +27,20 @@ class CategoryController extends Controller
     // load create form
     public function create()
     {
-        if(!Right::check('Category', 'i')){
+        if(!Right::check('Post Category', 'i')){
             return view('permissions.no');
         }
-        $data['categories'] = DB::table('categories as a')
-            ->join('categories as b', 'b.id', '=', 'a.id')
-            ->where('b.active', 1)->where('b.parent_id', 0)->get();
+        $data['categories'] = DB::table('categories')
+            ->where('parent_id', 0)
+            ->where('active', 1)
+            ->orderBy('name')
+            ->get();
         return view('categories.create', $data);
     }
     // save new category
     public function save(Request $r)
     {
-        if(!Right::check('Category', 'i')){
+        if(!Right::check('Post Category', 'i')){
             return view('permissions.no');
         }
         $data = array(
@@ -60,41 +62,43 @@ class CategoryController extends Controller
                 DB::table('categories')->where('id', $i)->update(['icon'=>$file_name]);
             }
             $r->session()->flash('sms', $sms);
-            return redirect('/category/create');
+            return redirect('/admin/category/create');
         }
         else
         {
             $r->session()->flash('sms1', $sms1);
-            return redirect('/category/create')->withInput();
+            return redirect('/admin/category/create')->withInput();
         }
     }
     // delete
     public function delete($id)
     {
-        if(!Right::check('Category', 'd')){
+        if(!Right::check('Post Category', 'd')){
             return view('permissions.no');
         }
         DB::table('categories')->where('id', $id)->update(['active'=>0]);
-        return redirect('/category');
+        return redirect('/admin/category');
     }
 
     public function edit($id)
     {
-        if(!Right::check('Category', 'u')){
+        if(!Right::check('Post Category', 'u')){
             return view('permissions.no');
         }
-        $data['cat'] = DB::table('categories as a')
-            ->join('categories as b', 'b.id', '=', 'a.id')
-            ->where('b.active', 1)->where('b.parent_id', 0)->get();
-        $data['categories'] = DB::table('categories as a')
-            ->join('categories as b', 'b.id', '=', 'a.id')
-            ->where([['b.active', 1],['a.id',$id]])->first();
+        $data['cat'] = DB::table('categories')
+           ->where('active', 1)
+           ->where('parent_id', 0)
+           ->orderBy('name')
+           ->get();
+        $data['categories'] = DB::table('categories')
+            ->where('id', $id)
+            ->first();
             
         return view('categories.edit', $data);
     }
     public function update(Request $r)
     {
-        if(!Right::check('Category', 'u')){
+        if(!Right::check('Post Category', 'u')){
             return view('permissions.no');
         }
         $data = array(
@@ -116,12 +120,12 @@ class CategoryController extends Controller
         if ($i)
         {
             $r->session()->flash('sms', $sms);
-            return redirect('/category/edit/'.$r->id);
+            return redirect('/admin/category/edit/'.$r->id);
         }
         else
         {
             $r->session()->flash('sms1', $sms1);
-            return redirect('/category/edit/'.$r->id);
+            return redirect('/admin/category/edit/'.$r->id);
         }
     }
 }

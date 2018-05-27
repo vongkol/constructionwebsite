@@ -15,6 +15,10 @@ class AdvertisementController extends Controller
     // index
     public function index()
     {
+        if(!Right::check('Advertisement', 'l'))
+        {
+            return view('permissions.no');
+        }
         $data['advertisements'] = DB::table('advertisements')
             ->where('active', 1)
             ->orderBy('id','desc')
@@ -24,11 +28,19 @@ class AdvertisementController extends Controller
     // load create form
     public function create()
     {
+        if(!Right::check('Advertisement', 'i'))
+        {
+            return view('permissions.no');
+        }
         return view('advertisements.create');
     }
     // save new page
     public function save(Request $r)
     {
+        if(!Right::check('Advertisement', 'i'))
+        {
+            return view('permissions.no');
+        }
         $data = array(
             'url' => $r->url,
             'order' => $r->order,
@@ -62,6 +74,10 @@ class AdvertisementController extends Controller
     // delete
     public function delete($id)
     {
+        if(!Right::check('Advertisement', 'd'))
+        {
+            return view('permissions.no');
+        }
         DB::table('advertisements')->where('id', $id)->update(["active"=>0]);
         $page = @$_GET['page'];
         if ($page>0)
@@ -74,6 +90,10 @@ class AdvertisementController extends Controller
 
     public function edit($id)
     {
+        if(!Right::check('Advertisement', 'u'))
+        {
+            return view('permissions.no');
+        }
         $data['advertisement'] = DB::table('advertisements')
             ->where('id',$id)->first();
         return view('advertisements.edit', $data);
@@ -81,6 +101,10 @@ class AdvertisementController extends Controller
 
     public function update(Request $r)
     {
+        if(!Right::check('Advertisement', 'u'))
+        {
+            return view('permissions.no');
+        }
         $data = array(
             'url' => $r->url,
             'order' => $r->order,

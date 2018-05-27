@@ -15,9 +15,9 @@ class SlideController extends Controller
     // index
     public function index()
     {
-        // if(!Right::check('Slideshow', 'l')){
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Slideshow', 'l')){
+            return view('permissions.no');
+        }
         $data['slides'] = DB::table('slides')
             ->where('active',1)
             ->orderBy('id', 'desc')
@@ -26,16 +26,16 @@ class SlideController extends Controller
     }
     public function create()
     {
-        // if(!Right::check('Slideshow', 'i')){
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Slideshow', 'i')){
+            return view('permissions.no');
+        }
         return view('slides.create');
     }
     public function save(Request $r)
     {
-        // if(!Right::check('Slideshow', 'i')){
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Slideshow', 'i')){
+            return view('permissions.no');
+        }
     	$file_name = '';
         if($r->photo) {
             $file = $r->file('photo');
@@ -66,17 +66,17 @@ class SlideController extends Controller
     // delete
     public function delete($id)
     {
-        // if(!Right::check('Slideshow', 'd')){
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Slideshow', 'd')){
+            return view('permissions.no');
+        }
         DB::table('slides')->where('id', $id)->update(['active'=>0]);
         return redirect('/slide');
     }
     public function edit($id)
     {
-        // if(!Right::check('Slideshow', 'u')){
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Slideshow', 'u')){
+            return view('permissions.no');
+        }
         $data['slide'] = DB::table('slides')
             ->where('id',$id)->first();
         return view('slides.edit', $data);
@@ -84,9 +84,9 @@ class SlideController extends Controller
     
     public function update(Request $r)
     {
-        // if(!Right::check('Slideshow', 'u')){
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Slideshow', 'u')){
+            return view('permissions.no');
+        }
         $data = array(
             'name' => $r->name,
             'order' => $r->order,

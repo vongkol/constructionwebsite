@@ -15,6 +15,10 @@ class PostController extends Controller
     // index
     public function index()
     {
+        if(!Right::check('Post', 'l'))
+        {
+            return view('permissions.no');
+        }
         $data['posts'] = DB::table('posts')
             ->join('categories', 'posts.category_id', 'categories.id')
             ->where('posts.active', 1)
@@ -26,11 +30,19 @@ class PostController extends Controller
     // load create form
     public function create()
     {
+        if(!Right::check('Post', 'i'))
+        {
+            return view('permissions.no');
+        }
         return view('posts.create');
     }
     // save new page
     public function save(Request $r)
     {
+        if(!Right::check('Post', 'i'))
+        {
+            return view('permissions.no');
+        }
         $data = array(
             'title' => $r->title,
             'short_description' => $r->short_description,
@@ -54,23 +66,30 @@ class PostController extends Controller
                 DB::table('posts')->where('id', $i)->update(['featured_image'=>$file_name]);
             }
             $r->session()->flash('sms', 'New post has been created successfully!');
-            return redirect('/post/create');
+            return redirect('/admin/post/create');
         }
         else{
             $r->session()->flash('sms1', 'Fail to create new post. Please check your input again!');
-            return redirect('/post/create')->withInput();
+            return redirect('/admin/post/create')->withInput();
         }
     }
     // delete
     public function delete($id)
     {
+        if(!Right::check('Post', 'd'))
+        {
+            return view('permissions.no');
+        }
         DB::table('posts')->where('id', $id)->update(['active'=>0]);
-        return redirect('/post');
+        return redirect('/admin/post');
     }
 
     public function edit($id)
     {
-
+        if(!Right::check('Post', 'u'))
+        {
+            return view('permissions.no');
+        }
         $data['post'] = DB::table('posts')
             ->where('id',$id)->first();
         return view('posts.edit', $data);
@@ -78,6 +97,10 @@ class PostController extends Controller
 
     public function update(Request $r)
     {
+        if(!Right::check('Post', 'u'))
+        {
+            return view('permissions.no');
+        }
         $data = array(
             'title' => $r->title,
             'short_description' => $r->short_description,
@@ -101,18 +124,22 @@ class PostController extends Controller
         {
             $sms = "All changes have been saved successfully.";
             $r->session()->flash('sms', $sms);
-            return redirect('/post/edit/'.$r->id);
+            return redirect('/admin/post/edit/'.$r->id);
         }
         else
         {   
             $sms1 = "Fail to to save changes, please check again!";
             $r->session()->flash('sms1', $sms1);
-            return redirect('/post/edit/'.$r->id);
+            return redirect('/admin/post/edit/'.$r->id);
         }
     }
     // view detail
     public function view($id) 
     {
+        if(!Right::check('Post', 'l'))
+        {
+            return view('permissions.no');
+        }
         $data['post'] = DB::table('posts')
             ->where('id',$id)->first();
         return view('posts.detail', $data);

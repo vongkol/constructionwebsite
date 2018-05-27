@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <form 
-    action="{{url('/post/update')}}" 
+    action="{{url('/admin/post/update')}}" 
     class="form-horizontal" 
     method="post"
     enctype="multipart/form-data">
@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <i class="fa fa-align-justify"></i> Edit Post&nbsp;&nbsp;
-                    <a href="{{url('/post')}}" class="btn btn-link btn-sm">Back To List</a>
+                    <a href="{{url('/admin/post')}}" class="btn btn-link btn-sm">Back To List</a>
                 </div>
                 <div class="card-block">
                     @if(Session::has('sms'))

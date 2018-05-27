@@ -15,6 +15,10 @@ class CompanyFeatureController extends Controller
     // index
     public function index()
     {
+        if(!Right::check('Company Feature', 'l'))
+        {
+            return view('permissions.no');
+        }
         $data['company_features'] = DB::table('company_features')
             ->paginate(12);
         return view('company-features.index', $data);
@@ -22,11 +26,19 @@ class CompanyFeatureController extends Controller
     // load create form
     public function create()
     {
+        if(!Right::check('Company Feature', 'i'))
+        {
+            return view('permissions.no');
+        }
         return view('company-features.create');
     }
     // save new page
     public function save(Request $r)
     {
+        if(!Right::check('Company Feature', 'i'))
+        {
+            return view('permissions.no');
+        }
         $data = array(
             'title' => $r->title,
             'short_description' => $r->short_description,
@@ -48,6 +60,10 @@ class CompanyFeatureController extends Controller
     // delete
     public function delete($id)
     {
+        if(!Right::check('Company Feature', 'd'))
+        {
+            return view('permissions.no');
+        }
         DB::table('company_features')->where('id', $id)->update(["active"=>0]);
         $page = @$_GET['page'];
         if ($page>0)
@@ -60,6 +76,10 @@ class CompanyFeatureController extends Controller
 
     public function edit($id)
     {
+        if(!Right::check('Company Feature', 'u'))
+        {
+            return view('permissions.no');
+        }
         $data['company_feature'] = DB::table('company_features')
             ->where('id',$id)->first();
         return view('company-features.edit', $data);
@@ -67,6 +87,10 @@ class CompanyFeatureController extends Controller
 
     public function update(Request $r)
     {
+        if(!Right::check('Company Feature', 'u'))
+        {
+            return view('permissions.no');
+        }
         $data = array(
             'title' => $r->title,
             'short_description' => $r->short_description,

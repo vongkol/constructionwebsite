@@ -14,7 +14,10 @@ class PortfolioCategoryController extends Controller
     // index
     public function index()
     {
-       
+        if(!Right::check('Portfolio Category', 'l'))
+        {
+            return view('permissions.no');
+        }
         $data['portfolio_categories'] = DB::table('portfolio_categories')
             ->where('active',1)
             ->paginate(18);
@@ -23,11 +26,19 @@ class PortfolioCategoryController extends Controller
     // load create form
     public function create()
     {
+        if(!Right::check('Portfolio Category', 'i'))
+        {
+            return view('permissions.no');
+        }
         return view('portfolio-categories.create');
     }
     // save new category
     public function save(Request $r)
     {
+        if(!Right::check('Portfolio Category', 'i'))
+        {
+            return view('permissions.no');
+        }
         $data = array(
             'name' => $r->name,
             'order_number' => $r->order,
@@ -49,6 +60,10 @@ class PortfolioCategoryController extends Controller
     // delete
     public function delete($id)
     {
+        if(!Right::check('Portfolio Category', 'd'))
+        {
+            return view('permissions.no');
+        }
         DB::table('portfolio_categories')->where('id', $id)->update(["active"=>0]);
         $page = @$_GET['page'];
         if ($page>0)
@@ -60,6 +75,10 @@ class PortfolioCategoryController extends Controller
 
     public function edit($id)
     {
+        if(!Right::check('Portfolio Category', 'u'))
+        {
+            return view('permissions.no');
+        }
         $data['portfolio_category'] = DB::table('portfolio_categories')
             ->where('active', 1)
             ->where('id', $id)
@@ -68,6 +87,10 @@ class PortfolioCategoryController extends Controller
     }
     public function update(Request $r)
     {
+        if(!Right::check('Portfolio Category', 'u'))
+        {
+            return view('permissions.no');
+        }
         $data = array(
             'name' => $r->name, 
             'order_number' => $r->order,

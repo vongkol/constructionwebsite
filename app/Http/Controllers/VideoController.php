@@ -10,21 +10,15 @@ class VideoController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(function ($request, $next) {
-            if (Auth::user()==null)
-            {
-                return redirect("/login");
-            }
-            return $next($request);
-        });
+        $this->middleware('auth');
     }
     // index
     public function index()
     {
-        // if(!Right::check('Advertisement', 'l'))
-        // {
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Video', 'l'))
+        {
+            return view('permissions.no');
+        }
 
         $data['video_trainings'] = DB::table('video_trainings')
             ->where('active',1)
@@ -35,15 +29,19 @@ class VideoController extends Controller
     // load create form
     public function create()
     {
-        // if(!Right::check('Advertisement', 'i'))
-        // {
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Video', 'i'))
+        {
+            return view('permissions.no');
+        }
         return view('videos.create');
     }
     // save new social
     public function save(Request $r)
     {
+        if(!Right::check('Video', 'i'))
+        {
+            return view('permissions.no');
+        }
         $data = array(
             'url' => $r->url,
             'title' => $r->title,
@@ -65,10 +63,10 @@ class VideoController extends Controller
     // delete
     public function delete($id)
     {
-        // if(!Right::check('Advertisement', 'd'))
-        // {
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Video', 'd'))
+        {
+            return view('permissions.no');
+        }
 
         DB::table('video_trainings')->where('id', $id)->update(['active'=>0]);
         return redirect('/video');
@@ -76,10 +74,10 @@ class VideoController extends Controller
 
     public function edit($id)
     {
-        // if(!Right::check('Advertisement', 'u'))
-        // {
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Video', 'u'))
+        {
+            return view('permissions.no');
+        }
         $data['video_training'] = DB::table('video_trainings')
             ->where('id',$id)->first();
         return view('videos.edit', $data);
@@ -87,6 +85,10 @@ class VideoController extends Controller
     
     public function update(Request $r)
     {
+        if(!Right::check('Video', 'u'))
+        {
+            return view('permissions.no');
+        }
     	$data = array(
             'url' => $r->url,
             'title' => $r->title,

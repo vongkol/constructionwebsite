@@ -16,9 +16,10 @@ class CurrentProjectController extends Controller
     // index
     public function index()
     {
-        // if(!Right::check('Slideshow', 'l')){
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Current Project', 'l'))
+        {
+            return view('permissions.no');
+        }
         $data['current_projects'] = DB::table('current_projects')
             ->where('active',1)
             ->orderBy('id', 'desc')
@@ -27,14 +28,18 @@ class CurrentProjectController extends Controller
     }
     public function create()
     {
-        // if(!Right::check('Slideshow', 'i')){
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Current Project', 'i'))
+        {
+            return view('permissions.no');
+        }
         return view('current-projects.create');
     }
     public function save(Request $r)
     {
-       
+        if(!Right::check('Current Project', 'i'))
+        {
+            return view('permissions.no');
+        }  
         $data = array(
             'name' => $r->name,
             'order' => $r->order,
@@ -63,6 +68,10 @@ class CurrentProjectController extends Controller
     // delete
     public function delete($id)
     {
+        if(!Right::check('Current Project', 'd'))
+        {
+            return view('permissions.no');
+        }
         DB::table('current_projects')->where('id', $id)->update(["active"=>0]);
         $page = @$_GET['page'];
         if ($page>0) {
@@ -73,9 +82,10 @@ class CurrentProjectController extends Controller
     }
     public function edit($id)
     {
-        // if(!Right::check('Slideshow', 'u')){
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Current Project', 'u'))
+        {
+            return view('permissions.no');
+        }
         $data['current_project'] = DB::table('current_projects')
             ->where('id',$id)->first();
         return view('current-projects.edit', $data);
@@ -83,6 +93,10 @@ class CurrentProjectController extends Controller
     
     public function update(Request $r)
     {
+        if(!Right::check('Current Project', 'u'))
+        {
+            return view('permissions.no');
+        }
         $data = array(
             'name' => $r->name,
             'order' => $r->order,

@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <i class="fa fa-align-justify"></i> Edit Page&nbsp;&nbsp;
-                    <a href="{{url('/page')}}" class="btn btn-link btn-sm">Back To List</a>
+                    <a href="{{url('/admin/page')}}" class="btn btn-link btn-sm">Back To List</a>
                 </div>
                 <div class="card-block">
                     @if(Session::has('sms'))
@@ -30,7 +30,7 @@
                     @endif
 
                     <form 
-                    	action="{{url('/page/update')}}" 
+                    	action="{{url('/admin/page/update')}}" 
                     	class="form-horizontal" 
                         method="post"
                         enctype="multipart/form-data"

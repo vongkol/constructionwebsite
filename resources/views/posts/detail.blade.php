@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <i class="fa fa-align-justify"></i> Detail Post&nbsp;&nbsp;
-                    <a href="{{url('/post')}}" class="btn btn-link btn-sm">Back To List</a>
+                    <a href="{{url('/admin/post')}}" class="btn btn-link btn-sm">Back To List</a>
                 </div>
                 <div class="card-block">
                     <div class="form-group row">
