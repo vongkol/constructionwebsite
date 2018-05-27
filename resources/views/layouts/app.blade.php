@@ -32,10 +32,6 @@
     <header class="app-header navbar">
         <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button">☰</button>
         <a class="navbar-brand" href="#">ECC</a>
-<<<<<<< HEAD
-
-=======
->>>>>>> 7b8ecfefc86bba8539b614bdaf1843e3ccb8aaf1
         <ul class="nav navbar-nav d-md-down-none">
             <li class="nav-item">
                 <a class="nav-link navbar-toggler sidebar-toggler" href="#">☰</a>

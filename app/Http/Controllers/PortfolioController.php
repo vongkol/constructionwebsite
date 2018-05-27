@@ -30,9 +30,6 @@ class PortfolioController extends Controller
     }
     public function create()
     {
-        // if(!Right::check('Slideshow', 'i')){
-        //     return view('permissions.no');
-        // }
 
         $data['categories'] = DB::table('portfolio_categories')
             ->where('active', 1)
@@ -45,9 +42,7 @@ class PortfolioController extends Controller
     	
         $data = array(
             'name' => $r->name,
-
             'category_id' => $r->category,
-            'portfolio_category_id' => $r->category,
             'order' => $r->order,
         );
         $i = DB::table('portfolios')->insertGetId($data);

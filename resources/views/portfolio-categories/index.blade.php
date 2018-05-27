@@ -28,7 +28,7 @@
                             <tr>
                                 <td>{{$i++}}</td>
                                 <td>{{$cat->name}}</td>
-                                <td>{{$cat->order}}</td>
+                                <td>{{$cat->order_number}}</td>
                                 <td>
                                     <a class="btn btn-info btn-xs" href="{{url('/portfolio-category/edit/'.$cat->id)}}" title="Edit"><i class="fa fa-pencil"></i></a>
                                     <a  class="btn btn-danger btn-xs"  href="{{url('/portfolio-category/delete/'.$cat->id ."?page=".@$_GET["page"])}}" onclick="return confirm('You want to delete?')" title="Delete"><i class="fa fa-trash-o"></i></a>

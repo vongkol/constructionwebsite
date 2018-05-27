@@ -8,13 +8,7 @@ use DB;
 use Session;
 class FrontController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(function ($request, $next) {
-            app()->setLocale(Session::get("lang"));
-             return $next($request);
-         });
-    }
+   
     // index
     public function index()
     {
@@ -50,7 +44,7 @@ class FrontController extends Controller
             ->limit(8)->get();
         $data['portfolio_categories'] = DB::table('portfolio_categories')
             ->where('active',1)
-            ->orderBy('order', 'asc')
+            ->orderBy('order_number', 'asc')
             ->get();
         return view('fronts.index', $data);
     }

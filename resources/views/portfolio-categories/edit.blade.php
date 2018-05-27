@@ -42,7 +42,7 @@
                             	Order
                             </label>
                             <div class="col-lg-6 col-sm-8">
-                                <input type="number" name="order" id="order" value="{{$portfolio_category->order}}" class="form-control">
+                                <input type="number" name="order" id="order" value="{{$portfolio_category->order_number}}" class="form-control">
                             </div>
                         </div>
                         <div class="form-group row">

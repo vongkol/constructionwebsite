@@ -296,7 +296,7 @@
                 <?php $portfolios= DB::table('portfolios')
                     ->where('active',1)
                     ->orderBy('order', 'asc')
-                    ->where('portfolio_category_id',  $pc->id)
+                    ->where('category_id',  $pc->id)
                     ->limit(8)
                     ->get();
                 ?>

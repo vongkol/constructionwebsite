@@ -54,18 +54,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="category" class="control-label col-lg-2 col-sm-2">
-                            	Category  <span class="text-danger">*</span>
-                            </label>
-                            <div class="col-lg-6 col-sm-8">
-                                <select name="category" id="category" class="form-control">
-                                    @foreach($portfolio_categories as $p)
-                                        <option value="{{$p->id}}">{{$p->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
+                       
                         <div class="form-group row">
                             <label for="order" class="control-label col-lg-2 col-sm-2">
                             	Order
