@@ -37,7 +37,7 @@ class PortfolioController extends Controller
         $data['categories'] = DB::table('portfolio_categories')
             ->where('active', 1)
             ->orderBy('name')
-
+            ->get();
         return view('portfolios.create', $data);
     }
     public function save(Request $r)
