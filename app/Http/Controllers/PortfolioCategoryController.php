@@ -30,6 +30,7 @@ class PortfolioCategoryController extends Controller
     {
         $data = array(
             'name' => $r->name,
+            'order' => $r->order,
         );
         $sms = "The new portfolio category has been created successfully.";
         $sms1 = "Fail to create the new portfolio category, please check again!";
@@ -69,6 +70,7 @@ class PortfolioCategoryController extends Controller
     {
         $data = array(
             'name' => $r->name, 
+            'order' => $r->order,
         );
         $sms = "All changes have been saved successfully.";
         $sms1 = "Fail to to save changes, please check again!";

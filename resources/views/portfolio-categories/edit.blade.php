@@ -38,6 +38,14 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="order" class="control-label col-lg-1 col-sm-2">
+                            	Order
+                            </label>
+                            <div class="col-lg-6 col-sm-8">
+                                <input type="number" name="order" id="order" value="{{$portfolio_category->order}}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="control-label col-lg-1 col-sm-2">&nbsp;</label>
                             <div class="col-lg-6 col-sm-8">
                                 <button class="btn btn-primary" type="submit">Save Change</button>
