@@ -43,6 +43,9 @@ class FrontController extends Controller
             ->where('active',1)
             ->orderBy('order_number', 'asc')
             ->get();
+        
+        // project location
+        $data['locations'] = DB::table('project_locations')->where('active', 1)->get();
         return view('fronts.index', $data);
     }
    // read posts by category

@@ -279,5 +279,6 @@
         <script src="{{asset('front/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('front/vendor/jquery/jquery.magnific-popup.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('front/vendor/jquery/popup-gallery.js')}}" type="text/javascript"></script>
+        @yield('js')
     </body>
 </html>

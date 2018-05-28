@@ -396,6 +396,65 @@
         </div>
         <aside class="text-partner text-gray"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</aside> 
         <div class="in-icon"></div>
-        <iframe class="my-6" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.816209370627!2d104.83790256532104!3d11.56502964178934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31094e215a3059bd%3A0x890d7d8ceb16ec45!2sTaing+Kor+Sang+Khang+Tboung+Pagoda%2C+Street+105K%2C+Phnom+Penh!5e0!3m2!1sen!2skh!4v1525745264801" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <div id="map" style="width:100%;height:550px"></div>
+        <script>
+            var 
+        </script>
     </div>
+@endsection
+@section('js')
+<script>
+    function initMap()
+        {
+            var options = {
+                zoom: 11,
+                center: {lat: 11.531728, lng: 104.928847}
+            };
+            var map = new google.maps.Map(document.getElementById('map'), options);
+            var geocoder = new google.maps.Geocoder;
+            
+            // marker for the company
+            @foreach($locations as $l)
+            
+                geocodeAddress(geocoder, "{{$l->title}}", map, "{{asset('uploads/locations/'.$l->icon)}}", "{{$l->address}}");
+
+            @endforeach
+        }
+
+        function geocodeAddress(geocoder, name, resultsMap, iconMarker, address) {
+            var ad="";
+            geocoder.geocode({'address': address}, function(results, status) {
+                if (status === 'OK') {
+                    if (results[0]) {
+                        ad = results[0].formatted_address;
+                        ////////////////////////////////////////
+                        var marker = new google.maps.Marker({
+                            map: resultsMap,
+                            position: results[0].geometry.location,
+                            icon: iconMarker
+                        });
+                        mm = marker;
+                        var infoWindow = new google.maps.InfoWindow(
+                            {
+                                content: name + "<p class='text-center'>" + ad + "</p>"
+                            }
+                        );
+                        marker.addListener('click', function(){
+                            infoWindow.open(resultsMap, marker);
+                        });
+
+                    } else {
+
+                        ad = "មិនមានអាស័យដ្ខានច្បាស់លាស់ទេ!";
+                    }
+                } else {
+
+                }
+
+            });
+
+        }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF7yMA8-_MxooFoPfVvzuLGsN-Ppa4uR8&callback=initMap">
+</script>
 @endsection
