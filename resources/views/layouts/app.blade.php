@@ -137,6 +137,9 @@
                         <a class="nav-link" href="{{url('/fm')}}"><i class="fa fa-file text-primary"></i> File Manager </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/project-location')}}"><i class="fa fa-file text-primary"></i> Project Location</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{url('/social')}}"><i class="fa fa-facebook"></i> Social </a>
                     </li>
                     <li class="nav-item nav-dropdown">

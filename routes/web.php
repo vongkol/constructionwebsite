@@ -154,3 +154,11 @@ Route::post('/company-feature/save', "CompanyFeatureController@save");
 Route::get('/company-feature/edit/{id}', "CompanyFeatureController@edit");
 Route::post('/company-feature/update', "CompanyFeatureController@update");
 Route::get('/company-feature/delete/{id}', "CompanyFeatureController@delete");
+
+// project location
+Route::get('/admin/project-location', 'ProjectLocationController@index');
+Route::get('/admin/project-location/create', 'ProjectLocationController@create');
+Route::get('/admin/project-location/edit/{id}', 'ProjectLocationController@edit');
+Route::get('/admin/project-location/delete/{id}', 'ProjectLocationController@delete');
+Route::post('/admin/project-location/save', 'ProjectLocationController@save');
+Route::post('/admin/project-location/update', 'ProjectLocationController@update');
