@@ -212,7 +212,7 @@
         <div class="row my-4">
            <div class="col-md-7 my-4">
                 <div class="img">
-                    <iframe width="100%" class="video" src="{{$video->url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <iframe width="100%" class="video" src="{{$video->url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen id="vdo"></iframe>
                </div>
            </div>
            <div class="col-md-5 my-4">
@@ -220,20 +220,28 @@
                     <div class="col-md-12 h-100">
                         <div class="youtube-height">
                         <div class="row">
-                            <?php $y = 1;?>
-                            @foreach($videos as $v)
-                                @if($y==1)
-                                    @php($y=0)
-                                @else
-                            <div class="col-md-5 pd-5">
-                               <iframe width="100%" height="video-small" src="{{$v->url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            <div class="col-sm-12">
+                                    <?php $y = 1;?>
+                                    @foreach($videos as $v)
+                                        @if($y==1)
+                                            @php($y=0)
+                                        @else
+                                            <div class="row vdo-bg" id="vid{{$v->id}}">
+                                                <div class="col-md-5 pd-5">
+                                                    <a href="#" data-id="{{$v->id}}" url="{{$v->url}}?autoplay=1" onclick="play(this, event)">
+                                                        <img src="{{asset('uploads/videos/'.$v->poster_image)}}" alt="" width="90%">
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-7 pd-5">
+                                                    <h6>
+                                                        <a href="#" data-id="{{$v->id}}" url="{{$v->url}}?autoplay=1" onclick="play(this,event)">{{$v->title}}</a>
+                                                    </h6>
+                                                    <p>{{$v->name}}</p>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endforeach
                             </div>
-                            <div class="col-md-7 pd-5">
-                                <b>{{$v->title}}</b>
-                            </div>
-                            @endif
-                           @endforeach
-                          
                         </div>
                         
                     </div>
@@ -350,7 +358,7 @@
         <div style="text-align:center">
             <?php $d = 1; ?>
             @foreach($current_projects as $cp)
-            <span class="dot" onclick="currentSlide(<?php echo $d++;?>)"><img src="{{asset('uploads/current_projects/icon/'.$cp->photo)}}" width="50"></span> 
+            <span class="dot" onclick="currentSlide(<?php echo $d++;?>)"><img src="{{asset('uploads/current_projects/icon/'.$cp->photo)}}" width="80"></span> 
             @endforeach
         </div>
     </div>
@@ -396,6 +404,17 @@
 @endsection
 @section('js')
 <script>
+    function play(obj, evt)
+    {
+        evt.preventDefault();
+        var id= $(obj).attr('data-id');
+        var vid = "#vid"+id;
+        var url = $(obj).attr('url');
+        // remove all style
+        $('.vdo-bg').removeAttr('style');
+        $("#vdo").attr('src', url);
+        $(vid).css('background', '#ccc');
+    }
     function initMap()
         {
             var options = {

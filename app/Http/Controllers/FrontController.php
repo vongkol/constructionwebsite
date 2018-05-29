@@ -31,13 +31,15 @@ class FrontController extends Controller
             ->orderBy('id', 'desc')
             ->limit(6)
             ->get();
-        $data['video'] = DB::table('video_trainings')
+        $data['video'] = DB::table('videos')
             ->where('active',1)
             ->orderBy('id','desc')
             ->first();
-        $data['videos'] = DB::table('video_trainings')
-            ->where('active',1)
-            ->orderBy('id','desc')
+        $data['videos'] = DB::table('videos')
+            ->join('video_categories', 'videos.category_id', 'video_categories.id')
+            ->where('videos.active',1)
+            ->orderBy('videos.id','desc')
+            ->select('videos.*', 'video_categories.name')
             ->limit(8)->get();
         $data['portfolio_categories'] = DB::table('portfolio_categories')
             ->where('active',1)
@@ -109,5 +111,19 @@ class FrontController extends Controller
             ->select('posts.*', 'categories.name')
             ->paginate(15);
         return view('fronts.pages.sub-category', $data);
+   }
+   // send email
+   public function send_email(Request $r)
+   {
+       $from = $r->email;
+       $subject = $r->subject;
+       $name = $r->name;
+       $sms = $r->message;
+       $message = "<h2>". $subject ."</h2><hr>";
+       $message .= "<p><strong>Sent by: {$name}, email: {$from}</strong></p><p></p>";
+       $message .= "<p>{$sms}</p>";
+       Right::sms($from, $subject, $message);
+        $r->session()->flash('sms', 'Your email has been sent!');
+       return redirect('/');
    }
 }

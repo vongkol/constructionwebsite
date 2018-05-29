@@ -97,7 +97,7 @@
                     </li>
                    
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/video')}}"><i class="fa fa-youtube text-danger"></i> Video</a>
+                        <a class="nav-link" href="{{url('/admin/video')}}"><i class="fa fa-youtube text-danger"></i> Video</a>
                     </li>
 
                     <li class="nav-item">

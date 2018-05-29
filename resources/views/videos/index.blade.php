@@ -5,16 +5,17 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <i class="fa fa-align-justify"></i> Video List&nbsp;&nbsp;
-                    <a href="{{url('/video/create')}}" class="btn btn-link btn-sm">New</a>
+                    <a href="{{url('/admin/video/create')}}" class="btn btn-link btn-sm">New</a>
                 </div>
                 <div class="card-block">
                     <table class="tbl">
                         <thead>
                             <tr>
                                 <th>&numero;</th>
+                                <th>Poster Image</th>
                                 <th>URL</th>
                                 <th>Title</th>
-                                <th>Poster Image</th>
+                                <th>Category</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -25,23 +26,24 @@
                                 $pagex = 1;
                                 $i = 18 * ($pagex - 1) + 1;
                             ?>
-                            @foreach($video_trainings as $vid)
+                            @foreach($videos as $vid)
                                 <tr>
                                     <td>{{$i++}}</td>
+                                    <td><img src="{{asset('uploads/videos/'.$vid->poster_image)}}" alt="" width='100'></td>
+                                    
                                     <td>
-                                        <object data="{{$vid->url}}" width="150" height="90"></object>
+                                        {{$vid->url}}
                                     </td>
                                     <td>{{$vid->title}}</td>
-                                    <td><img src="{{asset('uploads/videos/'.$vid->poster_image)}}" alt="" width='100'></td>
                                     <td>
-                                        <a class="btn btn-xs btn-info"  href="{{url('/video/edit/'.$vid->id)}}" title="Edit"><i class="fa fa-pencil"></i></a>
-                                        <a class="btn btn-xs btn-danger"  href="{{url('/video/delete/'.$vid->id)}}" onclick="return confirm('Do you want to delete?')" title="Delete"><i class="fa fa-remove"></i></a>
+                                        <a class="btn btn-xs btn-info"  href="{{url('/admin/video/edit/'.$vid->id)}}" title="Edit"><i class="fa fa-pencil"></i></a>
+                                        <a class="btn btn-xs btn-danger"  href="{{url('/admin/video/delete/'.$vid->id)}}" onclick="return confirm('Do you want to delete?')" title="Delete"><i class="fa fa-remove"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table><br>
-                    {{$video_trainings->links()}}
+                    {{$videos->links()}}
                 </div>
             </div>
         </div>

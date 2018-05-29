@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <i class="fa fa-align-justify"></i> Edit Video&nbsp;&nbsp;
-                    <a href="{{url('/video')}}" class="btn btn-link btn-sm">Back To List</a>
+                    <a href="{{url('/admin/video')}}" class="btn btn-link btn-sm">Back To List</a>
                 </div>
                 <div class="card-block">
                     @if(Session::has('sms'))
@@ -29,30 +29,40 @@
                         </div>
                     @endif
                     <form 
-                        action="{{url('/video/update')}}" 
+                        action="{{url('/admin/video/update')}}" 
                         class="form-horizontal" 
                         method="post"
                         enctype="multipart/form-data"  
                     >
                         {{csrf_field()}}
-                        <input type="hidden" name="id" id="id" value="{{$video_training->id}}">
+                        <input type="hidden" name="id" id="id" value="{{$video->id}}">
                         <div class="form-group row">
                             <label for="title" class="control-label col-lg-2 col-sm-2">Title <span class="text-danger">*</span></label>
                             <div class="col-lg-6 col-sm-8">
-                                <input type="title" name="title" id="title" required value="{{$video_training->title}}" class="form-control">
+                                <input type="title" name="title" id="title" required value="{{$video->title}}" class="form-control">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="url" class="control-label col-lg-2 col-sm-2">URL <span class="text-danger">*</span></label>
                             <div class="col-lg-6 col-sm-8">
-                                <input type="text" name="url" id="url" required class="form-control" value="{{$video_training->url}}">
+                                <input type="text" name="url" id="url" required class="form-control" value="{{$video->url}}">
                             </div>
                         </div>
+                        <div class="form-group row">
+                                <label for="category" class="control-label col-lg-2 col-sm-2">Category <span class="text-danger">*</span></label>
+                                <div class="col-lg-6 col-sm-8">
+                                    <select name="category" id="category" class="form-control">
+                                        @foreach($categories as $cat)
+                                            <option value="{{$cat->id}}" {{$video->category_id==$cat->id?'selected':''}}>{{$cat->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         <div class="form-group row">
                             <label for="image" class="control-label col-lg-2 col-sm-2">Poster Image <span class="text-danger">(180x130)</span></label>
                             <div class="col-lg-6 col-sm-8">
                                 <input type="file" name="image" id="image" accept="image/*" onchange="loadFile(event)">
-                                <img src="{{asset('uploads/videos/'.$video_training->poster_image)}}" width="120" alt="">
+                                <img src="{{asset('uploads/videos/'.$video->poster_image)}}" width="120" alt="">
                             </div>
                         </div>
                         <div class="form-group row">

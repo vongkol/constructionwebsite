@@ -20,10 +20,11 @@ class VideoController extends Controller
         {
             return view('permissions.no');
         }
-
-        $data['video_trainings'] = DB::table('video_trainings')
-            ->where('active',1)
-            ->orderBy('id', 'desc')
+        $data['videos'] = DB::table('videos')
+            ->join('video_categories', 'videos.category_id', 'video_categories.id')
+            ->where('videos.active',1)
+            ->orderBy('videos.id', 'desc')
+            ->select('videos.*', 'video_categories.name')
             ->paginate(18);
         return view('videos.index', $data);
     }
@@ -34,7 +35,8 @@ class VideoController extends Controller
         {
             return view('permissions.no');
         }
-        return view('videos.create');
+        $data['categories'] = DB::table('video_categories')->where('active', 1)->get();
+        return view('videos.create', $data);
     }
     // save new social
     public function save(Request $r)
@@ -46,8 +48,10 @@ class VideoController extends Controller
         $data = array(
             'url' => $r->url,
             'title' => $r->title,
+            'category_id' => $r->category
         );
-        $i = DB::table('video_trainings')->insertGetId($data);
+        $i = DB::table('videos')->insertGetId($data);
+
         if($r->hasFile('image')) {
             $file = $r->file('image');
             $file_name = $file->getClientOriginalName();
@@ -62,14 +66,14 @@ class VideoController extends Controller
 
             $file->move($destinationPath, $file_name);
             $data['poster_image'] = $file_name;
-            $i = DB::table('video_trainings')->where('id', $i)->update($data);
+            $i = DB::table('videos')->where('id', $i)->update($data);
         }
         if ($i) {
             $r->session()->flash("sms", "New video has been created successfully!");
-            return redirect("/video/create");
+            return redirect("/admin/video/create");
         } else {
             $r->session()->flash("sms1", "Fail to create new video!");
-            return redirect("/video/create")->withInput();
+            return redirect("/admin/video/create")->withInput();
         }   
     }
     // delete
@@ -80,8 +84,8 @@ class VideoController extends Controller
             return view('permissions.no');
         }
 
-        DB::table('video_trainings')->where('id', $id)->update(['active'=>0]);
-        return redirect('/video');
+        DB::table('videos')->where('id', $id)->update(['active'=>0]);
+        return redirect('/admin/video');
     }
 
     public function edit($id)
@@ -90,7 +94,8 @@ class VideoController extends Controller
         {
             return view('permissions.no');
         }
-        $data['video_training'] = DB::table('video_trainings')
+        $data['categories'] = DB::table('video_categories')->where('active', 1)->get();
+        $data['video'] = DB::table('videos')
             ->where('id',$id)->first();
         return view('videos.edit', $data);
     }
@@ -104,6 +109,7 @@ class VideoController extends Controller
     	$data = array(
             'url' => $r->url,
             'title' => $r->title,
+            'category_id' => $r->category
         );
         if ($r->image) {
             $file = $r->file('image');
@@ -122,16 +128,16 @@ class VideoController extends Controller
         }
         $sms = "All changes have been saved successfully.";
         $sms1 = "Fail to to save changes, please check again!";
-        $i = DB::table('video_trainings')->where('id', $r->id)->update($data);
+        $i = DB::table('videos')->where('id', $r->id)->update($data);
         if ($i)
         {
             $r->session()->flash('sms', $sms);
-            return redirect('/video/edit/'.$r->id);
+            return redirect('/admin/video/edit/'.$r->id);
         }
         else
         {
             $r->session()->flash('sms1', $sms1);
-            return redirect('/video/edit/'.$r->id);
+            return redirect('/admin/video/edit/'.$r->id);
         }
     }
 }

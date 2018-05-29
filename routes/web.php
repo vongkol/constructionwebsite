@@ -6,6 +6,7 @@ Route::get('/page/{id}', "FrontPageController@index");
 Route::get('/category/{id}', "FrontController@category");
 Route::get('/sub-category/{id}', "FrontController@subcategory");
 Route::get('/post/{id}', "FrontController@post");
+Route::post('/send-email', "FrontController@send_email");
 Auth::routes();
 
 /////////////////////////////////////////////////////////////////////
@@ -131,12 +132,12 @@ Route::get('/current-project/edit/{id}', "CurrentProjectController@edit");
 Route::post('/current-project/update', "CurrentProjectController@update");
 Route::get('/current-project/delete/{id}', "CurrentProjectController@delete");
 // Video
-Route::get('/video', "VideoController@index");
-Route::get('/video/create', "VideoController@create");
-Route::post('/video/save', "VideoController@save");
-Route::get('/video/edit/{id}', "VideoController@edit");
-Route::post('/video/update', "VideoController@update");
-Route::get('/video/delete/{id}', "VideoController@delete");
+Route::get('/admin/video', "VideoController@index");
+Route::get('/admin/video/create', "VideoController@create");
+Route::post('/admin/video/save', "VideoController@save");
+Route::get('/admin/video/edit/{id}', "VideoController@edit");
+Route::post('/admin/video/update', "VideoController@update");
+Route::get('/admin/video/delete/{id}', "VideoController@delete");
 // Social
 Route::get('/social', "SocialController@index");
 Route::get('/social/create', "SocialController@create");

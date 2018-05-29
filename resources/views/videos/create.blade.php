@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <i class="fa fa-align-justify"></i> New Video &nbsp;&nbsp;
-                    <a href="{{url('/video')}}" class="btn btn-link btn-sm">Back To List</a>
+                    <a href="{{url('/admin/video')}}" class="btn btn-link btn-sm">Back To List</a>
                 </div>
                 <div class="card-block">
                     @if(Session::has('sms'))
@@ -30,7 +30,7 @@
                     @endif
 
                     <form 
-                        action="{{url('/video/save')}}" 
+                        action="{{url('/admin/video/save')}}" 
                         class="form-horizontal" 
                         method="post"
                         enctype="multipart/form-data"  
@@ -46,6 +46,16 @@
                             <label for="url" class="control-label col-lg-2 col-sm-2">URL <span class="text-danger">*</span></label>
                             <div class="col-lg-6 col-sm-8">
                                 <input type="text" name="url" id="url" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="category" class="control-label col-lg-2 col-sm-2">Category <span class="text-danger">*</span></label>
+                            <div class="col-lg-6 col-sm-8">
+                                <select name="category" id="category" class="form-control">
+                                    @foreach($categories as $cat)
+                                        <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">

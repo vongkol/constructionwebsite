@@ -136,21 +136,27 @@
         </div>
          <div class="col-md-3">
             <div class="form-contact">
-                          <form>
+                <form action="{{url('/send-email')}}" method="POST">
+                    {{csrf_field()}}
                         <div class="mg-5">
-                            <input type="text" name="" placeholder="Full Name" class="form-control btn-flat">
+                            <input type="text" name="name" placeholder="Full Name" class="form-control btn-flat">
                         </div>
                         <div class="mg-5">
-                         <input type="email" name="" placeholder="Email" class="form-control btn-flat">
+                         <input type="email" name="email" placeholder="Email*" required class="form-control btn-flat">
                         </div>
                         <div class="mg-5">
-                          <input type="text" name="" placeholder="Subject" class="form-control btn-flat">
+                          <input type="text" name="subject" required placeholder="Subject*" class="form-control btn-flat">
                         </div>
                          <div class="mg-5">
-                              <textarea placeholder="Message*" class="form-control btn-flat" rows="5"></textarea>
+                              <textarea placeholder="Message*" class="form-control btn-flat" rows="5" name="message" required></textarea>
                             </div>
                          <div class="mg-5">
                           <input type="submit" name="" class="btn btn-primary btn-primary-c btn-flat btn-block">
+                          <p class="text-danger text-center" style="padding-top: 5px">
+                              @if(Session::has('sms'))
+                                {{session('sms')}}
+                              @endif
+                          </p>
                       </div>
                     </form>
                 </div>
