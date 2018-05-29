@@ -257,14 +257,11 @@
                 <div class="container">
                     <div> <i class="fas fa-cog text-warning" style="font-size: 50px;"></i></a></div>
                     <h5 class="text-dark-gray">OUR SERVICES</h5>
-                    <aside class="text-os">HELLO WORK FOR YOU</aside>
+                    <aside class="text-os">11 YEARS OF EXPERTISE</aside>
                     <p></p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident.</p>
+                    <p>
+                        Engineering Construction and Consultant has had professional in construction, acrchitectural design, structural desgin. Construction focuses mainly on quality, aesthetics and economic and project owners, in particular, must have constants with enough experience and expertise in building with many high rise buildings such as condominiums, apartments, hotels, commercial building, office space, building and basement parking.
+                    </p>
                 </div>
             </div>
         </div>
@@ -341,7 +338,7 @@
                 <i class="fa fa-building building-icon"></i>&nbsp;&nbsp;<h6> RECENT PROJECTS</h6>
             </div>
         </div>
-        <aside class="text-partner text-gray"> Lorem ipsum dolor sit</aside> 
+        <aside class="text-partner text-gray"> NO PROJECT IS TOO LARGE FOR US TO MANAGE</aside> 
         <div class="in-icon"></div>   
     </div>
 <?php $current_projects = DB::table('current_projects')->where('active',1)->orderBy('order')->get(); ?>
@@ -367,7 +364,7 @@
                 <i class="fa fa-building building-icon"></i>&nbsp;&nbsp;<h6> FEATURED WORKED</h6>
             </div>
         </div>
-        <aside class="text-partner text-gray"> Lorem ipsum dolor sit</aside> 
+        <aside class="text-partner text-gray"> WE TAKE PRIDE IN OUR WORK</aside> 
         <div class="in-icon"></div>    
         <div class="my-4">
             <div class="row">
@@ -394,9 +391,9 @@
                 <i class="fa fa-map-marker location-icon"></i>&nbsp;&nbsp;<h6> CONSTRUCTION PROJECT'S LOCATION</h6>
             </div>
         </div>
-        <aside class="text-partner text-gray"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</aside> 
+        <aside class="text-partner text-gray"> FIND THE REAL LOCATION OF OUR PROJECTS ON THE MAP</aside> 
         <div class="in-icon"></div>
-        <p></p>
+        <p>&nbsp;</p>
         <div id="map" style="width:100%;height:550px"></div>
        
     </div>
