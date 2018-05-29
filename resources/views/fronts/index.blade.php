@@ -159,7 +159,7 @@
                <i class="far fa-newspaper news-icon"></i></i>&nbsp;&nbsp;<h6> NEWS</h6>
             </div>
         </div>
-        <aside class="text-partner text-gray"> Lorem ipsum dolor sit</aside> 
+        <aside class="text-partner text-gray"> CONSTRUCTION AND PROPERTY</aside> 
         <div class="in-icon"></div>  
     </div>
         <div class="news">
@@ -204,7 +204,7 @@
                <i class="fab fa-youtube news-icon" style="color:#D50000;"></i></i>&nbsp;&nbsp;<h6> VIDEOS</h6>
             </div>
         </div>
-        <aside class="text-partner text-gray"> Lorem ipsum dolor sit</aside> 
+        <aside class="text-partner text-gray"> CONSTRUCTION AND PROPERTY</aside> 
         <div class="in-icon"></div>  
     </div>
      <div class="news">
@@ -256,6 +256,7 @@
                     <aside class="text-os">{{$our_service->qoute}}</aside>
                     <p></p>
                     <p>{{$our_service->description}}</p>
+
                 </div>
             </div>
         </div>
@@ -332,7 +333,7 @@
                 <i class="fa fa-building building-icon"></i>&nbsp;&nbsp;<h6> RECENT PROJECTS</h6>
             </div>
         </div>
-        <aside class="text-partner text-gray"> Lorem ipsum dolor sit</aside> 
+        <aside class="text-partner text-gray"> NO PROJECT IS TOO LARGE FOR US TO MANAGE</aside> 
         <div class="in-icon"></div>   
     </div>
 <?php $current_projects = DB::table('current_projects')->where('active',1)->orderBy('order')->get(); ?>
@@ -355,10 +356,10 @@
     <div class="container">
         <div class="col-md-12">
             <div class="row">
-                <i class="fa fa-building building-icon"></i>&nbsp;&nbsp;<h6> FEATURE WORK</h6>
+                <i class="fa fa-building building-icon"></i>&nbsp;&nbsp;<h6> FEATURED WORKED</h6>
             </div>
         </div>
-        <aside class="text-partner text-gray"> Lorem ipsum dolor sit</aside> 
+        <aside class="text-partner text-gray"> WE TAKE PRIDE IN OUR WORK</aside> 
         <div class="in-icon"></div>    
         <div class="my-4">
             <div class="row">
@@ -385,12 +386,11 @@
                 <i class="fa fa-map-marker location-icon"></i>&nbsp;&nbsp;<h6> CONSTRUCTION PROJECT'S LOCATION</h6>
             </div>
         </div>
-        <aside class="text-partner text-gray"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</aside> 
+        <aside class="text-partner text-gray"> FIND THE REAL LOCATION OF OUR PROJECTS ON THE MAP</aside> 
         <div class="in-icon"></div>
+        <p>&nbsp;</p>
         <div id="map" style="width:100%;height:550px"></div>
-        <script>
-            var 
-        </script>
+       
     </div>
 @endsection
 @section('js')

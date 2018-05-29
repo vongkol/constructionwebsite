@@ -170,3 +170,11 @@ Route::get('/admin/project-location/edit/{id}', 'ProjectLocationController@edit'
 Route::get('/admin/project-location/delete/{id}', 'ProjectLocationController@delete');
 Route::post('/admin/project-location/save', 'ProjectLocationController@save');
 Route::post('/admin/project-location/update', 'ProjectLocationController@update');
+
+// video category
+Route::get('/admin/video-category', "VideoCategoryController@index");
+Route::get('/admin/video-category/create', "VideoCategoryController@create");
+Route::get('/admin/video-category/edit/{id}', "VideoCategoryController@edit");
+Route::get('/admin/video-category/delete/{id}', "VideoCategoryController@delete");
+Route::post('/admin/video-category/save', "VideoCategoryController@save");
+Route::post('/admin/video-category/update', "VideoCategoryController@update");
