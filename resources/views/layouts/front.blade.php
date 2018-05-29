@@ -244,19 +244,13 @@
                  <h6>Pages</h6>
                 <div class="footer-page">
                    <aside class="text-gray">
-                        <a href="#" class="a text-gray">Support</a>
+                        <a href="{{url('/page/4')}}" class="a text-gray">Partnerships</a>
                     </aside>
                     <aside class="text-gray">
-                        <a href="#" class="a text-gray">Terms of Services</a>
+                        <a href="{{url('/page/5')}}" class="a text-gray">Terms of Use</a>
                     </aside>
                     <aside class="text-gray">
-                        <a href="#" class="a text-gray">RSS Feeds</a>
-                    </aside class="text-gray">
-                    <aside class="text-gray">
-                        <a href="#" class="a text-gray">Partnerships</a>
-                    </aside>
-                    <aside class="text-gray">
-                        <a href="#" class="a text-gray">Lestest News</a>
+                        <a href="{{url('/page/6')}}" class="a text-gray">Privacy Policy</a>
                     </aside>
                 </div>
             </div>

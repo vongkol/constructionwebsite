@@ -128,7 +128,7 @@
                         <a class="nav-link" href="{{url('/background-image')}}"><i class="fa fa-image"></i> Background Image </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/admin/our-service')}}"><i class="fa fa-gear"></i> Our Service </a>
+                        <a class="nav-link" href="{{url('/admin/our-service')}}"><i class="fa fa-gear text-success"></i> Our Service </a>
                     </li>
                     <li class="nav-item nav-dropdown">
                         <a href="#" class="nav-link nav-dropdown-toggle">

@@ -374,10 +374,10 @@
                 @foreach($feature_works as $fw)
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <div class=" h-100">
-                        <a href="#"><img class="card-img-top" src="{{asset('uploads/featured-works/250x250/'.$fw->featured_image)}}" alt="" width="100%"></a>
+                        <a href="{{url('/featured-work/'.$fw->id)}}"><img class="card-img-top" src="{{asset('uploads/featured-works/250x250/'.$fw->featured_image)}}" alt="" width="100%"></a>
                         <div class="card-body card-body-f text-center">
                             <h5>
-                                <a href="#" class="a text-dark-gray"><b>{{$fw->title}}</b></span></a>
+                                <a href="{{url('featured-work/'.$fw->id)}}" class="a text-dark-gray"><b>{{$fw->title}}</b></span></a>
                             </h5>
                             <aside class="card-text text-gray">{{$fw->short_description}}</aside> 
                         </div>

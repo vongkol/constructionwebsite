@@ -7,6 +7,7 @@ Route::get('/category/{id}', "FrontController@category");
 Route::get('/sub-category/{id}', "FrontController@subcategory");
 Route::get('/post/{id}', "FrontController@post");
 Route::post('/send-email', "FrontController@send_email");
+Route::get('/featured-work/{id}', "FrontController@featured_work");
 Auth::routes();
 
 /////////////////////////////////////////////////////////////////////

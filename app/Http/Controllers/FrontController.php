@@ -127,4 +127,10 @@ class FrontController extends Controller
         $r->session()->flash('sms', 'Your email has been sent!');
        return redirect('/');
    }
+   // featured work detail
+   public function featured_work($id)
+   {
+       $data['work'] = DB::table('featured_works')->where('id', $id)->first();
+       return view('fronts.featured-work-detail', $data);
+   }
 }
