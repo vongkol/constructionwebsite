@@ -433,10 +433,10 @@
                             position: results[0].geometry.location,
                             icon: iconMarker
                         });
-                        mm = marker;
+                        // mm = marker;
                         var infoWindow = new google.maps.InfoWindow(
                             {
-                                content: name + "<p class='text-center'>" + ad + "</p>"
+                                content: "<h4 style='text-align:center'>" + name + "</h4>" + "<p class='text-center'>" + ad + "</p>"
                             }
                         );
                         marker.addListener('click', function(){
