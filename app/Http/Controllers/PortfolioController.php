@@ -124,7 +124,7 @@ class PortfolioController extends Controller
             $file = $r->file('photo');
             $file_name = $file->getClientOriginalName();
             $ss = substr($file_name, strripos($file_name, '.'), strlen($file_name));
-            $file_name = 'portfolios' .$i . $ss;
+            $file_name = 'portfolios' .$r->id . $ss;
             $destinationPath = 'uploads/portfolios/'; // usually in public folder
          
             // upload 250
@@ -135,9 +135,7 @@ class PortfolioController extends Controller
             $new_img->save($n_destinationPath . $file_name, 80);
 
             $file->move($destinationPath, $file_name);
-            $data['photo'] = $file_name;
-
-        
+            $data['photo'] = $file_name;        
         }
         $sms = "All changes have been saved successfully.";
         $sms1 = "Fail to to save changes, please check again!";

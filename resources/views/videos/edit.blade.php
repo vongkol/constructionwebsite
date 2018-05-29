@@ -37,19 +37,26 @@
                         {{csrf_field()}}
                         <input type="hidden" name="id" id="id" value="{{$video_training->id}}">
                         <div class="form-group row">
-                            <label for="title" class="control-label col-lg-1 col-sm-2">Title <span class="text-danger">*</span></label>
+                            <label for="title" class="control-label col-lg-2 col-sm-2">Title <span class="text-danger">*</span></label>
                             <div class="col-lg-6 col-sm-8">
                                 <input type="title" name="title" id="title" required value="{{$video_training->title}}" class="form-control">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="url" class="control-label col-lg-1 col-sm-2">URL <span class="text-danger">*</span></label>
+                            <label for="url" class="control-label col-lg-2 col-sm-2">URL <span class="text-danger">*</span></label>
                             <div class="col-lg-6 col-sm-8">
                                 <input type="text" name="url" id="url" required class="form-control" value="{{$video_training->url}}">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-lg-1 col-sm-2">&nbsp;</label>
+                            <label for="image" class="control-label col-lg-2 col-sm-2">Poster Image <span class="text-danger">(180x130)</span></label>
+                            <div class="col-lg-6 col-sm-8">
+                                <input type="file" name="image" id="image" accept="image/*" onchange="loadFile(event)">
+                                <img src="{{asset('uploads/videos/'.$video_training->poster_image)}}" width="120" alt="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-lg-2 col-sm-2">&nbsp;</label>
                             <div class="col-lg-6 col-sm-8">
                                 <button class="btn btn-primary" type="submit">Save Change</button>
                             </div>
