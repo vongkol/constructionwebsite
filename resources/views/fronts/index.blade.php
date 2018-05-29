@@ -163,7 +163,7 @@
                <i class="far fa-newspaper news-icon"></i></i>&nbsp;&nbsp;<h6> NEWS</h6>
             </div>
         </div>
-        <aside class="text-partner text-gray"> Lorem ipsum dolor sit</aside> 
+        <aside class="text-partner text-gray"> CONSTRUCTION AND PROPERTY</aside> 
         <div class="in-icon"></div>  
     </div>
         <div class="news">
@@ -208,7 +208,7 @@
                <i class="fab fa-youtube news-icon" style="color:#D50000;"></i></i>&nbsp;&nbsp;<h6> VIDEOS</h6>
             </div>
         </div>
-        <aside class="text-partner text-gray"> Lorem ipsum dolor sit</aside> 
+        <aside class="text-partner text-gray"> CONSTRUCTION AND PROPERTY</aside> 
         <div class="in-icon"></div>  
     </div>
      <div class="news">
@@ -256,7 +256,7 @@
             <div class="col-md-12 text-center text-gray">
                 <div class="container">
                     <div> <i class="fas fa-cog text-warning" style="font-size: 50px;"></i></a></div>
-                    <h5 class="text-dark-gray"> OUR SERVICES</h5>
+                    <h5 class="text-dark-gray">OUR SERVICES</h5>
                     <aside class="text-os">HELLO WORK FOR YOU</aside>
                     <p></p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
