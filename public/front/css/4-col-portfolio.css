@@ -114,6 +114,7 @@
 .btn-slide {
 	position: absolute;
 	bottom: 70px;
+	font-size: 15px;
 }
 .dropdown-item-c {
     color: #000;
@@ -267,6 +268,7 @@
   .navbar-dark .navbar-nav .nav-link {
 	  color: #000;
 	  font-weight: 600;
+	  font-size: 15px;
   }
   .navbar-brand-c {
 		padding-top: 0;

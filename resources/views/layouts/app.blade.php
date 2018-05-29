@@ -124,6 +124,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/social')}}"><i class="fa fa-facebook text-info"></i> Social </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/background-image')}}"><i class="fa fa-image"></i> Background Image </a>
+                    </li>
                     <li class="nav-item nav-dropdown">
                         <a href="#" class="nav-link nav-dropdown-toggle">
                             <i class="fa fa-key text-danger"></i> Security</a>

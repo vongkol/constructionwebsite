@@ -23,10 +23,8 @@
                     <div class="carousel-item active">
                         <img src="{{asset('front/slides/'.$slide->photo)}}" alt="" width="100%">
                         <div class="carousel-caption carousel-caption-c hidden-sm-down">
-                            <label class="col-md-6">
-                            <b>{{$slide->name}}</b>
-                            </label>
                             <div class="col-md-6 btn-slide">
+                                <p><b>{{$slide->name}}</b></p>
                                 <a href="{{$slide->url}}" class="btn btn-warning btn-cicle text-white">Read More</a>
                             </div>
                         </div>
@@ -35,10 +33,8 @@
                     <div class="carousel-item">
                         <img src="{{asset('front/slides/'.$slide->photo)}}" alt="" width="100%">
                         <div class="carousel-caption carousel-caption-c hidden-sm-down">
-                            <label class="col-md-6">
-                                <b>{{$slide->name}}</b>
-                            </label>
                             <div class="col-md-6 btn-slide">
+                                <p><b>{{$slide->name}}</b></p>
                                 <a href="{{$slide->url}}" class="btn btn-warning btn-cicle text-white">Read More</a>
                             </div>
                         </div>
