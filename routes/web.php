@@ -42,6 +42,10 @@ Route::get('/admin/page/delete/{id}', "PageController@delete");
 Route::get('/admin/page/edit/{id}', "PageController@edit");
 Route::post('/admin/page/update', "PageController@update");
 Route::get('/admin/page/view/{id}', "PageController@view");
+// Page
+Route::get('/admin/our-service', "OurServiceController@index");
+Route::get('/admin/our-service/edit/{id}', "OurServiceController@edit");
+Route::post('/admin/our-service/update', "OurServiceController@update");
 // catogory
 Route::get('/admin/category', "CategoryController@index");
 Route::get('/admin/category/create', "CategoryController@create");

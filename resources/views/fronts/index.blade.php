@@ -252,15 +252,10 @@
             <div class="col-md-12 text-center text-gray">
                 <div class="container">
                     <div> <i class="fas fa-cog text-warning" style="font-size: 50px;"></i></a></div>
-                    <h5 class="text-dark-gray"> OUR SERVICES</h5>
-                    <aside class="text-os">HELLO WORK FOR YOU</aside>
+                    <h5 class="text-dark-gray"> {{$our_service->title}}</h5>
+                    <aside class="text-os">{{$our_service->qoute}}</aside>
                     <p></p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident.</p>
+                    <p>{{$our_service->description}}</p>
                 </div>
             </div>
         </div>
