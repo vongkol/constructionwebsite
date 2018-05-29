@@ -48,6 +48,7 @@ class FrontController extends Controller
         
         // project location
         $data['locations'] = DB::table('project_locations')->where('active', 1)->get();
+        $data['our_service'] = DB::table('our_services')->first();
         return view('fronts.index', $data);
     }
    // read posts by category

@@ -260,12 +260,11 @@
             <div class="col-md-12 text-center text-gray">
                 <div class="container">
                     <div> <i class="fas fa-cog text-warning" style="font-size: 50px;"></i></a></div>
-                    <h5 class="text-dark-gray">OUR SERVICES</h5>
-                    <aside class="text-os">11 YEARS OF EXPERTISE</aside>
+                    <h5 class="text-dark-gray"> {{$our_service->title}}</h5>
+                    <aside class="text-os">{{$our_service->qoute}}</aside>
                     <p></p>
-                    <p>
-                        Engineering Construction and Consultant has had professional in construction, acrchitectural design, structural desgin. Construction focuses mainly on quality, aesthetics and economic and project owners, in particular, must have constants with enough experience and expertise in building with many high rise buildings such as condominiums, apartments, hotels, commercial building, office space, building and basement parking.
-                    </p>
+                    <p>{{$our_service->description}}</p>
+
                 </div>
             </div>
         </div>
