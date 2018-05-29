@@ -78,9 +78,9 @@
         </nav>
     </div>
     @yield('content')
-
+    <?php $b = DB::table('background_images')->first();?>
     <div class="container-fluit my-4">
-        <img src="{{asset('front/img/1.jpg')}}" width="100%">
+        <img src="{{asset('uploads/backgrounds/'.$b->photo)}}" width="100%">
     </div>
     <div class="container">
         <div class="partner">

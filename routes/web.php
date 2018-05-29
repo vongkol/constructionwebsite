@@ -95,13 +95,17 @@ Route::get('/partner/edit/{id}', "PartnerController@edit");
 Route::get('/partner/delete/{id}', "PartnerController@delete");
 Route::post('/partner/save', "PartnerController@save");
 Route::post('/partner/update', "PartnerController@update");
-// Partner
+// portfolio category
 Route::get('/portfolio-category', "PortfolioCategoryController@index");
 Route::get('/portfolio-category/create', "PortfolioCategoryController@create");
 Route::get('/portfolio-category/edit/{id}', "PortfolioCategoryController@edit");
 Route::get('/portfolio-category/delete/{id}', "PortfolioCategoryController@delete");
 Route::post('/portfolio-category/save', "PortfolioCategoryController@save");
 Route::post('/portfolio-category/update', "PortfolioCategoryController@update");
+//Background Image
+Route::get('/background-image', "BackgroundImageController@index");
+Route::get('/background-image/edit/{id}', "BackgroundImageController@edit");
+Route::post('/background-image/update', "BackgroundImageController@update");
 // Partner
 Route::get('/portfolio', "PortfolioController@index");
 Route::get('/portfolio/create', "PortfolioController@create");
