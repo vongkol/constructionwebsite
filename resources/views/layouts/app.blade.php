@@ -182,7 +182,7 @@
     </div>
 
     <footer class="app-footer">
-        Copy &copy; {{date('Y')}} by <a href="#">KYA</a>
+        Copy &copy; {{date('Y')}} by <a href="#">ECC Building Trust</a>
         <span class="float-right">Powered by <a href="http://vdoo.biz" target="_blank">Vdoo Freelance Team</a>
         </span>
     </footer>

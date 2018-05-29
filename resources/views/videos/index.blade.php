@@ -14,6 +14,7 @@
                                 <th>&numero;</th>
                                 <th>URL</th>
                                 <th>Title</th>
+                                <th>Poster Image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -31,6 +32,7 @@
                                         <object data="{{$vid->url}}" width="150" height="90"></object>
                                     </td>
                                     <td>{{$vid->title}}</td>
+                                    <td><img src="{{asset('uploads/videos/'.$vid->poster_image)}}" alt="" width='100'></td>
                                     <td>
                                         <a class="btn btn-xs btn-info"  href="{{url('/video/edit/'.$vid->id)}}" title="Edit"><i class="fa fa-pencil"></i></a>
                                         <a class="btn btn-xs btn-danger"  href="{{url('/video/delete/'.$vid->id)}}" onclick="return confirm('Do you want to delete?')" title="Delete"><i class="fa fa-remove"></i></a>

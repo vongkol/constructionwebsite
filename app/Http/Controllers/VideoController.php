@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use Auth;
+use Intervention\Image\ImageManagerStatic as Image;
 class VideoController extends Controller
 {
     public function __construct()
@@ -46,19 +47,30 @@ class VideoController extends Controller
             'url' => $r->url,
             'title' => $r->title,
         );
-        $sms = "The new video has been created successfully.";
-        $sms1 = "Fail to create the new video, please check again!";
-        $i = DB::table('video_trainings')->insert($data);
-        if ($i)
-        {
-            $r->session()->flash('sms', $sms);
-            return redirect('/video/create');
+        $i = DB::table('video_trainings')->insertGetId($data);
+        if($r->hasFile('image')) {
+            $file = $r->file('image');
+            $file_name = $file->getClientOriginalName();
+            $ss = substr($file_name, strripos($file_name, '.'), strlen($file_name));
+            $file_name = 'video' .$i . $ss;
+            $destinationPath = 'uploads/videos/'; // usually in public folder
+         
+            $new_img = Image::make($file->getRealPath())->resize(180, null, function ($con) {
+                $con->aspectRatio();
+            });
+            $new_img->save($destinationPath . $file_name, 80);
+
+            $file->move($destinationPath, $file_name);
+            $data['poster_image'] = $file_name;
+            $i = DB::table('video_trainings')->where('id', $i)->update($data);
         }
-        else
-        {
-            $r->session()->flash('sms1', $sms1);
-            return redirect('/video/create')->withInput();
-        }
+        if ($i) {
+            $r->session()->flash("sms", "New video has been created successfully!");
+            return redirect("/video/create");
+        } else {
+            $r->session()->flash("sms1", "Fail to create new video!");
+            return redirect("/video/create")->withInput();
+        }   
     }
     // delete
     public function delete($id)
@@ -93,6 +105,21 @@ class VideoController extends Controller
             'url' => $r->url,
             'title' => $r->title,
         );
+        if ($r->image) {
+            $file = $r->file('image');
+            $file_name = $file->getClientOriginalName();
+            $ss = substr($file_name, strripos($file_name, '.'), strlen($file_name));
+            $file_name = 'video' .$r->id . $ss;
+            $destinationPath = 'uploads/videos/'; // usually in public folder
+         
+            $new_img = Image::make($file->getRealPath())->resize(180, null, function ($con) {
+                $con->aspectRatio();
+            });
+            $new_img->save($destinationPath . $file_name, 80);
+
+            $file->move($destinationPath, $file_name);
+            $data['poster_image'] = $file_name;
+        }
         $sms = "All changes have been saved successfully.";
         $sms1 = "Fail to to save changes, please check again!";
         $i = DB::table('video_trainings')->where('id', $r->id)->update($data);
