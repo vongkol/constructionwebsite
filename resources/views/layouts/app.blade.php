@@ -166,6 +166,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('/portfolio-category')}}"><i class="fa fa-tags"></i> Portfolio Category </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/admin/video-category')}}"><i class="fa fa-tags"></i> Video Category </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>

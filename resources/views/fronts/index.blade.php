@@ -364,7 +364,7 @@
     <div class="container">
         <div class="col-md-12">
             <div class="row">
-                <i class="fa fa-building building-icon"></i>&nbsp;&nbsp;<h6> FEATURE WORK</h6>
+                <i class="fa fa-building building-icon"></i>&nbsp;&nbsp;<h6> FEATURED WORKED</h6>
             </div>
         </div>
         <aside class="text-partner text-gray"> Lorem ipsum dolor sit</aside> 
@@ -396,10 +396,9 @@
         </div>
         <aside class="text-partner text-gray"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</aside> 
         <div class="in-icon"></div>
+        <p></p>
         <div id="map" style="width:100%;height:550px"></div>
-        <script>
-            var 
-        </script>
+       
     </div>
 @endsection
 @section('js')
