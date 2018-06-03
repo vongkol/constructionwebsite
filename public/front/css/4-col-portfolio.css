@@ -313,7 +313,19 @@
 	  background-color: #ffc107;
   }
   
-  
+  .top-text{
+	  margin-right: 8px;
+  }
+  .more-vid{
+	  margin-top: 9px;
+	  text-align: right;
+  }
+  .more-news{
+	  text-align: right;
+  }
+  .service-icon{
+	  margin-bottom: 5px;
+  }
   @media  screen and (max-width: 1920px) {
 	#triangle-bottomleft {
 		width: 600px;
@@ -361,13 +373,50 @@
 		left: 48px;
 	}
 	.rep-title {
-		font-size: 11px;
+		font-size: 13px;
 	}
 	.rep-des {
-		font-size: 10px;
+		font-size: 12px;
 	}
 	.our-service {
 		padding: 0;
+	}
+	.top-text{
+		display: block;
+		text-align: center;
+		margin-bottom: 5px;
+		font-size: 12px;
+		font-family: arial;
+	}
+	.my-vid{
+		text-align: center;
+		padding-top: 5px;
+	}
+	.more-vid{
+		text-align: center;
+	}
+	.more-news{
+		text-align: center;
+	}
+	.logo-footer{
+		text-align: center;
+	}
+	.text-bottom{
+		text-align: center;
+	}
+	.menu-bottom{
+		text-align: center;
+		margin-top: 7px;
+		border-bottom: 1px solid #ccc;
+		font-size: 18px;
+	}
+	.item-bottom{
+		text-align: center;
+		font-size: 15px;
+
+	}
+	.item-bottom aside{
+		margin-bottom: 9px;
 	}
 }
   /* (480x800) Android */
@@ -476,3 +525,4 @@
 	.dot:hover{
 		opacity: 0.7;
 	}
+	

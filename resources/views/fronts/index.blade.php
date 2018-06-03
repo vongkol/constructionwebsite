@@ -189,7 +189,7 @@
                                 @endif
                         @endforeach
                         </div>
-                        <div  align="right" >
+                        <div class='more-news'>
                             <a href="{{url('/category/1')}}" class="btn btn-warning text-white btn-flat"> MORE NEWS <i class="fa fa-forward"></i></a>
                         </div>
                     </div>
@@ -232,7 +232,7 @@
                                                         <img src="{{asset('uploads/videos/'.$v->poster_image)}}" alt="" width="90%">
                                                     </a>
                                                 </div>
-                                                <div class="col-md-7 pd-5">
+                                                <div class="col-md-7 pd-5 my-vid">
                                                     <h6>
                                                         <a href="#" data-id="{{$v->id}}" url="{{$v->url}}?autoplay=1" onclick="play(this,event)">{{$v->title}}</a>
                                                     </h6>
@@ -245,8 +245,11 @@
                         </div>
                         
                     </div>
-                    <div  align="right"><p></p>
-                            <a href="#" class="btn btn-warning text-white btn-flat"> MORE VIDEOS <i class="fa fa-forward"></i></a>
+                    <div>
+                        
+                           <div class="more-vid">
+                                <a href="#" class="btn btn-warning text-white btn-flat"> MORE VIDEOS <i class="fa fa-forward"></i></a>
+                           </div>
                         </div>
                     </div>
                </div>
@@ -259,7 +262,7 @@
         <div class="row">
             <div class="col-md-12 text-center text-gray">
                 <div class="container">
-                    <div> <i class="fas fa-cog text-warning" style="font-size: 50px;"></i></a></div>
+                    <div class='service-icon'> <i class="fas fa-cog text-warning" style="font-size: 50px;"></i></a></div>
                     <h5 class="text-dark-gray"> {{$our_service->title}}</h5>
                     <aside class="text-os">{{$our_service->qoute}}</aside>
                     <p></p>

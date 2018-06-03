@@ -76,7 +76,7 @@
                             </div>
                         </div>
                          <div class="form-group row">
-                            <label for="logo" class="control-label col-lg-2 col-sm-2">Logo <span class="text-danger">(110x80)</span></label>
+                            <label for="logo" class="control-label col-lg-2 col-sm-2">Logo <span class="text-danger">(150x115)</span></label>
                             <div class="col-lg-6 col-sm-8">
                                 <input 
                                     type="file" 

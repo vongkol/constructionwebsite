@@ -25,8 +25,17 @@
             <div class="row"> 
                 <div id="triangle-bottomleft"></div> 
                 <div class=" text-gray text-center rep-h-text">
-                    <i class="fa fa-phone"></i> 017 996 687 / 077 456 752&nbsp;&nbsp; | &nbsp;&nbsp;<i class="fas fa-envelope"></i> info@eccbuildingtrust.com &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fas fa-map-marker"></i> #10A, St.446, Sangkat Toul Tompong I, Khan Chamkarmorn, 
-                    Phnom penh, Cambodia. “Diamond home Condo I”
+                    <span class='top-text'>
+                        <i class="fa fa-phone"></i> 017 996 687 / 077 456 752
+                    </span>
+                    <span class="top-text">
+                        <i class="fas fa-envelope"></i> info@eccbuildingtrust.com
+                    </span>
+                    <span class="text-top">
+                        <i class="fas fa-map-marker"></i> #10A, St.446, Sangkat Toul Tompong I, Khan Chamkarmorn, 
+                            Phnom penh, Cambodia. “Diamond home Condo I”
+                    </span>
+                    
                 </div>
             </div>
         </div>
@@ -88,7 +97,7 @@
             <div class="row">
                 <i class="fa fa-users partner-icon"></i>&nbsp;&nbsp;<h6> OUR PARTNERS</h6>
             </div></div>
-            <aside class="text-partner text-gray"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</aside> 
+            <aside class="text-partner text-gray"> WE CREATE POWERFUL PARTNERSHIPS TO MAKE BIG CHANGE.</aside> 
             <div class="border-partner"><div class="in-icon"></div></div>
         </div>
 
@@ -106,7 +115,7 @@
                     <div class="swiper-wrapper">
                     @foreach($partners as $p) 
                         <div class="swiper-slide text-center">
-                            <img src="{{asset('uploads/partners/'.$p->logo)}}"   style="margin: 0 auto"   width="110" alt=""/>
+                            <img src="{{asset('uploads/partners/'.$p->logo)}}"   style="margin: 0 auto"   width="150" alt=""/>
                         </div>
                         @endforeach
                     </div>
@@ -123,7 +132,7 @@
                     <div class="swiper-wrapper">
                     @foreach($partners as $p) 
                         <div class="swiper-slide text-center">
-                            <img src="{{asset('uploads/partners/'.$p->logo)}}"  style="margin: 0 auto"  width="110" alt=""/>
+                            <img src="{{asset('uploads/partners/'.$p->logo)}}"  style="margin: 0 auto"  width="150" alt=""/>
                         </div>
                         @endforeach
                     </div>
@@ -175,12 +184,12 @@
     <script type="text/javascript">
         $('#carousel0').swiper({
             mode: 'horizontal',
-            slidesPerView: 5,
+            slidesPerView: 4,
             pagination: '.carousel0',
             paginationClickable: true,
             nextButton: '.swiper-button-next',
             prevButton: '.swiper-button-prev',
-            autoplay: 2500,
+            autoplay: 5500,
             loop: true
         });
     </script>
@@ -203,7 +212,7 @@
             <div class="row">
                 <div class="col-md-8 text-white text-center">
                     <aside><b>ECC BUILDING TRUST</b></aside>
-                    <aside>Your Superer Engineer Partner!</aside>
+                    <aside>Your Superior Engineer Partner!</aside>
                 </div>
                 <div class="col-md-4 text-center">
                     <a href="{{asset('uploads/profiles/company-profile-en.pdf')}}" class="btn btn-outline-primary btn-outline-primary-c" target="_blank"><i class="far fa-building"></i> COMPANY PROFILE</a>
@@ -220,19 +229,19 @@
                     <img src="{{asset('front/img/logo.png')}}" width="100">
                 </div>
                 <p></p>
-                <aside class="text-gray">
+                <aside class="text-gray text-bottom">
                     <i class="fas fa-map-marker"></i>&nbsp; Street 32E0, Daun Penh, Phnom Penh, Cambodia 
                 </aside>
-                <aside class="text-gray">
+                <aside class="text-gray text-bottom">
                     <i class="fas fa-envelope"></i>&nbsp; sorvichey@gmail.com 
                 </aside>
-                <aside class="text-gray">
+                <aside class="text-gray text-bottom">
                     <i class="fa fa-phone"></i>&nbsp; +855 96 2555 209
                 </aside>
             </div>
              <div class="col-md-2">
-                <h6>Menu</h6>
-                <div class="footer-page">
+                <h6 class='menu-bottom'>Menu</h6>
+                <div class="footer-page item-bottom">
                     @foreach($menus as $m)
                     <aside class="text-gray">
                         <a href="{{$m->url}}" class="a text-gray">{{$m->name}}</a>
@@ -241,8 +250,8 @@
                 </div>
             </div>
              <div class="col-md-2">
-                 <h6>Pages</h6>
-                <div class="footer-page">
+                 <h6 class="menu-bottom">Pages</h6>
+                <div class="footer-page item-bottom">
                    <aside class="text-gray">
                         <a href="{{url('/page/4')}}" class="a text-gray">Partnerships</a>
                     </aside>
@@ -262,8 +271,8 @@
                     ->get();
             ?>
                 <div class="col-md-4">
-                    <h6>Follow Us On</h6>
-                    <div class="footer-page">
+                    <h6 class="menu-bottom">Follow Us On</h6>
+                    <div class="footer-page item-bottom">
                         @foreach($socials as $so)
                         <a href="{{$so->url}}" class="a" style="padding:2px;" target="_blank">
                             <img src="{{asset('uploads/socials/'.$so->icon)}}" width="40">
