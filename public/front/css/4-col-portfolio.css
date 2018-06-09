@@ -47,10 +47,10 @@
 	  padding: 0;
   }
   .portfolio {
-	  background: #3F51B5;
-	  margin-bottom: 2px;
-	   padding-bottom: 15px;
+	  background: #f2f2f2;
+	  padding-bottom: 15px;
 	  padding-top: 15px;
+	  color: #000;
   }
   .btn-flat {
 	  border-radius: 0;
@@ -87,7 +87,7 @@
 }
 .mySlides {display: none}
 .active, .dot:hover {
-	background-color: #717171;
+	background-color: #fff;
 }
 .fade {
 	opacity: 1;
@@ -158,11 +158,11 @@
 	  color: #01579B;
   }
   .nav-link:focus, .nav-link:hover {
-	  color: #ffc107;
+	  color: #000;
   }
   .nav-link {
 	  font-weight: 600;
-	  color: #fff;
+	  color: #333;
   }
   .my-6 {
 	  margin-top: 25px;
