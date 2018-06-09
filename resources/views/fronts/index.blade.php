@@ -167,7 +167,7 @@
                 <div class="row my-4">
                     <div class="col-md-6 my-4">
                         <div class="img">
-                            <img src="{{asset('uploads/posts/250x250/'.$news[0]->featured_image)}}" width="100%">
+                            <a href="{{url('/post/1?pid='.$news[0]->id)}}"><img src="{{asset('uploads/posts/250x250/'.$news[0]->featured_image)}}" width="100%"></a>
                             <div class="new-title-b">
                                 <h6><a href="{{url('/post/1?pid='.$news[0]->id)}}" class="a text-dark-gray"><b>{{$news[0]->title}}</b></a></h6>
                             </div>
@@ -181,7 +181,7 @@
                                     @php($i=0)
                                 @else
                                     <div class="col-md-4 h-100 pd-5">
-                                        <img src="{{asset('uploads/posts/250x250/'.$n->featured_image)}}" width="100%">
+                                        <a href="{{url('/post/1?pid='.$n->id)}}" ><img src="{{asset('uploads/posts/250x250/'.$n->featured_image)}}" width="100%"></a>
                                         <div class="new-title">
                                             <a href="{{url('/post/1?pid='.$n->id)}}" class="a text-dark-gray">{{$n->title}}</a>
                                         </div>
