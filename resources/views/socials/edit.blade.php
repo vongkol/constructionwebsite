@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="icon" class="control-label col-lg-1 col-sm-2">Icon <span class="text-danger">(40x40)</span></label>
+                            <label for="icon" class="control-label col-lg-1 col-sm-2">Icon <span class="text-danger">()</span></label>
                             <div class="col-lg-6 col-sm-8">
                                 <input type="file" name="icon" id="icon" accept="image/*" onchange="loadFile(event)">
                             </div>
