@@ -116,6 +116,7 @@ class FrontController extends Controller
    // send email
    public function send_email(Request $r)
    {
+      
        $from = $r->email;
        $subject = $r->subject;
        $name = $r->name;
@@ -125,7 +126,7 @@ class FrontController extends Controller
        $message .= "<p>{$sms}</p>";
        Right::sms($from, $subject, $message);
         $r->session()->flash('sms', 'Your email has been sent!');
-       return redirect('/');
+       return 1;
    }
    // featured work detail
    public function featured_work($id)

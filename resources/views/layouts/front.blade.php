@@ -109,7 +109,7 @@
             ->get();
             ?>
         <div class="row">
-        <div class="col-md-9 border-custom my-2 desktop"> 
+        <div class="col-md-12 border-custom my-2 desktop"> 
             <div class="swiper-viewport">
                 <div id="carousel0" class="swiper-container">
                     <div class="swiper-wrapper">
@@ -143,35 +143,9 @@
                 <div class="swiper-button-prev"></div>
             </div>
         </div>
-         <div class="col-md-3">
-            <div class="form-contact">
-                <form action="{{url('/send-email')}}" method="POST">
-                    {{csrf_field()}}
-                        <div class="mg-5">
-                            <input type="text" name="name" placeholder="Full Name" class="form-control btn-flat">
-                        </div>
-                        <div class="mg-5">
-                         <input type="email" name="email" placeholder="Email*" required class="form-control btn-flat">
-                        </div>
-                        <div class="mg-5">
-                          <input type="text" name="subject" required placeholder="Subject*" class="form-control btn-flat">
-                        </div>
-                         <div class="mg-5">
-                              <textarea placeholder="Message*" class="form-control btn-flat" rows="5" name="message" required></textarea>
-                            </div>
-                         <div class="mg-5">
-                          <input type="submit" name="" class="btn btn-primary btn-primary-c btn-flat btn-block">
-                          <p class="text-danger text-center" style="padding-top: 5px">
-                              @if(Session::has('sms'))
-                                {{session('sms')}}
-                              @endif
-                          </p>
-                      </div>
-                    </form>
-                </div>
-            </div>
-        </div>     
-    </div>
+         
+    </div>     
+</div>
     <style type="text/css">
         .swiper-button-next, .swiper-button-prev {
           position: absolute;
@@ -184,7 +158,7 @@
     <script type="text/javascript">
         $('#carousel0').swiper({
             mode: 'horizontal',
-            slidesPerView: 4,
+            slidesPerView: 5,
             pagination: '.carousel0',
             paginationClickable: true,
             nextButton: '.swiper-button-next',
@@ -221,7 +195,7 @@
         </div>
     </div>
     <!-- Footer -->
-    <footer class="py-5 footer ">
+    <footer class="py-5 footer">
       <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -230,13 +204,14 @@
                 </div>
                 <p></p>
                 <aside class="text-gray text-bottom">
-                    <i class="fas fa-map-marker"></i>&nbsp; Street 32E0, Daun Penh, Phnom Penh, Cambodia 
+                    <i class="fas fa-map-marker"></i>&nbsp; #10A, St.446, Sangkat Toul Tompong I, Khan Chamkarmorn, 
+                    Phnom penh, Cambodia. “Diamond home Condo I”
                 </aside>
                 <aside class="text-gray text-bottom">
-                    <i class="fas fa-envelope"></i>&nbsp; sorvichey@gmail.com 
+                    <i class="fas fa-envelope"></i>&nbsp; info@eccbuildingtrust.com
                 </aside>
                 <aside class="text-gray text-bottom">
-                    <i class="fa fa-phone"></i>&nbsp; +855 96 2555 209
+                    <i class="fa fa-phone"></i>&nbsp; 017 996 687 / 077 456 752
                 </aside>
             </div>
              <div class="col-md-2">
@@ -283,11 +258,114 @@
             </div>
         </div>
     </footer>
+    <div class="mail-box">
+        <a href="#" class="btn btn-link" title="Send us an email" data-toggle="modal" data-target="#exampleModalCenter">
+            <img src="{{asset('img/email2.png')}}" alt="" width="65">
+        </a>
+    </div>
+    <div class="box-float">
+        <a href="{{url('/page/7')}}">
+            <img src="{{asset('img/s1.png')}}" alt="">
+        </a>
+        <a href="{{url('/page/8')}}">
+            <img src="{{asset('img/s2.png')}}" alt="">
+        </a>
+        <a href="{{url('/page/9')}}">
+            <img src="{{asset('img/s3.png')}}" alt="">
+        </a>
+        <a href="{{url('/page/10')}}">
+            <img src="{{asset('img/s4.png')}}" alt="">
+        </a>
+        <a href="{{url('/page/11')}}">
+            <img src="{{asset('img/s5.png')}}" alt="">
+        </a>
+    </div>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Send Us Your Request</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form action="{{url('/send-email')}}" method="POST">
+                {{csrf_field()}}
+                <div class="modal-body">
+                
+                        <div class="mg-5">
+                            <input type="text" name="name" id="name" placeholder="Full Name" class="form-control btn-flat">
+                        </div>
+                        <div class="mg-5">
+                         <input type="email" name="email" id="email" placeholder="Email*" required class="form-control btn-flat">
+                        </div>
+                        <div class="mg-5">
+                          <input type="text" name="subject" id="subject" required placeholder="Subject*" class="form-control btn-flat">
+                        </div>
+                         <div class="mg-5">
+                              <textarea placeholder="Message*" id="message" class="form-control btn-flat" rows="5" name="message" required></textarea>
+                            </div>
+                         <div class="mg-5">
+                          
+                          <p class="text-danger text-center" id="sms" style="padding-top: 5px">
+                             &nbsp;
+                          </p>
+                      </div>
+               
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="button" id="btnSubmit" class="btn btn-primary" onclick="sendSms()">Submit</button>
+            </div>
+        </form>
+          </div>
+        </div>
+      </div>
         <script src="{{asset('front/vendor/jquery/slide.js')}}"></script>
         <script src="{{asset('front/vendor/jquery/jquery.min.js')}}"></script>
         <script src="{{asset('front/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('front/vendor/jquery/jquery.magnific-popup.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('front/vendor/jquery/popup-gallery.js')}}" type="text/javascript"></script>
+        <script>
+            var burl = "{{url('/')}}";
+            function sendSms()
+            {
+                $("#sms").html('Please wait...');
+                var sms = {
+                    email: $("#email").val(),
+                    name: $("#name").val(),
+                    subject: $("#subject").val(),
+                    message: $("#message").val()
+
+                };
+                if(sms.email!="" && sms.subject!="" && sms.message!="")
+                {
+                    $.ajax({
+                        type: "POST",
+                        url: burl +"/send-email",
+                        data: sms,
+                        beforeSend: function (request) {
+                            return request.setRequestHeader('X-CSRF-Token', $("input[name='_token']").val());
+                        },
+                        success: function (sms) {
+                        
+                            if(sms)
+                            {
+                                $("#email").val("");
+                                $("#subject").val("");
+                                $("#name").val("");
+                                $("#message").val("");
+                                $("#sms").html("You message has been sent successfully!");
+                            }
+                        }
+                    });
+                }
+                else{
+                    $("#sms").html("Please fill in the form correctly!");
+                }
+                
+            }
+        </script>
         @yield('js')
     </body>
 </html>

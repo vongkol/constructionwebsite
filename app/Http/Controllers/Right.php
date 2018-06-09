@@ -81,7 +81,7 @@ class Right
             $mail->Port = 465; // most likely something different for you. This is the mailtrap.io port i use for testing.
             $mail->Username = "support@eccbuildingtrust.com";
             $mail->Password = "Khmer@123";
-            $mail->setFrom($from, "ECC Building Trust");
+            $mail->setFrom("support@eccbuildingtrust.com", "ECC Building Trust");
             $mail->Subject = "ECC: ". $subject;
             $mail->MsgHTML($message);
             $mail->addAddress("info@eccbuildingtrust.com", "info@eccbuildingtrust.com");
