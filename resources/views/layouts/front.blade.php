@@ -265,19 +265,19 @@
     </div>
     <div class="box-float">
         <a href="{{url('/page/7')}}">
-            <img src="{{asset('img/s1.png')}}" alt="">
+            <img src="{{asset('img/s1.png')}}" alt="" class="img1">
         </a>
         <a href="{{url('/page/8')}}">
-            <img src="{{asset('img/s2.png')}}" alt="">
+            <img src="{{asset('img/s2.png')}}" alt="" class="img2">
         </a>
         <a href="{{url('/page/9')}}">
-            <img src="{{asset('img/s3.png')}}" alt="">
+            <img src="{{asset('img/s3.png')}}" alt="" class="img3">
         </a>
         <a href="{{url('/page/10')}}">
-            <img src="{{asset('img/s4.png')}}" alt="">
+            <img src="{{asset('img/s4.png')}}" alt="" class="img4">
         </a>
         <a href="{{url('/page/11')}}">
-            <img src="{{asset('img/s5.png')}}" alt="">
+            <img src="{{asset('img/s5.png')}}" alt="" class="img5">
         </a>
     </div>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
